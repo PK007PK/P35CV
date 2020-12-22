@@ -1,6 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
 
+// import "@fortawesome/fontawesome-free/css/all.min.css"
+// // import "mdbreact/dist/css/mdb-free.css"
+// import "../assets/scss/mdb-free.scss"
+
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
