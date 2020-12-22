@@ -40,7 +40,7 @@ const Jumbotron = () => {
 
             <div className="pt-2 text-right">
               <MDBBtn
-                href="https://github.com/zlutfi/gatsby-starter-mdbreact"
+                href="https://github.com/PK007PK"
                 target="_blank"
                 color="indigo"
                 rel="noopener noreferrer"
@@ -50,7 +50,7 @@ const Jumbotron = () => {
                 <MDBIcon fas icon="file-pdf" className="ml-2" />
               </MDBBtn>
               <MDBBtn
-                href="https://github.com/zlutfi/gatsby-starter-mdbreact"
+                href="https://github.com/PK007PK"
                 target="_blank"
                 color="pink"
                 rel="noopener noreferrer"
@@ -59,7 +59,7 @@ const Jumbotron = () => {
                 LinkedIn <MDBIcon fab icon="linkedin-in" className="ml-2" />
               </MDBBtn>
               <MDBBtn
-                href="https://github.com/zlutfi/gatsby-starter-mdbreact"
+                href="https://github.com/PK007PK"
                 target="_blank"
                 color="amber"
                 rel="noopener noreferrer"
