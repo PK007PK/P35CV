@@ -713,7 +713,7 @@ const allProjects = [
   {
     podmiot: "Powiat Zawierciański",
     projekt:
-      "Kompleksowa termomodernizacja budynków Szpitala Powiatowego w Zawierciu wraz z budową kolektorów słonecznych w celu poprawy efektywności energetycznej budynków oraz wzrostu produkcji energii pochodzącej ze źródeł odnawialnych",
+      "Kompleksowa termomodernizacja budynków Szpitala Powiatowego w Zawierciu wraz z budową kolektorów słonecznych w celu poprawy efektywności energetycznej budynków oraz wzrostu OZE",
     wartosc: "14 280 395",
     dotacja: "6 922 139",
   },
@@ -828,7 +828,7 @@ const allProjects = [
   {
     podmiot: "Centrum Zdrowia w Mikołowie Sp. z o.o.",
     projekt:
-      "Dzienny Dom Opieki Medycznej w Centrum Zdrowia w Mikołowie Sp. z o.o. jako forma opieki nad osobami niesamodzielnymi, w tym starszymi przebywającymi na terenie powiatu mikołowskiego wraz z działaniami edukacyjnymi skierowanymi zarówno do osób niesamodzielnych jak i ich rodzin/ opiekunów",
+      "Dzienny Dom Opieki Medycznej w Centrum Zdrowia w Mikołowie Sp. z o.o. jako forma opieki nad osobami niesamodzielnymi, w tym starszymi przebywającymi na terenie powiatu mikołowskiego wraz z działaniami edukacyjnymi",
     wartosc: "926 999",
     dotacja: "899 189",
   },
@@ -836,7 +836,7 @@ const allProjects = [
     podmiot:
       "Szpital Zakonu Bonifratrów św. Jana Grandego w Krakowie Sp. z o. o.",
     projekt:
-      "Utworzenie Dziennego Domu Opieki Medycznej oferującego kompleksową opiekę medyczną, pielęgnację, rehabilitację i edukację, jako realizację Misji Szpitala Zakonu Bonifratrów św. Jana Grandego w Krakowie Sp. z o. o. - Czyńmy Dobro poprzez poprawę jakości życia osób niesamodzielnych, w tym starszych z terenu",
+      "Utworzenie Dziennego Domu Opieki Medycznej oferującego kompleksową opiekę medyczną, pielęgnację, rehabilitację i edukację, jako realizację Misji Szpitala Zakonu Bonifratrów św. Jana Grandego w Krakowie Sp. z o. o. - Czyńmy Dobro",
     wartosc: "1 018 171",
     dotacja: "987 626",
   },
@@ -1218,7 +1218,7 @@ const allProjects = [
   {
     podmiot: "CENTRUM PULMONOLOGII I TORAKOCHIRURGII W BYSTREJ",
     projekt:
-      "Optymalizacja zabezpieczenia prognozowanych potrzeb na świadczenia hospitalizacyjne w zakresie chorób układu oddechowego w województwie śląskim poprzez przebudowę, modernizację oraz doposażenie kompleksu budynków na potrzeby oddziałów pulmonologicznych z pododdziałem chemioterapii nowotworów Centrum Pulmonologii i Torakochirurgii w Bystrej",
+      "Optymalizacja zabezpieczenia prognozowanych potrzeb na świadczenia hospitalizacyjne w zakresie chorób układu oddechowego w województwie śląskim poprzez przebudowę, modernizację oraz doposażenie kompleksu budynków na potrzeby oddziałów pulmonologicznych z pododdziałem chemioterapii",
     wartosc: "20 008 336",
     dotacja: "14 513 745",
   },
