@@ -194,7 +194,7 @@ const IndexPage = ({ data }) => {
                 <br /> Studia podyplomowe. Gospodarka nieruchomościami
               </li>
               <li className="mb-3">
-                <strong className="h5">X.1997 - VI.2001:</strong>
+                <strong className="h5">1997 - 2001:</strong>
                 <br></br> Uniwersytet Ekonomiczny w Krakowie
                 <br /> Wydział Zarządzania: Rachunkowość, Zarządzanie firmą
               </li>
