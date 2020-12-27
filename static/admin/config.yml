@@ -21,4 +21,10 @@ collections:
       - { label: "Featured Image", name: "thumbnail", widget: "image" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
+      - { label: "Is react?", name: "react", widget: "bolean" }
+      - { label: "Is gatsby?", name: "gatsby", widget: "bolean" }
+      - { label: "Is bootstrap?", name: "bootstrap", widget: "bolean" }
+      - { label: "Is mdbootstrap?", name: "mdbootstrap", widget: "bolean" }
+      - { label: "Is netlify?", name: "netlify", widget: "bolean" }
+      - { label: "Is netlifyCMS?", name: "netlifyCms", widget: "bolean" }
       - { label: "Body", name: "body", widget: "markdown" }

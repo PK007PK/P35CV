@@ -1,4 +1,5 @@
 import React from "react"
+import Image from "gatsby-image"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
@@ -10,6 +11,9 @@ import {
   MDBCol,
   MDBCard,
   MDBCardBody,
+  MDBCardTitle,
+  MDBCardText,
+  MDBBtn,
 } from "mdbreact"
 import JumbotronReus from "../components/JumbotronReus"
 
@@ -72,20 +76,23 @@ const Programowanie = ({ data, location }) => {
         imgSource={jumbotronImg}
       />
       <MDBContainer>
-        <MDBRow>
-          <MDBCol md="7" className="">
-            <ol style={{ listStyle: `none` }}>
-              {posts.map(post => {
-                const title = post.frontmatter.title || post.fields.slug
-
-                return (
-                  <li key={post.fields.slug}>
+        <ol style={{ listStyle: `none` }}>
+          {posts.map(post => {
+            const title = post.frontmatter.title || post.fields.slug
+            const fluid =
+              post.frontmatter.thumbnail &&
+              post.frontmatter.thumbnail.childImageSharp.fluid
+            return (
+              <li key={post.fields.slug}>
+                <MDBRow className="justify-content-between mb-5">
+                  <MDBCol md="7">
                     <MDBCard
-                      className="post-list-item mb-4"
+                      className="post-list-item mb-0"
                       // itemScope
                       // itemType="http://schema.org/Article"
                     >
-                      <MDBCardBody>
+                      <Image className="card-img" fluid={fluid} />
+                      {/* <MDBCardBody>
                         <header>
                           <h2>
                             <Link to={post.fields.slug} itemProp="url">
@@ -103,17 +110,42 @@ const Programowanie = ({ data, location }) => {
                             itemProp="description"
                           />
                         </section>
+                      </MDBCardBody> */}
+                      <div class="card-footer">
+                        <small class="text-muted"></small>
+                      </div>
+                    </MDBCard>
+                  </MDBCol>
+                  <MDBCol md="4">
+                    <MDBCard className="" style={{ minHeight: "100%" }}>
+                      <MDBCardBody>
+                        <MDBCardTitle>{title}</MDBCardTitle>
+                        <MDBCardText className="">
+                          Eksperyment z bootstrapem. Bootstrapa zawsze unikałem,
+                          skupiając się na podstawowej technologii (CSS).
+                          Nadszedł jednak czas, aby poznać gotową, dojrzałą i
+                          dopracowaną bibliotekę css i zaczerpnąć z niej
+                          użyteczne rozwiązania do swoich przyszłych projektów.
+                        </MDBCardText>{" "}
+                        {post.fields.slug && (
+                          <Link
+                            to={post.fields.slug}
+                            className="btn btn-sm"
+                            itemProp="url"
+                          >
+                            <span itemProp="headline">Więcej</span>
+                          </Link>
+                        )}
+                        <MDBBtn href="#">Live</MDBBtn>
+                        <MDBBtn href="#">Github</MDBBtn>
                       </MDBCardBody>
                     </MDBCard>
-                  </li>
-                )
-              })}
-            </ol>
-          </MDBCol>
-          <MDBCol md="5" className="">
-            sss
-          </MDBCol>
-        </MDBRow>
+                  </MDBCol>
+                </MDBRow>
+              </li>
+            )
+          })}
+        </ol>
       </MDBContainer>
     </Layout>
   )
@@ -138,6 +170,13 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          thumbnail {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid_tracedSVG
+              }
+            }
+          }
         }
       }
     }
