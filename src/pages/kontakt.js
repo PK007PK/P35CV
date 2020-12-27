@@ -63,14 +63,15 @@ const KontaktPage = ({ data }) => {
       {/* <SEO title="Home" /> */}
       <JumbotronReus
         title={"Piotr Krasny"}
-        subtitle={"Curriculum Vitae"}
+        subtitle={"Kontakt"}
         text={textForJumbo}
         bottomBar={buttonsForJumbo}
         rightBox={Form}
         style={{
           backgroundColor: "#f5f5f5",
           boxShadow: "none",
-          minHeight: "520px",
+          minHeight: "100%",
+          marginBottom: 0,
         }}
         // imgSource={jumbotronImg}
       />

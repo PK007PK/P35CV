@@ -159,7 +159,7 @@ class IndexPage extends React.Component {
           style={{
             backgroundColor: "#f5f5f5",
             boxShadow: "none",
-            minHeight: "520px",
+            minHeight: "550px",
           }}
         />
 

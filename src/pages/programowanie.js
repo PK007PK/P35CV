@@ -71,7 +71,7 @@ const Programowanie = ({ data, location }) => {
         style={{
           backgroundColor: "#f5f5f5",
           boxShadow: "none",
-          minHeight: "520px",
+          minHeight: "550px",
         }}
         imgSource={jumbotronImg}
       />

@@ -19,10 +19,11 @@ const IndexPage = ({ data }) => {
 
   const textForJumbo = () => (
     <p className="text-right my-4">
-      Dziękuję, że odwiedziłaś / odwiedziłeś moją stronę.
+      Dziękuję, że odwiedziłaś / odwiedziłeś moją stronę
       <br /> Zapraszam Cię do zapoznania się z moim CV, oraz projektami które
-      wykonałem.<br></br>Mam nadzieję, że uda nam się nawiązać korzystną
-      współpracę
+      wykonałem
+      <br />
+      Mam nadzieję, że uda nam się nawiązać korzystną współpracę
     </p>
   )
 
@@ -71,7 +72,7 @@ const IndexPage = ({ data }) => {
         style={{
           backgroundColor: "#f5f5f5",
           boxShadow: "none",
-          minHeight: "520px",
+          minHeight: "550px",
         }}
         imgSource={jumbotronImg}
       />
