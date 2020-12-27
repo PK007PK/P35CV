@@ -53,7 +53,7 @@ export default function Form({ admin }) {
         >
           {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
           <div className="grey-text">
-            <input type="hidden" name="hiden-input" value="contact" />
+            {/* <input type="hidden" name="hiden-input" value="contact" />
             <div hidden>
               <label htmlFor="bot-field">
                 Don’t fill this out:{" "}
@@ -63,7 +63,7 @@ export default function Form({ admin }) {
                   autoComplete="off"
                 />
               </label>
-            </div>
+            </div> */}
             <MDBInput
               label="Imię"
               icon="user"
