@@ -1,16 +1,6 @@
 import React from "react"
 import { navigate } from "gatsby-link"
-import { Link } from "gatsby"
-import {
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBBtn,
-  MDBIcon,
-  MDBInput,
-} from "mdbreact"
+import { MDBCard, MDBCardBody, MDBBtn, MDBIcon, MDBInput } from "mdbreact"
 
 function encode(data) {
   return Object.keys(data)
@@ -75,6 +65,7 @@ export default function Form({ admin }) {
               onChange={handleChange}
               autoComplete="off"
               required
+              name="imie"
             />
             {/* <div className="formItem">
               <input
@@ -102,6 +93,7 @@ export default function Form({ admin }) {
               onChange={handleChange}
               autoComplete="off"
               required
+              name="email"
             />
             {/* <div className="formItem">
               <input
@@ -140,12 +132,14 @@ export default function Form({ admin }) {
               validate
               error="wrong"
               success="right"
+              name="topic"
             />
             <MDBInput
               type="textarea"
               rows="2"
               label="Your message"
               icon="pencil-alt"
+              name="text"
             />
           </div>
           {/* <div className="formItem">
