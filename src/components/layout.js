@@ -11,15 +11,13 @@ import PropTypes from "prop-types"
 import Navbar from "./navbar"
 import Footer from "./footer"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, style }) => {
   return (
-    <>
-      <div className="site">
-        <Navbar />
-        <main className="site-content">{children}</main>
-        <Footer />
-      </div>
-    </>
+    <div className="site" style={style}>
+      <Navbar />
+      <main className="site-content">{children}</main>
+      <Footer />
+    </div>
   )
 }
 

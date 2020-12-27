@@ -40,20 +40,22 @@ export default function Form({ admin }) {
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
+          className="text-left"
         >
+          {/* <div className="grey-text"> */}
           {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+          <input type="hidden" name="hiden-input" value="contact" />
+          <div hidden>
+            <label htmlFor="bot-field">
+              Don’t fill this out:{" "}
+              <input
+                name="bot-field"
+                onChange={handleChange}
+                autoComplete="off"
+              />
+            </label>
+          </div>
           <div className="grey-text">
-            {/* <input type="hidden" name="hiden-input" value="contact" />
-            <div hidden>
-              <label htmlFor="bot-field">
-                Don’t fill this out:{" "}
-                <input
-                  name="bot-field"
-                  onChange={handleChange}
-                  autoComplete="off"
-                />
-              </label>
-            </div> */}
             <MDBInput
               label="Imię"
               icon="user"
@@ -67,21 +69,7 @@ export default function Form({ admin }) {
               required
               name="imie"
             />
-            {/* <div className="formItem">
-              <input
-                onChange={handleChange}
-                className="input"
-                type="text"
-                name="imie"
-                placeholder=" "
-                autoComplete="off"
-                required
-              />
-              <label className="label" htmlFor="imie">
-                Imię:
-              </label>
-              <div className="formItemBar" />
-            </div> */}
+
             <MDBInput
               label="Email"
               icon="envelope"
@@ -95,69 +83,19 @@ export default function Form({ admin }) {
               required
               name="email"
             />
-            {/* <div className="formItem">
-              <input
-                className="input"
-                type="email"
-                name="email"
-                onChange={handleChange}
-                placeholder=" "
-                autoComplete="off"
-                required
-              />
-              <label className="label" htmlFor="email">
-                Email:
-              </label>
-              <div className="formItemBar" />
-            </div> */}
-            {/* <div className="formItem">
-              <input
-                className="input"
-                type="text"
-                name="telefon"
-                placeholder=" "
-                onChange={handleChange}
-                autoComplete="off"
-                required
-              /> */}
-            {/* <label className="label" htmlFor="telefon">
-                Telefon:
-              </label>
-              <div className="formItemBar" /> */}
-            <MDBInput
-              label="Subject"
-              icon="tag"
-              group
-              type="text"
-              validate
-              error="wrong"
-              success="right"
-              name="topic"
-            />
             <MDBInput
               type="textarea"
               rows="2"
-              label="Your message"
+              label="Twoja wiadomość"
               icon="pencil-alt"
               name="text"
+              iconSize="4"
+              iconSize="2x"
             />
           </div>
-          {/* <div className="formItem">
-            <textarea
-              className="textarea"
-              name="text"
-              onChange={handleChange}
-              placeholder=" "
-              required
-            /> */}
-          {/* <label className="label" htmlFor="text">
-                Treść wiadomości:
-              </label> */}
-          {/* <div className="formItemBar" /> */}
-          {/* </div> */}
 
           <div className="text-center">
-            <MDBBtn type="submit" outline color="secondary">
+            <MDBBtn type="submit" outline color="warning">
               Wyślij
               <MDBIcon far icon="paper-plane" className="ml-1" />
             </MDBBtn>
