@@ -23,10 +23,10 @@ collections:
       - { label: "Description", name: "description", widget: "string" }
       - { label: "GithubRepo", name: "githubRepo", widget: "string" }
       - { label: "Live", name: "live", widget: "string" }
-      - { label: "Is react?", name: "react", widget: "bolean" }
-      - { label: "Is gatsby?", name: "gatsby", widget: "bolean" }
-      - { label: "Is bootstrap?", name: "bootstrap", widget: "bolean" }
-      - { label: "Is mdbootstrap?", name: "mdbootstrap", widget: "bolean" }
-      - { label: "Is netlify?", name: "netlify", widget: "bolean" }
-      - { label: "Is netlifyCMS?", name: "netlifyCms", widget: "bolean" }
+      - { label: "Is react?", name: "react", widget: "bolean", default: true}}
+      - { label: "Is gatsby?", name: "gatsby", widget: "bolean", default: true}}
+      - { label: "Is bootstrap?", name: "bootstrap", widget: "bolean", default: true}}
+      - { label: "Is mdbootstrap?", name: "mdbootstrap", widget: "bolean", default: true}}
+      - { label: "Is netlify?", name: "netlify", widget: "bolean", default: true}}
+      - { label: "Is netlifyCMS?", name: "netlifyCms", widget: "bolean", default: true}}
       - { label: "Body", name: "body", widget: "markdown" }
