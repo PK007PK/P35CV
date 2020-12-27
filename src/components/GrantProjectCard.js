@@ -1,25 +1,30 @@
 import React from "react"
 
-const GrantProjectCard = ({ name, title, value, grant, style }) => {
+const GrantProjectCard = ({ name, title, value, grant, style, whiteText }) => {
   return (
-    <div style={style} className="card m-2">
-      <div
-        className="card-body d-flex flex-column justify-content-between"
-        style={{ backgroundColor: "#37474F" }}
-      >
+    <div style={style} className="card">
+      <div className="card-body d-flex flex-column justify-content-between">
         {name && (
-          <p className="card-text text-center text-white font-weight-bold">
+          <p
+            className={
+              whiteText
+                ? "card-text font-weight-bold text-white"
+                : "card-text font-weight-bold"
+            }
+          >
             {name}
           </p>
         )}
-        {title && <p className="card-text text-white text-center">{title}</p>}
-        <div className="">
-          <hr />
-          <div className="d-flex justify-content-between text-white card-text">
-            <p>Wartość: {value} zł</p>
-            <p>Dotacja: {grant} zł</p>
-          </div>
-        </div>
+        {title && (
+          <p className={whiteText ? "card-text text-white" : "card-text"}>
+            {title}
+          </p>
+        )}
+        <div className=""></div>
+      </div>
+      <div className="card-footer d-flex justify-content-between ">
+        <small class="">Wartość: {value} zł</small>
+        <small class="">Dotacja: {grant} zł</small>
       </div>
     </div>
   )

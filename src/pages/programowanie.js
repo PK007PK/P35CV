@@ -76,7 +76,7 @@ const Programowanie = ({ data, location }) => {
         imgSource={jumbotronImg}
       />
       <MDBContainer>
-        <ol style={{ listStyle: `none` }}>
+        <ol style={{ listStyle: `none`, paddingLeft: 0 }}>
           {posts.map(post => {
             const title = post.frontmatter.title || post.fields.slug
             const fluid =
@@ -90,39 +90,17 @@ const Programowanie = ({ data, location }) => {
               mdbootstrap,
               netlify,
               netlifyCms,
+              githubRepo,
+              live,
+              date,
             } = post.frontmatter
             return (
               <li key={post.fields.slug}>
                 <MDBRow className="justify-content-between mb-5">
                   <MDBCol md="7">
-                    <MDBCard
-                      className="post-list-item mb-0"
-                      // itemScope
-                      // itemType="http://schema.org/Article"
-                    >
+                    <MDBCard className="post-list-item mb-0">
                       <Image className="card-img" fluid={fluid} />
-                      {/* <MDBCardBody>
-                        <header>
-                          <h2>
-                            <Link to={post.fields.slug} itemProp="url">
-                              <span itemProp="headline">{title}</span>
-                            </Link>
-                          </h2>
-                          <small>{post.frontmatter.date}</small>
-                        </header>
-                        <section>
-                          <p
-                            dangerouslySetInnerHTML={{
-                              __html:
-                                post.frontmatter.description || post.excerpt,
-                            }}
-                            itemProp="description"
-                          />
-                        </section>
-                      </MDBCardBody> */}
                       <div class="card-footer d-flex justify-content-between">
-                        {/* react, gatsby, bootstrap, mdbootstrap, netlify,
-                        netlifyCms, */}
                         {react && <small class="text-muted">#react</small>}
                         {gatsby && <small class="text-muted">#gatsby</small>}
                         {bootstrap && (
@@ -143,8 +121,9 @@ const Programowanie = ({ data, location }) => {
                       <MDBCardBody>
                         <MDBCardTitle>{title}</MDBCardTitle>
                         <MDBCardText className="">
-                          {description}
+                          <small class="text-muted">{date}</small>
                         </MDBCardText>{" "}
+                        <MDBCardText className="">{description}</MDBCardText>{" "}
                       </MDBCardBody>
                       <div className="card-footer d-flex justify-content-between">
                         {post.fields.slug && (
@@ -156,12 +135,20 @@ const Programowanie = ({ data, location }) => {
                             <span itemProp="headline">Więcej</span>
                           </Link>
                         )}
-                        <MDBBtn href="#" className="btn-sm">
-                          Live
-                        </MDBBtn>
-                        <MDBBtn href="#" className="btn-sm">
-                          Github
-                        </MDBBtn>
+                        {live && (
+                          <Link to={live} className="btn btn-sm" itemProp="url">
+                            <span itemProp="headline">Live</span>
+                          </Link>
+                        )}
+                        {githubRepo && (
+                          <Link
+                            to={githubRepo}
+                            className="btn btn-sm"
+                            itemProp="url"
+                          >
+                            <span itemProp="headline">Github</span>
+                          </Link>
+                        )}
                       </div>
                     </MDBCard>
                   </MDBCol>
@@ -191,9 +178,12 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
+          # date(formatString: "MMMM DD, YYYY")
+          date(formatString: "YYYY-MM-DD")
           title
           description
+          live
+          githubRepo
           thumbnail {
             childImageSharp {
               fluid {

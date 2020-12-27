@@ -13,6 +13,8 @@ import {
   MDBCard,
   MDBCardBody,
   MDBIcon,
+  MDBCardTitle,
+  MDBCardText,
 } from "mdbreact"
 
 import GrantProjectCard from "../components/GrantProjectCard"
@@ -26,6 +28,11 @@ class IndexPage extends React.Component {
     values: 0,
     grants: 0,
     isLoaded: false,
+  }
+
+  componentDidMount() {
+    this.initializeData()
+    setInterval(this.addValue, 35)
   }
 
   initializeData = () =>
@@ -46,14 +53,7 @@ class IndexPage extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.initializeData()
-    setInterval(this.addValue, 35)
-  }
-
-  componentDidUpdate() {}
-
-  ProjectList = () => (
+  ShowAllProjects = () => (
     <div className="d-flex flex-column-reverse flex-wrap justify-content-between">
       {this.state.projects.map(project => (
         <GrantProjectCard
@@ -61,26 +61,16 @@ class IndexPage extends React.Component {
           title={project.projekt}
           value={project.wartosc}
           grant={project.dotacja}
+          style={{ marginBottom: "1.5rem" }}
         />
       ))}
     </div>
   )
 
-  fundsList = [
-    "Fundusze strukturalne 2004 - 2006",
-    "Fundusze strukturalne 2007 - 2013",
-    "Fundusze strukturalne 2014 - 2020",
-    "NFOŚ / WFOŚ",
-    'Fundusze EOG / "Norweskie"',
-  ]
-
-  GenerateFundsList = () => {
-    this.fundsList.map(item => <p>aaa</p>)
-  }
-
-  CurrentProject = () => (
+  ShowCurrentProject = () => (
     <GrantProjectCard
-      style={{ minHeight: "360px", backgroundColor: "#37474F", color: "white" }}
+      whiteText
+      style={{ minHeight: "360px", backgroundColor: "#2BBBAD", color: "white" }}
       name={
         this.state.projects[0]
           ? this.state.projects[this.state.projects.length - 1].podmiot
@@ -104,6 +94,33 @@ class IndexPage extends React.Component {
     />
   )
 
+  fundsList = [
+    "Fundusze strukturalne 2004 - 2006",
+    "Fundusze strukturalne 2007 - 2013",
+    "Fundusze strukturalne 2014 - 2020",
+    "NFOŚ / WFOŚ",
+    'Fundusze EOG / "Norweskie"',
+  ]
+
+  ShowFundsList = () => {
+    return this.fundsList.map(item => (
+      <MDBCard
+        className="mb-4"
+        style={{
+          backgroundColor: "#2E2E2E",
+          color: "white",
+        }}
+      >
+        <MDBCardBody>
+          <MDBCardText className="text-center text-white">
+            <MDBIcon far icon="bookmark" className="mr-2" />
+            {item}
+          </MDBCardText>
+        </MDBCardBody>
+      </MDBCard>
+    ))
+  }
+
   render() {
     const data = this.props.data
     const textJumbo = () => (
@@ -113,7 +130,6 @@ class IndexPage extends React.Component {
       </p>
     )
 
-    const jumbotronImg = data.placeholderImage.childImageSharp.fluid
     const jumbotronBottom = () => (
       <div className="text-right">
         <MDBProgress
@@ -139,102 +155,26 @@ class IndexPage extends React.Component {
           subtitle={"Doradztwo i finanse"}
           text={textJumbo}
           bottomBar={jumbotronBottom}
-          rightBox={this.CurrentProject}
+          rightBox={this.ShowCurrentProject}
           style={{
             backgroundColor: "#f5f5f5",
             boxShadow: "none",
             minHeight: "520px",
           }}
-          // imgSource={jumbotronImg}
         />
 
-        {/* <CurrentProject name={this.state.amount} /> */}
         <MDBContainer style={{ minHeight: "100vh" }}>
-          <MDBRow>
+          <MDBRow className="">
             <MDBCol>
               <h2 className="mb-3">Portfolio / zrealizowane projekty </h2>
             </MDBCol>
           </MDBRow>
-          <MDBRow>
+          <MDBRow className="justify-content-between">
             <MDBCol md="7" className="">
-              {this.state.isLoaded && <this.ProjectList />}
+              {this.state.isLoaded && <this.ShowAllProjects />}
             </MDBCol>
-            <MDBCol md="5" className="d-flex flex-column align-items-end ">
-              {this.GenerateFundsList}
-              <MDBCard
-                className="mb-4"
-                style={{
-                  width: "350px",
-                  backgroundColor: "#ffbb33",
-                  color: "white",
-                }}
-              >
-                <MDBCardBody>
-                  <p className="h4 text-center font-weight-lighter mb-0 ">
-                    <MDBIcon far icon="bookmark" className="mr-2" />
-                    Fundusze strukturalne 2004 - 2006
-                  </p>
-                </MDBCardBody>
-              </MDBCard>
-              <MDBCard
-                className="mb-4"
-                style={{
-                  width: "350px",
-                  backgroundColor: "#ffbb33",
-                  color: "white",
-                }}
-              >
-                <MDBCardBody>
-                  <p className="h4 text-center font-weight-lighter mb-0 ">
-                    <MDBIcon far icon="bookmark" className="mr-2" /> Fundusze
-                    strukturalne 2007 - 2013
-                  </p>
-                </MDBCardBody>
-              </MDBCard>
-              <MDBCard
-                className="mb-4"
-                style={{
-                  width: "350px",
-                  backgroundColor: "#ffbb33",
-                  color: "white",
-                }}
-              >
-                <MDBCardBody>
-                  <p className="h4 text-center font-weight-lighter mb-0 ">
-                    <MDBIcon far icon="bookmark" className="mr-2" /> Fundusze
-                    strukturalne 2014 - 2020
-                  </p>
-                </MDBCardBody>
-              </MDBCard>
-              <MDBCard
-                className="mb-4"
-                style={{
-                  width: "350px",
-                  backgroundColor: "#ffbb33",
-                  color: "white",
-                }}
-              >
-                <MDBCardBody>
-                  <p className="h4 text-center font-weight-lighter mb-0 ">
-                    <MDBIcon far icon="bookmark" className="mr-2" /> NFOŚ / WFOŚ
-                  </p>
-                </MDBCardBody>
-              </MDBCard>
-              <MDBCard
-                className=""
-                style={{
-                  width: "350px",
-                  backgroundColor: "#ffbb33",
-                  color: "white",
-                }}
-              >
-                <MDBCardBody>
-                  <p className="h4 text-center font-weight-lighter mb-0 ">
-                    <MDBIcon far icon="bookmark" className="mr-2" /> Fundusze
-                    EOG / "Norweskie"
-                  </p>
-                </MDBCardBody>
-              </MDBCard>
+            <MDBCol md="4" className="">
+              {this.state.isLoaded && <this.ShowFundsList />}
             </MDBCol>
           </MDBRow>
         </MDBContainer>
@@ -242,17 +182,5 @@ class IndexPage extends React.Component {
     )
   }
 }
-
-export const pageQuery = graphql`
-  query {
-    placeholderImage: file(relativePath: { eq: "pk.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 300) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`
 
 export default IndexPage

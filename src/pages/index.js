@@ -11,7 +11,6 @@ import {
 
 import Layout from "../components/layout"
 // import SEO from "../components/seo"
-import Jumbotron from "../components/jumbotron"
 import Jumbotron2 from "../components/jumbotron2"
 import JumbotronReus from "../components/JumbotronReus"
 

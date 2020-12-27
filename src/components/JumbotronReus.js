@@ -1,7 +1,7 @@
 import React from "react"
 
 import ImageReusable from "../components/ImageReusable"
-import { MDBJumbotron, MDBContainer, MDBRow, MDBCol } from "mdbreact"
+import { MDBJumbotron, MDBContainer, MDBRow, MDBCol, MDBCard } from "mdbreact"
 
 const JumbotronReus = ({
   title,
@@ -37,8 +37,13 @@ const JumbotronReus = ({
             <hr className="" style={{ width: "30rem", marginInlineEnd: 0 }} />
             {bottomBar && <BottomBar />}
           </MDBCol>
+
           <MDBCol lg={4}>
-            {(imgSource && <ImageReusable source={imgSource} />) ||
+            {(imgSource && (
+              <MDBCard>
+                <ImageReusable className="card-img" source={imgSource} />
+              </MDBCard>
+            )) ||
               (rightBox && <RightBox />)}
           </MDBCol>
         </MDBRow>

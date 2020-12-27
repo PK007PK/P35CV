@@ -56,18 +56,9 @@ class Navbar extends Component {
                   Programowanie
                 </Link>
               </MDBNavItem>
-              {/* <MDBNavItem className="mr-3">
-                <Link
-                  to="/page-2"
-                  className="nav-link"
-                  activeClassName="active"
-                >
-                  Hobby
-                </Link>
-              </MDBNavItem> */}
               <MDBNavItem className="mr-5">
                 <Link
-                  to="/page-2"
+                  to="/kontakt"
                   className="nav-link"
                   activeClassName="active"
                 >
