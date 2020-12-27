@@ -110,6 +110,9 @@ const Programowanie = ({ data, location }) => {
               })}
             </ol>
           </MDBCol>
+          <MDBCol md="5" className="">
+            sss
+          </MDBCol>
         </MDBRow>
       </MDBContainer>
     </Layout>
