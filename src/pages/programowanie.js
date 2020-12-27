@@ -82,6 +82,15 @@ const Programowanie = ({ data, location }) => {
             const fluid =
               post.frontmatter.thumbnail &&
               post.frontmatter.thumbnail.childImageSharp.fluid
+            const {
+              description,
+              react,
+              gatsby,
+              bootstrap,
+              mdbootstrap,
+              netlify,
+              netlifyCms,
+            } = post.frontmatter
             return (
               <li key={post.fields.slug}>
                 <MDBRow className="justify-content-between mb-5">
@@ -111,8 +120,21 @@ const Programowanie = ({ data, location }) => {
                           />
                         </section>
                       </MDBCardBody> */}
-                      <div class="card-footer">
-                        <small class="text-muted"></small>
+                      <div class="card-footer d-flex justify-content-between">
+                        {/* react, gatsby, bootstrap, mdbootstrap, netlify,
+                        netlifyCms, */}
+                        {react && <small class="text-muted">#react</small>}
+                        {gatsby && <small class="text-muted">#gatsby</small>}
+                        {bootstrap && (
+                          <small class="text-muted">#bootstrap</small>
+                        )}
+                        {mdbootstrap && (
+                          <small class="text-muted">#mdbootstrap</small>
+                        )}
+                        {netlify && <small class="text-muted">#netlify</small>}
+                        {netlifyCms && (
+                          <small class="text-muted">#netlifyCMS</small>
+                        )}
                       </div>
                     </MDBCard>
                   </MDBCol>
@@ -121,12 +143,10 @@ const Programowanie = ({ data, location }) => {
                       <MDBCardBody>
                         <MDBCardTitle>{title}</MDBCardTitle>
                         <MDBCardText className="">
-                          Eksperyment z bootstrapem. Bootstrapa zawsze unikałem,
-                          skupiając się na podstawowej technologii (CSS).
-                          Nadszedł jednak czas, aby poznać gotową, dojrzałą i
-                          dopracowaną bibliotekę css i zaczerpnąć z niej
-                          użyteczne rozwiązania do swoich przyszłych projektów.
+                          {description}
                         </MDBCardText>{" "}
+                      </MDBCardBody>
+                      <div className="card-footer d-flex justify-content-between">
                         {post.fields.slug && (
                           <Link
                             to={post.fields.slug}
@@ -136,9 +156,13 @@ const Programowanie = ({ data, location }) => {
                             <span itemProp="headline">Więcej</span>
                           </Link>
                         )}
-                        <MDBBtn href="#">Live</MDBBtn>
-                        <MDBBtn href="#">Github</MDBBtn>
-                      </MDBCardBody>
+                        <MDBBtn href="#" className="btn-sm">
+                          Live
+                        </MDBBtn>
+                        <MDBBtn href="#" className="btn-sm">
+                          Github
+                        </MDBBtn>
+                      </div>
                     </MDBCard>
                   </MDBCol>
                 </MDBRow>
@@ -177,6 +201,12 @@ export const pageQuery = graphql`
               }
             }
           }
+          react
+          gatsby
+          bootstrap
+          mdbootstrap
+          netlify
+          netlifyCms
         }
       }
     }
