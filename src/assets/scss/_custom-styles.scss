@@ -1,11 +1,12 @@
 // Your custom styles
 
 // This makes the footer stick to the bottom of the viewport
-.site {
+  .site {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
   }
+  
   .site-content {
     flex-grow: 1;
     overflow: hidden;
@@ -47,4 +48,10 @@
     background-image: url('../../images/lo.jpg') ;
   }
   
-  
+  .homepage-btn-bar {
+    & > * {
+      @include media-breakpoint-up(md) {
+        width: auto !important;
+      }
+    }
+  }

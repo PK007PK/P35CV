@@ -38,7 +38,7 @@ const JumbotronReus = ({
             {bottomBar && <BottomBar />}
           </MDBCol>
 
-          <MDBCol lg={4}>
+          <MDBCol lg={4} className="mt-4 mt-md-0">
             {(imgSource && (
               <MDBCard>
                 <ImageReusable className="card-img" source={imgSource} />

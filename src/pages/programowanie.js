@@ -14,6 +14,7 @@ import {
   MDBCardTitle,
   MDBCardText,
   MDBBtn,
+  MDBBadge,
 } from "mdbreact"
 import JumbotronReus from "../components/JumbotronReus"
 
@@ -21,26 +22,11 @@ const Programowanie = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
   const jumbotronImg = data.placeholderImage.childImageSharp.fluid
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <SEO title="All posts" />
-
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    )
-  }
 
   const textForJumbo = () => (
     <p className="text-right my-4">
-      Co oznacza skrót JAM Stack? Javascript-APIs-Markup. Jest połączeniem
-      dobrze znanych narzędzi i wydzieleniem FrontEndowej architektury aplikacji
-      od jej backendu. Nie ma konkurentów pod kątem szybkości działania,
-      bezpieczeństwa i skalowalności.
+      Od 2019 roku dużo czasu poświęcam nauce programowania. Interesuje mnie JAM
+      Stack (Javascript-APIs-Markup). Moją ulubioną technologią jest React.js
     </p>
   )
 
@@ -59,15 +45,15 @@ const Programowanie = ({ data, location }) => {
       <MDBIcon fab size="3x" icon="react" className="blue-text" />
     </div>
   )
+
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
+      <SEO title="Piotr Krasny CV: programowanie" />
       <JumbotronReus
         title={"Piotr Krasny"}
         subtitle={"Programowanie"}
         text={textForJumbo}
         bottomBar={iconBar}
-        // rightBox={reactIcon}
         style={{
           backgroundColor: "#f5f5f5",
           boxShadow: "none",
@@ -98,26 +84,18 @@ const Programowanie = ({ data, location }) => {
               <li key={post.fields.slug}>
                 <MDBRow className="justify-content-between mb-5">
                   <MDBCol md="7">
-                    <MDBCard className="post-list-item mb-0">
-                      <Image className="card-img" fluid={fluid} />
-                      <div class="card-footer d-flex justify-content-between">
-                        {react && <small class="text-muted">#react</small>}
-                        {gatsby && <small class="text-muted">#gatsby</small>}
-                        {bootstrap && (
-                          <small class="text-muted">#bootstrap</small>
-                        )}
-                        {mdbootstrap && (
-                          <small class="text-muted">#mdbootstrap</small>
-                        )}
-                        {netlify && <small class="text-muted">#netlify</small>}
-                        {netlifyCms && (
-                          <small class="text-muted">#netlifyCMS</small>
-                        )}
-                      </div>
-                    </MDBCard>
-                  </MDBCol>
-                  <MDBCol md="4">
-                    <MDBCard className="" style={{ minHeight: "100%" }}>
+                    <MDBCard
+                      className="post-list-item mb-0"
+                      style={{
+                        backgroundColor: "#e3f2fd",
+                      }}
+                    >
+                      <Image
+                        className="card-img"
+                        fluid={fluid}
+                        style={{ borderBottom: "1px solid #f5f5f5" }}
+                      />
+
                       <MDBCardBody>
                         <MDBCardTitle>{title}</MDBCardTitle>
                         <MDBCardText className="">
@@ -125,32 +103,129 @@ const Programowanie = ({ data, location }) => {
                         </MDBCardText>{" "}
                         <MDBCardText className="">{description}</MDBCardText>{" "}
                       </MDBCardBody>
-                      <div className="card-footer d-flex justify-content-between">
-                        {post.fields.slug && (
-                          <Link
-                            to={post.fields.slug}
-                            className="btn btn-sm"
-                            itemProp="url"
-                          >
-                            <span itemProp="headline">Więcej</span>
-                          </Link>
-                        )}
-                        {live && (
-                          <Link to={live} className="btn btn-sm" itemProp="url">
-                            <span itemProp="headline">Live</span>
-                          </Link>
-                        )}
-                        {githubRepo && (
-                          <Link
-                            to={githubRepo}
-                            className="btn btn-sm"
-                            itemProp="url"
-                          >
-                            <span itemProp="headline">Github</span>
-                          </Link>
-                        )}
-                      </div>
                     </MDBCard>
+                  </MDBCol>
+                  <MDBCol md="4" className="mt-4 mt-md-0">
+                    <div className="mb-3 d-flex flex-wrap">
+                      {react && (
+                        <MDBBadge
+                          color="light"
+                          className="mb-3 mr-3"
+                          style={{ boxShadow: "none" }}
+                        >
+                          <MDBIcon
+                            style={{ fontSize: "1.3rem" }}
+                            size="lg"
+                            icon="hashtag"
+                          />
+                          <span style={{ fontSize: "1.3rem" }}> react</span>
+                        </MDBBadge>
+                      )}
+                      {gatsby && (
+                        <MDBBadge
+                          color="light"
+                          className="mb-3 mr-3"
+                          style={{ boxShadow: "none" }}
+                        >
+                          <MDBIcon
+                            style={{ fontSize: "1.3rem" }}
+                            size="lg"
+                            icon="hashtag"
+                          />
+                          <span style={{ fontSize: "1.3rem" }}> gatsby</span>
+                        </MDBBadge>
+                      )}
+                      {bootstrap && (
+                        <MDBBadge
+                          color="light"
+                          className="mb-3 mr-3"
+                          style={{ boxShadow: "none" }}
+                        >
+                          <MDBIcon
+                            style={{ fontSize: "1.3rem" }}
+                            size="lg"
+                            icon="hashtag"
+                          />
+                          <span style={{ fontSize: "1.3rem" }}> bootstrap</span>
+                        </MDBBadge>
+                      )}
+                      {mdbootstrap && (
+                        <MDBBadge
+                          color="light"
+                          className="mb-3 mr-3"
+                          style={{ boxShadow: "none" }}
+                        >
+                          <MDBIcon
+                            style={{ fontSize: "1.3rem" }}
+                            size="lg"
+                            icon="hashtag"
+                          />
+                          <span style={{ fontSize: "1.3rem" }}>
+                            {" "}
+                            mdbootstrap
+                          </span>
+                        </MDBBadge>
+                      )}
+                      {netlify && (
+                        <MDBBadge
+                          color="light"
+                          className="mb-3 mr-3"
+                          style={{ boxShadow: "none" }}
+                        >
+                          <MDBIcon
+                            style={{ fontSize: "1.3rem" }}
+                            size="lg"
+                            icon="hashtag"
+                          />
+                          <span style={{ fontSize: "1.3rem" }}>
+                            {" "}
+                            netlifyCMS
+                          </span>
+                        </MDBBadge>
+                      )}
+                      {netlifyCms && (
+                        <MDBBadge
+                          color="light"
+                          className="mb-3 mr-3"
+                          style={{ boxShadow: "none" }}
+                        >
+                          <MDBIcon
+                            style={{ fontSize: "1.3rem" }}
+                            size="lg"
+                            icon="hashtag"
+                          />
+                          <span style={{ fontSize: "1.3rem" }}>
+                            {" "}
+                            netlifyCMS
+                          </span>
+                        </MDBBadge>
+                      )}
+                    </div>
+                    <div>
+                      {post.fields.slug && (
+                        <Link
+                          to={post.fields.slug}
+                          className="btn btn-sm"
+                          itemProp="url"
+                        >
+                          <span itemProp="headline">Więcej</span>
+                        </Link>
+                      )}
+                      {live && (
+                        <Link to={live} className="btn btn-sm" itemProp="url">
+                          <span itemProp="headline">Live</span>
+                        </Link>
+                      )}
+                      {githubRepo && (
+                        <Link
+                          to={githubRepo}
+                          className="btn btn-sm"
+                          itemProp="url"
+                        >
+                          <span itemProp="headline">Github</span>
+                        </Link>
+                      )}
+                    </div>
                   </MDBCol>
                 </MDBRow>
               </li>

@@ -85,7 +85,7 @@ export default function Form({ admin }) {
             />
             <MDBInput
               type="textarea"
-              rows="2"
+              rows="4"
               label="Twoja wiadomość"
               icon="pencil-alt"
               name="text"

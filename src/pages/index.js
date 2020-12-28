@@ -18,23 +18,21 @@ const IndexPage = ({ data }) => {
   const jumbotronImg = data.placeholderImage.childImageSharp.fluid
 
   const textForJumbo = () => (
-    <p className="text-right my-4">
-      Dziękuję, że odwiedziłaś / odwiedziłeś moją stronę
-      <br /> Zapraszam Cię do zapoznania się z moim CV, oraz projektami które
-      wykonałem
-      <br />
-      Mam nadzieję, że uda nam się nawiązać korzystną współpracę
+    <p className="text-right">
+      Dziękuję, że odwiedziłaś / odwiedziłeś moją stronę. Zapraszam Cię do
+      zapoznania się z moim CV, oraz projektami które wykonałem. Mam nadzieję,
+      że uda nam się nawiązać korzystną współpracę
     </p>
   )
 
   const buttonsForJumbo = () => (
-    <div className="pt-2 text-right">
+    <div className="mb-md-0 text-md-right homepage-btn-bar">
       <MDBBtn
         href="https://github.com/PK007PK"
         target="_blank"
         color="indigo"
         rel="noopener noreferrer"
-        className="waves-effect ml-4"
+        className="waves-effect w-100 mx-0 mx-md-2"
       >
         CV PDF
         <MDBIcon fas icon="file-pdf" className="ml-2" />
@@ -44,7 +42,7 @@ const IndexPage = ({ data }) => {
         target="_blank"
         color="pink"
         rel="noopener noreferrer"
-        className="waves-effect"
+        className="waves-effect w-100 mx-0 mx-md-2"
       >
         LinkedIn <MDBIcon fab icon="linkedin-in" className="ml-2" />
       </MDBBtn>
@@ -53,7 +51,7 @@ const IndexPage = ({ data }) => {
         target="_blank"
         color="amber"
         rel="noopener noreferrer"
-        className="waves-effect mr-0"
+        className="waves-effect w-100 mx-0 ml-md-2"
       >
         Github <MDBIcon fab icon="github" className="ml-2" />
       </MDBBtn>
@@ -76,8 +74,8 @@ const IndexPage = ({ data }) => {
         }}
         imgSource={jumbotronImg}
       />
-      <MDBContainer>
-        <MDBRow>
+      <MDBContainer className="mt-5">
+        <MDBRow className="justify-content-between">
           <MDBCol md="7" className="text-right">
             <h2 className="h3">Doświadczenie zawodowe</h2>
             <p className="lead">
@@ -86,7 +84,6 @@ const IndexPage = ({ data }) => {
               <br /> Konsultant Funduszy Europejskich
             </p>
             <p>
-              {" "}
               Masterprojekt s.c. to firma doradcza obsługująca podmioty sektora
               ochrony zdrowia w zakresie pozyskiowania środków zewnętrznych na
               finansowanie inwestycji. Obszarem naszych zainteresowań były
@@ -95,11 +92,8 @@ const IndexPage = ({ data }) => {
               projektów inwestycyjnych
             </p>
           </MDBCol>
-          <MDBCol
-            md="5"
-            className="d-flex flex-column align-items-end justify-content-center"
-          >
-            <MDBCard className="" style={{ width: "350px" }}>
+          <MDBCol md="4" className="">
+            <MDBCard className="my-3 mt-md-0">
               <MDBCardBody>
                 <p className="h2 text-center font-weight-lighter mb-0">
                   480 mln PLN bezzwrotnych dotacji pozyskanych dla moich
@@ -110,7 +104,7 @@ const IndexPage = ({ data }) => {
           </MDBCol>
         </MDBRow>
 
-        <MDBRow className="mt-5">
+        <MDBRow className="mt-5 justify-content-between">
           <MDBCol md="7" className="text-right">
             <ul className="list-unstyled">
               <li className="mb-3">
@@ -133,11 +127,8 @@ const IndexPage = ({ data }) => {
               </li>
             </ul>
           </MDBCol>
-          <MDBCol
-            md="5"
-            className="d-flex flex-column align-items-end justify-content-center"
-          >
-            <MDBCard className="" style={{ width: "350px" }}>
+          <MDBCol md="4" className="">
+            <MDBCard className="my-3 mt-md-0">
               <MDBCardBody>
                 <p className="h4 text-center font-weight-lighter mb-0">
                   Bezpośrednia praca z klientem przy realizacji zleceń
@@ -147,7 +138,7 @@ const IndexPage = ({ data }) => {
           </MDBCol>
         </MDBRow>
 
-        <MDBRow className="mt-5">
+        <MDBRow className="mt-5 justify-content-between">
           <MDBCol md="7" className="text-right">
             <ul className="list-unstyled">
               <li className="mb-3">
@@ -170,11 +161,8 @@ const IndexPage = ({ data }) => {
               </li>
             </ul>
           </MDBCol>
-          <MDBCol
-            md="5"
-            className="d-flex flex-column align-items-end justify-content-center"
-          >
-            <MDBCard className="" style={{ width: "350px" }}>
+          <MDBCol md="4" className="my-3 mt-md-0">
+            <MDBCard className="">
               <MDBCardBody>
                 <p className="h4 text-center font-weight-lighter mb-0 ">
                   Organizacja i zarządzanie firmą
@@ -184,7 +172,7 @@ const IndexPage = ({ data }) => {
           </MDBCol>
         </MDBRow>
 
-        <MDBRow className="text-right mt-5">
+        <MDBRow className="text-right mt-5 justify-content-between">
           <MDBCol md="7" className="text-righ">
             <h2 className="h3">Edukacja</h2>
             <ul className="list-unstyled">
@@ -205,11 +193,8 @@ const IndexPage = ({ data }) => {
               </li>
             </ul>
           </MDBCol>
-          <MDBCol
-            md="5"
-            className="d-flex flex-column align-items-end justify-content-center"
-          >
-            <MDBCard className="" style={{ width: "350px" }}>
+          <MDBCol md="4" className="">
+            <MDBCard className="my-3 mt-md-0">
               <MDBCardBody className="">
                 <div className="d-flex justify-content-around align-items-center">
                   <i className="politechnika"></i>

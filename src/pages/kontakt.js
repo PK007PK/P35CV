@@ -28,23 +28,21 @@ const KontaktPage = ({ data }) => {
   const contactInfo = () => (
     <div className="pt-2 text-right">
       <MDBBtn
-        href="https://github.com/PK007PK"
+        href="tel:509527925"
         target="_blank"
         // color="pink"
         rel="noopener noreferrer"
         className="waves-effect"
       >
-        <MDBIcon icon="mobile-alt" className="mr-2" />
         509 527 925
       </MDBBtn>
       <MDBBtn
-        href="https://github.com/PK007PK"
+        href="mailto:krasny.piotr@gmail.com.com"
         target="_blank"
         color="blue"
         rel="noopener noreferrer"
         className="waves-effect mr-0"
       >
-        <MDBIcon icon="at" className="mr-2" />
         krasny.piotr@gmail.com
       </MDBBtn>
     </div>

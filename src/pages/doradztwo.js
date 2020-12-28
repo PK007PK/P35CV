@@ -126,7 +126,8 @@ class IndexPage extends React.Component {
     const textJumbo = () => (
       <p className="text-right">
         W latach 2004 - 2020 współtworzyłem firmę Masterprojekt S.C.,
-        <br /> pisałem projekty, rozliczałem projekty.
+        przygotowywałem projekty, sporządzałem analizy finansowe, rozliczałem
+        projekty.
       </p>
     )
 
