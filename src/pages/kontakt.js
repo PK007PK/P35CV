@@ -26,7 +26,7 @@ const KontaktPage = ({ data }) => {
   )
 
   const contactInfo = () => (
-    <div className="pt-2 text-right">
+    <div className="text-right">
       <MDBBtn
         href="tel:509527925"
         target="_blank"
@@ -41,7 +41,7 @@ const KontaktPage = ({ data }) => {
         target="_blank"
         color="blue"
         rel="noopener noreferrer"
-        className="waves-effect mr-0"
+        className="waves-effect mr-md-0"
       >
         krasny.piotr@gmail.com
       </MDBBtn>

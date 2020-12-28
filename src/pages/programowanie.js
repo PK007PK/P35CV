@@ -84,18 +84,8 @@ const Programowanie = ({ data, location }) => {
               <li key={post.fields.slug}>
                 <MDBRow className="justify-content-between mb-5">
                   <MDBCol md="7">
-                    <MDBCard
-                      className="post-list-item mb-0"
-                      style={{
-                        backgroundColor: "#e3f2fd",
-                      }}
-                    >
-                      <Image
-                        className="card-img"
-                        fluid={fluid}
-                        style={{ borderBottom: "1px solid #f5f5f5" }}
-                      />
-
+                    <MDBCard className="post-list-item mb-0">
+                      <Image className="card-img" fluid={fluid} />
                       <MDBCardBody>
                         <MDBCardTitle>{title}</MDBCardTitle>
                         <MDBCardText className="">
@@ -103,6 +93,31 @@ const Programowanie = ({ data, location }) => {
                         </MDBCardText>{" "}
                         <MDBCardText className="">{description}</MDBCardText>{" "}
                       </MDBCardBody>
+                      <div className="card-footer">
+                        {post.fields.slug && (
+                          <Link
+                            to={post.fields.slug}
+                            className="btn btn-sm"
+                            itemProp="url"
+                          >
+                            <span itemProp="headline">Więcej</span>
+                          </Link>
+                        )}
+                        {live && (
+                          <Link to={live} className="btn btn-sm" itemProp="url">
+                            <span itemProp="headline">Live</span>
+                          </Link>
+                        )}
+                        {githubRepo && (
+                          <Link
+                            to={githubRepo}
+                            className="btn btn-sm"
+                            itemProp="url"
+                          >
+                            <span itemProp="headline">Github</span>
+                          </Link>
+                        )}
+                      </div>
                     </MDBCard>
                   </MDBCol>
                   <MDBCol md="4" className="mt-4 mt-md-0">
@@ -199,31 +214,6 @@ const Programowanie = ({ data, location }) => {
                             netlifyCMS
                           </span>
                         </MDBBadge>
-                      )}
-                    </div>
-                    <div>
-                      {post.fields.slug && (
-                        <Link
-                          to={post.fields.slug}
-                          className="btn btn-sm"
-                          itemProp="url"
-                        >
-                          <span itemProp="headline">Więcej</span>
-                        </Link>
-                      )}
-                      {live && (
-                        <Link to={live} className="btn btn-sm" itemProp="url">
-                          <span itemProp="headline">Live</span>
-                        </Link>
-                      )}
-                      {githubRepo && (
-                        <Link
-                          to={githubRepo}
-                          className="btn btn-sm"
-                          itemProp="url"
-                        >
-                          <span itemProp="headline">Github</span>
-                        </Link>
                       )}
                     </div>
                   </MDBCol>
