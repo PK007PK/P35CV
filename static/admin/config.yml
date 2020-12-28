@@ -17,10 +17,12 @@ collections:
     editor:
       preview: true
     fields:
-      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Title Pl", name: "title", widget: "string" }
+      - { label: "Title Eng", name: "titleEng", widget: "string" }
       - { label: "Featured Image", name: "thumbnail", widget: "image" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Description Pl", name: "description", widget: "string" }
+      - { label: "Description Emg", name: "descriptionEng", widget: "string" }
       - { label: "GithubRepo", name: "githubRepo", widget: "string" }
       - { label: "Live", name: "live", widget: "string" }
       - { label: "Is react?", name: "react", widget: "boolean", default: false }
@@ -54,4 +56,5 @@ collections:
           widget: "boolean",
           default: false,
         }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Body Pl", name: "body", widget: "markdown" }
+      - { label: "Body Eng", name: "bodyEng", widget: "markdown" }
