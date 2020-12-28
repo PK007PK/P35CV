@@ -26,7 +26,7 @@ const IndexPage = ({ data }) => {
   )
 
   const buttonsForJumbo = () => (
-    <div className="mb-md-0 text-md-right homepage-btn-bar">
+    <div className="text-md-right homepage-btn-bar">
       <MDBBtn
         href="https://github.com/PK007PK"
         target="_blank"
