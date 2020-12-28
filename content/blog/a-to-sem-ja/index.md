@@ -1,6 +1,6 @@
 ---
 title: Strona CV
-thumbnail: pkcv.jpg
+thumbnail: pkcv2.jpg
 date: 2020-12-22T20:09:25.198Z
 description: Eksperyment z bootstrapem. Bootstrapa zawsze unikałem, skupiając
   się na podstawowej technologii (CSS). Nadszedł jednak czas, aby poznać gotową,
