@@ -150,6 +150,8 @@ collections:
                     name: description1Eng,
                     widget: string,
                   },
+                  { label: Title 2 Pl, name: title2, widget: string },
+                  { label: Title 2 Eng, name: title2Eng, widget: string },
                   {
                     label: Description 2 Pl,
                     name: description2,
@@ -160,6 +162,8 @@ collections:
                     name: description2Eng,
                     widget: string,
                   },
+                  { label: Title 3 Pl, name: title3, widget: string },
+                  { label: Title 3 Eng, name: title3Eng, widget: string },
                   {
                     label: Description 3 Pl,
                     name: description3,
@@ -200,6 +204,8 @@ collections:
                     name: description1Eng,
                     widget: string,
                   },
+                  { label: Title 2 Pl, name: title2, widget: string },
+                  { label: Title 2 Eng, name: title2Eng, widget: string },
                   {
                     label: Description 2 Pl,
                     name: description2,
@@ -210,6 +216,8 @@ collections:
                     name: description2Eng,
                     widget: string,
                   },
+                  { label: Title 3 Pl, name: title3, widget: string },
+                  { label: Title 3 Eng, name: title3Eng, widget: string },
                   {
                     label: Description 3 Pl,
                     name: description3,
