@@ -58,3 +58,223 @@ collections:
         }
       - { label: "Body Pl", name: "body", widget: "markdown" }
       - { label: "Body Eng", name: "bodyEng", widget: "markdown" }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "content/index.md"
+        label: "Landing Page"
+        name: "index"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "index-page",
+            }
+          - { label: Title Pl, name: title, widget: string }
+          - { label: Title Eng, name: titleEng, widget: string }
+          - { label: Heading description PL, name: heading, widget: string }
+          - { label: Heading description Eng, name: headingEng, widget: string }
+          - {
+              label: = Prof exp,
+              name: professionalExp,
+              widget: object,
+              fields:
+                [
+                  { label: Title Pl, name: title, widget: string },
+                  { label: Title Eng, name: titleEng, widget: string },
+                  {
+                    label: Subtitle line 1 Pl,
+                    name: subtitleLine1,
+                    widget: string,
+                  },
+                  {
+                    label: Subtitle line 1 Eng,
+                    name: subtitleLine1Eng,
+                    widget: string,
+                  },
+                  {
+                    label: Subtitle line 2 Pl,
+                    name: subtitleLine2,
+                    widget: string,
+                  },
+                  {
+                    label: Subtitle line 2 Eng,
+                    name: subtitleLine2Eng,
+                    widget: string,
+                  },
+                  {
+                    label: Subtitle line 3 Pl,
+                    name: subtitleLine3,
+                    widget: string,
+                  },
+                  {
+                    label: Subtitle line 3 Eng,
+                    name: subtitleLine3Eng,
+                    widget: string,
+                  },
+                  { label: Description Pl, name: description, widget: text },
+                  {
+                    label: Description Eng,
+                    name: descriptionEng,
+                    widget: text,
+                  },
+                  {
+                    label: Advertisement Pl,
+                    name: advertisement,
+                    widget: text,
+                  },
+                  {
+                    label: Advertisement Eng,
+                    name: advertisementEng,
+                    widget: text,
+                  },
+                ],
+            }
+          - {
+              label: = Prof exp first block,
+              name: professionalExpFirstBlock,
+              widget: object,
+              fields:
+                [
+                  { label: Title 1 Pl, name: title1, widget: string },
+                  { label: Title 1 Eng, name: title1Eng, widget: string },
+                  {
+                    label: Description 1 Pl,
+                    name: description1,
+                    widget: string,
+                  },
+                  {
+                    label: Description 1 Eng,
+                    name: description1Eng,
+                    widget: string,
+                  },
+                  {
+                    label: Description 2 Pl,
+                    name: description2,
+                    widget: string,
+                  },
+                  {
+                    label: Description 2 Eng,
+                    name: description2Eng,
+                    widget: string,
+                  },
+                  {
+                    label: Description 3 Pl,
+                    name: description3,
+                    widget: string,
+                  },
+                  {
+                    label: Description 3 Eng,
+                    name: description3Eng,
+                    widget: string,
+                  },
+                  {
+                    label: Advertisement Pl,
+                    name: advertisement,
+                    widget: text,
+                  },
+                  {
+                    label: Advertisement Eng,
+                    name: advertisementEng,
+                    widget: text,
+                  },
+                ],
+            }
+          - {
+              label: = Prof exp second block,
+              name: professionalExpSecondBlock,
+              widget: object,
+              fields:
+                [
+                  { label: Title 1 Pl, name: title1, widget: string },
+                  { label: Title 1 Eng, name: title1Eng, widget: string },
+                  {
+                    label: Description 1 Pl,
+                    name: description1,
+                    widget: string,
+                  },
+                  {
+                    label: Description 1 Eng,
+                    name: description1Eng,
+                    widget: string,
+                  },
+                  {
+                    label: Description 2 Pl,
+                    name: description2,
+                    widget: string,
+                  },
+                  {
+                    label: Description 2 Eng,
+                    name: description2Eng,
+                    widget: string,
+                  },
+                  {
+                    label: Description 3 Pl,
+                    name: description3,
+                    widget: string,
+                  },
+                  {
+                    label: Description 3 Eng,
+                    name: description3Eng,
+                    widget: string,
+                  },
+                  {
+                    label: Advertisement Pl,
+                    name: advertisement,
+                    widget: text,
+                  },
+                  {
+                    label: Advertisement Eng,
+                    name: advertisementEng,
+                    widget: text,
+                  },
+                ],
+            }
+          - {
+              label: = Education,
+              name: education,
+              widget: object,
+              fields:
+                [
+                  { label: Title PL, name: title, widget: string },
+                  { label: Title Eng, name: titleEng, widget: string },
+                  { label: Time 1, name: time1, widget: string },
+
+                  {
+                    label: Description 1 Pl,
+                    name: description1,
+                    widget: string,
+                  },
+                  {
+                    label: Description 1 Eng,
+                    name: description1Eng,
+                    widget: string,
+                  },
+                  { label: Time 2, name: time2, widget: string },
+                  {
+                    label: Description 2 Pl,
+                    name: description2,
+                    widget: string,
+                  },
+                  {
+                    label: Description 2 Eng,
+                    name: description2Eng,
+                    widget: string,
+                  },
+                  { label: Time 3, name: time3, widget: string },
+                  {
+                    label: Description 3 Pl,
+                    name: description3,
+                    widget: string,
+                  },
+                  {
+                    label: Description 3 Eng,
+                    name: description3Eng,
+                    widget: string,
+                  },
+                ],
+            }
+          - { label: Rodo PL, name: rodo, widget: text }
+          - { label: Rodo Eng, name: rodoEng, widget: text }
