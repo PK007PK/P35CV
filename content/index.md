@@ -23,8 +23,10 @@ professionalExp:
     strukturalne UE oraz środki krajowe. Firma dla swoich klientów pozyskała
     około 480 mln zł dotacji na blisko 180 projektów inwestycyjnych
 professionalExpFirstBlock:
+  title3Eng: cccc
+  title2Eng: cxcxcx
   title1Eng: dssds  dsvsd v
-  advertisement: z
+  advertisement: Bezpośrednia praca z klientem przy realizacji zleceń
   description3Eng: sdsdsdsd
   description2Eng: assa
   description1Eng: sdsddsd
@@ -32,33 +34,49 @@ professionalExpFirstBlock:
     kompletowanie dokumentów wymaganych w procesie inwestycyjnym
   description2: Prognozy finansowe, analizy efektywności ekonomicznej, kalkulacja
     wskaźników, przygotowanie arkuszy MsExcel
-  description3: Prognozy finansowe, analizy efektywności ekonomicznej, kalkulacja
-    wskaźników, przygotowanie arkuszy MsExcel
-  advertisementEng: z
+  description3: Kontrola realizacji projektu, aneksowanie umów, przygotowanie
+    wniosków o płatność
+  advertisementEng: "z sasd as asd asd "
   title1: Przygotowanie dokumentacji
+  title2: Obsługa finansowa projektów
+  title3: Rozliczanie projektów
 professionalExpSecondBlock:
-  title1Eng: z
-  advertisement: z
-  description3Eng: z
-  description2Eng: z
-  description1Eng: z
-  description1: z
-  description2: z
-  description3: z
-  advertisementEng: z
-  title1: z
+  title3Eng: zzzx zx xz
+  title2Eng: dscsd cds ccs
+  title1Eng: "zsa asd ads "
+  advertisement: Organizacja i zarządzanie firmą
+  description3Eng: z cd csd c
+  description2Eng: "z sdcsd  cds "
+  description1Eng: "z sdc sdc sdc sdc "
+  description1: "Analiza rynku, tworzenie koncepcji usług, przygotowanie: umów,
+    ofert, narzędzi zapewniających efektywność pracy"
+  description2: Zarządzanie planem produkcji, delegowanie zadań, rozwiązywanie
+    problemów, kontrola
+  description3: "Pracownicy etatowi i zewnętrzni współpracownicy: nadzór nad
+    wykonywanymi zleceniami, kontrola wykonywanych zadań, prowadzenie rozmów
+    kwalifikacyjnych, motywowanie pracowników, coaching"
+  advertisementEng: "z ssac "
+  title1: Opracowanie usług doradczych
+  title2: Zarządzanie projektami
+  title3: Zarządzanie personelem
 education:
-  time1: z
-  time2: z
-  time3: z
-  titleEng: z
-  description3Eng: z
-  description2Eng: z
-  description1Eng: z
-  description1: z
-  description2: z
-  description3: z
-  title: z
-rodo: z
-rodoEng: z
+  time1: 2003 - 2004
+  time2: 1997 - 2001
+  time3: 1993 - 1997
+  titleEng: z dv dfvfdv
+  description3Eng: "z sa csacas "
+  description2Eng: z dc dsc
+  description1Eng: "c asasc sac "
+  description1: Politechnika Krakowska Studia podyplomowe. Gospodarka nieruchomościami
+  description2: "Uniwersytet Ekonomiczny w Krakowie Wydział Zarządzania:
+    Rachunkowość, Zarządzanie firmą"
+  description3: V Liceum Ogólnokształcące im. A. Witkowskiego w Krakowie
+  title: Edukacja
+rodo: Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb
+  niezbędnych do realizacji procesu rekrutacji zgodnie z Rozporządzeniem
+  Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w
+  sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i
+  w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE
+  (RODO).
+rodoEng: z sa da sdsd as
 ---
