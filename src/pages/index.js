@@ -1,4 +1,5 @@
 import React from "react"
+import { indexPageTexts } from "../data/indexPageTexts"
 import {
   MDBContainer,
   MDBRow,
@@ -9,6 +10,7 @@ import {
   MDBIcon,
 } from "mdbreact"
 
+import { LanguageContext } from "../components/layout"
 import Layout from "../components/layout"
 // import SEO from "../components/seo"
 import Jumbotron2 from "../components/jumbotron2"
@@ -18,14 +20,16 @@ const IndexPage = ({ data }) => {
   const jumbotronImg = data.placeholderImage.childImageSharp.fluid
 
   const textForJumbo = () => (
-    <p className="text-right">
-      Dziękuję, że odwiedziłaś / odwiedziłeś moją stronę. Zapraszam Cię do
-      zapoznania się z moim CV, oraz projektami które wykonałem. Mam nadzieję,
-      że uda nam się nawiązać korzystną współpracę
-    </p>
+    <LanguageContext.Consumer>
+      {({ pl }) => (
+        <p className="text-right">
+          {pl ? indexPageTexts.description[0] : indexPageTexts.description[1]}
+        </p>
+      )}
+    </LanguageContext.Consumer>
   )
 
-  const buttonsForJumbo = ({ pl }) => (
+  const buttonsForJumbo = () => (
     <div className="text-md-right homepage-btn-bar">
       <MDBBtn
         href="https://github.com/PK007PK"
@@ -60,164 +64,215 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      {/* <SEO title="Home" /> */}
-      <JumbotronReus
-        title={"Piotr Krasny"}
-        subtitle={"Curriculum Vitae"}
-        text={textForJumbo}
-        bottomBar={buttonsForJumbo}
-        // rightBox={}
-        style={{
-          backgroundColor: "#f5f5f5",
-          boxShadow: "none",
-          minHeight: "550px",
-        }}
-        imgSource={jumbotronImg}
-      />
+      <LanguageContext.Consumer>
+        {({ pl }) => (
+          <>
+            <JumbotronReus
+              title={"Piotr Krasny"}
+              subtitle={pl ? indexPageTexts.title[0] : indexPageTexts.title[1]}
+              text={textForJumbo}
+              bottomBar={buttonsForJumbo}
+              // rightBox={}
+              style={{
+                backgroundColor: "#f5f5f5",
+                boxShadow: "none",
+                minHeight: "550px",
+              }}
+              imgSource={jumbotronImg}
+            />
 
-      <MDBContainer className="mt-5">
-        <MDBRow className="justify-content-between">
-          <MDBCol md="7" className="text-right">
-            <h2 className="h3">Doświadczenie zawodowe</h2>
-            <p className="lead">
-              06.2004 - 12.2020: Masterprojekt s.c.
-              <br /> Współwłaściciel. Project Manager
-              <br /> Konsultant Funduszy Europejskich
-            </p>
-            <p>
-              Masterprojekt s.c. to firma doradcza obsługująca podmioty sektora
-              ochrony zdrowia w zakresie pozyskiowania środków zewnętrznych na
-              finansowanie inwestycji. Obszarem naszych zainteresowań były
-              fundusze strukturalne UE oraz środki krajowe. Firma dla swoich
-              klientów pozyskała około 480 mln zł dotacji na blisko 180
-              projektów inwestycyjnych
-            </p>
-          </MDBCol>
-          <MDBCol md="4" className="">
-            <MDBCard className="my-3 mt-md-0">
-              <MDBCardBody>
-                <p className="h2 text-center font-weight-lighter mb-0">
-                  480 mln PLN bezzwrotnych dotacji pozyskanych dla moich
-                  klientów
-                </p>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-        </MDBRow>
+            <MDBContainer className="mt-5">
+              <MDBRow className="justify-content-between">
+                <MDBCol md="7" className="text-right">
+                  <h2 className="h3">
+                    {pl
+                      ? indexPageTexts.subtitle[0]
+                      : indexPageTexts.subtitle[1]}
+                  </h2>
+                  <p className="lead">
+                    {pl ? indexPageTexts.lead1[0] : indexPageTexts.lead1[1]}
+                    <br />{" "}
+                    {pl ? indexPageTexts.lead2[0] : indexPageTexts.lead2[1]}
+                    <br />{" "}
+                    {pl ? indexPageTexts.lead3[0] : indexPageTexts.lead3[1]}
+                  </p>
+                  <p>
+                    {pl
+                      ? indexPageTexts.description2[0]
+                      : indexPageTexts.description2[1]}
+                  </p>
+                </MDBCol>
+                <MDBCol md="4" className="">
+                  <MDBCard className="my-3 mt-md-0">
+                    <MDBCardBody>
+                      <p className="h2 text-center font-weight-lighter mb-0">
+                        {pl
+                          ? indexPageTexts.advert1[0]
+                          : indexPageTexts.advert1[1]}
+                      </p>
+                    </MDBCardBody>
+                  </MDBCard>
+                </MDBCol>
+              </MDBRow>
 
-        <MDBRow className="mt-5 justify-content-between">
-          <MDBCol md="7" className="text-right">
-            <ul className="list-unstyled">
-              <li className="mb-3">
-                <strong className="h5">Przygotowanie dokumentacji</strong>
-                <br></br>
-                Studia wykonalności inwestycji, biznes plany, wnioski
-                aplikacyjne, kompletowanie dokumentów wymaganych w procesie
-                inwestycyjnym
-              </li>
-              <li className="mb-3">
-                <strong className="h5">Obsługa finansowa projektów</strong>
-                <br></br>Prognozy finansowe, analizy efektywności ekonomicznej,
-                kalkulacja wskaźników, przygotowanie arkuszy MsExcel
-              </li>
-              <li className="mb-3">
-                <strong className="h5">Rozliczanie projektów</strong>
-                <br></br>
-                Kontrola realizacji projektu, aneksowanie umów, przygotowanie
-                wniosków o płatność
-              </li>
-            </ul>
-          </MDBCol>
-          <MDBCol md="4" className="">
-            <MDBCard className="my-3 mt-md-0">
-              <MDBCardBody>
-                <p className="h4 text-center font-weight-lighter mb-0">
-                  Bezpośrednia praca z klientem przy realizacji zleceń
-                </p>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-        </MDBRow>
+              <MDBRow className="mt-5 justify-content-between">
+                <MDBCol md="7" className="text-right">
+                  <ul className="list-unstyled">
+                    <li className="mb-3">
+                      <strong className="h5">
+                        {pl
+                          ? indexPageTexts.point1[0]
+                          : indexPageTexts.point1[1]}
+                      </strong>
+                      <br></br>
+                      {pl ? indexPageTexts.text1[0] : indexPageTexts.text1[1]}
+                    </li>
+                    <li className="mb-3">
+                      <strong className="h5">
+                        {pl
+                          ? indexPageTexts.point2[0]
+                          : indexPageTexts.point2[1]}
+                      </strong>
+                      <br></br>
+                      {pl ? indexPageTexts.text2[0] : indexPageTexts.text2[1]}
+                    </li>
+                    <li className="mb-3">
+                      <strong className="h5">
+                        {pl
+                          ? indexPageTexts.point3[0]
+                          : indexPageTexts.point3[1]}
+                      </strong>
+                      <br></br>
+                      {pl ? indexPageTexts.text3[0] : indexPageTexts.text3[1]}
+                    </li>
+                  </ul>
+                </MDBCol>
+                <MDBCol md="4" className="">
+                  <MDBCard className="my-3 mt-md-0">
+                    <MDBCardBody>
+                      <p className="h4 text-center font-weight-lighter mb-0">
+                        {pl
+                          ? indexPageTexts.advert2[0]
+                          : indexPageTexts.advert2[1]}
+                      </p>
+                    </MDBCardBody>
+                  </MDBCard>
+                </MDBCol>
+              </MDBRow>
 
-        <MDBRow className="mt-5 justify-content-between">
-          <MDBCol md="7" className="text-right">
-            <ul className="list-unstyled">
-              <li className="mb-3">
-                <strong className="h5">Opracowanie usług doradczych</strong>
-                <br></br>Analiza rynku, tworzenie koncepcji usług,
-                przygotowanie: umów, ofert, narzędzi zapewniających efektywność
-                pracy
-              </li>
-              <li className="mb-3">
-                <strong className="h5">Zarządzanie projektami</strong>
-                <br></br>Z arządzanie planem produkcji, delegowanie zadań,
-                rozwiązywanie problemów, kontrola
-              </li>
-              <li className="mb-3">
-                <strong className="h5">Zarządzanie personelem</strong>
-                <br></br>Pracownicy etatowi i zewnętrzni współpracownicy: nadzór
-                nad wykonywanymi zleceniami, kontrola wykonywanych zadań,
-                prowadzenie rozmów kwalifikacyjnych, motywowanie pracowników,
-                coaching
-              </li>
-            </ul>
-          </MDBCol>
-          <MDBCol md="4" className="my-3 mt-md-0">
-            <MDBCard className="">
-              <MDBCardBody>
-                <p className="h4 text-center font-weight-lighter mb-0 ">
-                  Organizacja i zarządzanie firmą
-                </p>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-        </MDBRow>
+              <MDBRow className="mt-5 justify-content-between">
+                <MDBCol md="7" className="text-right">
+                  <ul className="list-unstyled">
+                    <li className="mb-3">
+                      <strong className="h5">
+                        {pl
+                          ? indexPageTexts.point4[0]
+                          : indexPageTexts.point4[1]}
+                      </strong>
+                      <br></br>
+                      {pl ? indexPageTexts.text4[0] : indexPageTexts.text4[1]}
+                    </li>
+                    <li className="mb-3">
+                      <strong className="h5">
+                        {pl
+                          ? indexPageTexts.point5[0]
+                          : indexPageTexts.point5[1]}
+                      </strong>
+                      <br></br>
+                      {pl ? indexPageTexts.text5[0] : indexPageTexts.text5[1]}
+                    </li>
+                    <li className="mb-3">
+                      <strong className="h5">
+                        {pl
+                          ? indexPageTexts.point6[0]
+                          : indexPageTexts.point6[1]}
+                      </strong>
+                      <br></br>
+                      {pl ? indexPageTexts.text6[0] : indexPageTexts.text6[1]}
+                    </li>
+                  </ul>
+                </MDBCol>
+                <MDBCol md="4" className="my-3 mt-md-0">
+                  <MDBCard className="">
+                    <MDBCardBody>
+                      <p className="h4 text-center font-weight-lighter mb-0 ">
+                        {pl
+                          ? indexPageTexts.advert3[0]
+                          : indexPageTexts.advert3[1]}
+                      </p>
+                    </MDBCardBody>
+                  </MDBCard>
+                </MDBCol>
+              </MDBRow>
 
-        <MDBRow className="text-right mt-5 justify-content-between">
-          <MDBCol md="7" className="text-righ">
-            <h2 className="h3">Edukacja</h2>
-            <ul className="list-unstyled">
-              <li className="mb-3">
-                <strong className="h5">2003 - 2004</strong>
-                <br></br> Politechnika Krakowska
-                <br /> Studia podyplomowe. Gospodarka nieruchomościami
-              </li>
-              <li className="mb-3">
-                <strong className="h5">1997 - 2001</strong>
-                <br></br> Uniwersytet Ekonomiczny w Krakowie
-                <br /> Wydział Zarządzania: Rachunkowość, Zarządzanie firmą
-              </li>
-              <li className="mb-3">
-                <strong className="h5">1993 - 1997</strong>
-                <br></br> V Liceum Ogólnokształcące im. A. Witkowskiego w
-                Krakowie
-              </li>
-            </ul>
-          </MDBCol>
-          <MDBCol md="4" className="">
-            <MDBCard className="my-3 mt-md-0">
-              <MDBCardBody className="">
-                <div className="d-flex justify-content-around align-items-center">
-                  <i className="politechnika"></i>
-                  <i className="ekonomiczna"></i>
-                  <i className="lo"></i>
-                </div>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
-      <div
-        style={{
-          backgroundColor: "#f5f5f5",
-          boxShadow: "none",
-        }}
-        className="mt-5"
-      >
-        <MDBContainer>
-          <Jumbotron2 className="mt-5"></Jumbotron2>
-        </MDBContainer>
-      </div>
+              <MDBRow className="text-right mt-5 justify-content-between">
+                <MDBCol md="7" className="text-righ">
+                  <h2 className="h3">
+                    {pl
+                      ? indexPageTexts.subtitle2[0]
+                      : indexPageTexts.subtitle2[1]}
+                  </h2>
+                  <ul className="list-unstyled">
+                    <li className="mb-3">
+                      <strong className="h5">
+                        {pl
+                          ? indexPageTexts.point7[0]
+                          : indexPageTexts.point7[1]}
+                      </strong>
+                      <br></br>{" "}
+                      {pl ? indexPageTexts.text7[0] : indexPageTexts.text7[1]}
+                      <br />{" "}
+                      {pl ? indexPageTexts.text7a[0] : indexPageTexts.text7a[1]}
+                    </li>
+                    <li className="mb-3">
+                      <strong className="h5">
+                        {pl
+                          ? indexPageTexts.point8[0]
+                          : indexPageTexts.point8[1]}
+                      </strong>
+                      <br></br>{" "}
+                      {pl ? indexPageTexts.text8[0] : indexPageTexts.text8[1]}
+                      <br />{" "}
+                      {pl ? indexPageTexts.text8a[0] : indexPageTexts.text8a[1]}
+                    </li>
+                    <li className="mb-3">
+                      <strong className="h5">
+                        {pl
+                          ? indexPageTexts.point9[0]
+                          : indexPageTexts.point9[1]}
+                      </strong>
+                      <br></br>{" "}
+                      {pl ? indexPageTexts.text9[0] : indexPageTexts.text9[1]}
+                    </li>
+                  </ul>
+                </MDBCol>
+                <MDBCol md="4" className="">
+                  <MDBCard className="my-3 mt-md-0">
+                    <MDBCardBody className="">
+                      <div className="d-flex justify-content-around align-items-center">
+                        <i className="politechnika"></i>
+                        <i className="ekonomiczna"></i>
+                        <i className="lo"></i>
+                      </div>
+                    </MDBCardBody>
+                  </MDBCard>
+                </MDBCol>
+              </MDBRow>
+            </MDBContainer>
+            <div
+              style={{
+                backgroundColor: "#f5f5f5",
+                boxShadow: "none",
+              }}
+              className="mt-5"
+            >
+              {/* <MDBContainer>
+                <Jumbotron2 className="mt-5"></Jumbotron2>
+              </MDBContainer> */}
+            </div>
+          </>
+        )}
+      </LanguageContext.Consumer>
     </Layout>
   )
 }

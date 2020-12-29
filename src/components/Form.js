@@ -1,7 +1,7 @@
 import React from "react"
 import { navigate } from "gatsby-link"
 import { MDBCard, MDBCardBody, MDBBtn, MDBIcon, MDBInput } from "mdbreact"
-
+import { LanguageContext } from "./layout"
 function encode(data) {
   return Object.keys(data)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
@@ -31,77 +31,81 @@ export default function Form({ admin }) {
   }
 
   return (
-    <MDBCard>
-      <MDBCardBody>
-        <form
-          name="PKCV contact form"
-          method="post"
-          action="/thanks/"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          onSubmit={handleSubmit}
-          className="text-left"
-        >
-          {/* <div className="grey-text"> */}
-          {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-          <input type="hidden" name="hiden-input" value="contact" />
-          <div hidden>
-            <label htmlFor="bot-field">
-              Don’t fill this out:{" "}
-              <input
-                name="bot-field"
-                onChange={handleChange}
-                autoComplete="off"
-              />
-            </label>
-          </div>
-          <div className="grey-text">
-            <MDBInput
-              label="Imię"
-              icon="user"
-              group
-              type="text"
-              validate
-              error="wrong"
-              success="right"
-              onChange={handleChange}
-              autoComplete="off"
-              required
-              name="imie"
-            />
+    <LanguageContext.Consumer>
+      {({ pl }) => (
+        <MDBCard>
+          <MDBCardBody>
+            <form
+              name="PKCV contact form"
+              method="post"
+              action="/thanks/"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
+              className="text-left"
+            >
+              {/* <div className="grey-text"> */}
+              {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+              <input type="hidden" name="hiden-input" value="contact" />
+              <div hidden>
+                <label htmlFor="bot-field">
+                  Don’t fill this out:{" "}
+                  <input
+                    name="bot-field"
+                    onChange={handleChange}
+                    autoComplete="off"
+                  />
+                </label>
+              </div>
+              <div className="grey-text">
+                <MDBInput
+                  label={pl ? "Imię:" : "Name:"}
+                  icon="user"
+                  group
+                  type="text"
+                  validate
+                  error="wrong"
+                  success="right"
+                  onChange={handleChange}
+                  autoComplete="off"
+                  required
+                  name="imie"
+                />
 
-            <MDBInput
-              label="Email"
-              icon="envelope"
-              group
-              type="email"
-              validate
-              error="wrong"
-              success="right"
-              onChange={handleChange}
-              autoComplete="off"
-              required
-              name="email"
-            />
-            <MDBInput
-              type="textarea"
-              rows="4"
-              label="Twoja wiadomość"
-              icon="pencil-alt"
-              name="text"
-              iconSize="4"
-              iconSize="2x"
-            />
-          </div>
+                <MDBInput
+                  label="Email"
+                  icon="envelope"
+                  group
+                  type="email"
+                  validate
+                  error="wrong"
+                  success="right"
+                  onChange={handleChange}
+                  autoComplete="off"
+                  required
+                  name="email"
+                />
+                <MDBInput
+                  type="textarea"
+                  rows="4"
+                  label={pl ? "Wiadomość:" : "Message:"}
+                  icon="pencil-alt"
+                  name="text"
+                  iconSize="4"
+                  iconSize="2x"
+                />
+              </div>
 
-          <div className="text-center">
-            <MDBBtn type="submit" outline color="warning">
-              Wyślij
-              <MDBIcon far icon="paper-plane" className="ml-1" />
-            </MDBBtn>
-          </div>
-        </form>
-      </MDBCardBody>
-    </MDBCard>
+              <div className="text-center">
+                <MDBBtn type="submit" outline color="warning">
+                  {pl ? "Wyślij:" : "Send:"}
+                  <MDBIcon far icon="paper-plane" className="ml-1" />
+                </MDBBtn>
+              </div>
+            </form>
+          </MDBCardBody>
+        </MDBCard>
+      )}
+    </LanguageContext.Consumer>
   )
 }

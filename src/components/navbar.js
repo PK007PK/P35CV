@@ -24,6 +24,12 @@ class Navbar extends Component {
   }
 
   render() {
+    const text = {
+      item1: ["Doradztwo i finanse", "xzx"],
+      item2: ["Programowanie", "zxxz"],
+      item3: ["Kontakt", "zxzx"],
+    }
+
     return (
       <LanguageContext.Consumer>
         {({ pl, changeFn }) => (
@@ -51,7 +57,7 @@ class Navbar extends Component {
                       className="nav-link"
                       activeClassName="active"
                     >
-                      Doradztwo i finanse
+                      {pl ? text.item1[0] : text.item1[1]}
                     </Link>
                   </MDBNavItem>
                   <MDBNavItem className="mr-3">
@@ -60,7 +66,7 @@ class Navbar extends Component {
                       className="nav-link"
                       activeClassName="active"
                     >
-                      Programowanie
+                      {pl ? text.item2[0] : text.item2[1]}
                     </Link>
                   </MDBNavItem>
                   <MDBNavItem className="mr-5">
@@ -69,7 +75,7 @@ class Navbar extends Component {
                       className="nav-link"
                       activeClassName="active"
                     >
-                      Kontakt
+                      {pl ? text.item3[0] : text.item3[1]}
                     </Link>
                   </MDBNavItem>
                   <MDBNavItem>

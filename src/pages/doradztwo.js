@@ -1,9 +1,11 @@
 import React from "react"
-import { Link } from "gatsby"
+
+import { doradztwoPageTexts } from "../data/doradztwoPageText"
+import { LanguageContext } from "../components/layout"
 
 // import SEO from "../components/seo"
 import Layout from "../components/layout"
-import SubpageHeading from "../components/subpageHeading"
+
 import JumbotronReus from "../components/JumbotronReus"
 import {
   MDBContainer,
@@ -13,7 +15,6 @@ import {
   MDBCard,
   MDBCardBody,
   MDBIcon,
-  MDBCardTitle,
   MDBCardText,
 } from "mdbreact"
 
@@ -102,8 +103,8 @@ class IndexPage extends React.Component {
     'Fundusze EOG / "Norweskie"',
   ]
 
-  ShowFundsList = () => {
-    return this.fundsList.map(item => (
+  ShowFundsList = () =>
+    this.fundsList.map(item => (
       <MDBCard
         className="mb-4"
         style={{
@@ -119,66 +120,91 @@ class IndexPage extends React.Component {
         </MDBCardBody>
       </MDBCard>
     ))
-  }
 
   render() {
     const data = this.props.data
     const textJumbo = () => (
-      <p className="text-right">
-        W latach 2004 - 2020 współtworzyłem firmę Masterprojekt S.C.,
-        przygotowywałem projekty, sporządzałem analizy finansowe, rozliczałem
-        projekty.
-      </p>
+      <LanguageContext.Consumer>
+        {({ pl }) => (
+          <p className="text-right">
+            {pl
+              ? doradztwoPageTexts.description[0]
+              : doradztwoPageTexts.description[1]}
+          </p>
+        )}
+      </LanguageContext.Consumer>
     )
 
     const jumbotronBottom = () => (
-      <div className="text-right">
-        <MDBProgress
-          height="0.2rem"
-          value={(this.state.amount / 180) * 100}
-          className="my-2"
-        />
-        <p className="">
-          Zrealizowane projekty: {this.state.amount}
-          <br />
-          Wartość projektów: {this.state.values.toLocaleString()} zł
-          <br />
-          Pozyskane dotacje: {this.state.grants.toLocaleString()} zł
-        </p>
-      </div>
+      <LanguageContext.Consumer>
+        {({ pl }) => (
+          <div className="text-right">
+            <MDBProgress
+              height="0.2rem"
+              value={(this.state.amount / 180) * 100}
+              className="my-2"
+            />
+            <p className="">
+              {pl
+                ? doradztwoPageTexts.projectsAmount[0]
+                : doradztwoPageTexts.projectsAmount[1]}
+              : {this.state.amount}
+              <br />
+              {pl
+                ? doradztwoPageTexts.projectsValue[0]
+                : doradztwoPageTexts.projectsValue[1]}
+              : {this.state.values.toLocaleString()} zł
+              <br />
+              {pl ? doradztwoPageTexts.grants[0] : doradztwoPageTexts.grants[1]}
+              : {this.state.grants.toLocaleString()} zł
+            </p>
+          </div>
+        )}
+      </LanguageContext.Consumer>
     )
 
     return (
       <Layout>
-        {/* <SEO title="Doradztwo" /> */}
-        <JumbotronReus
-          title={"Piotr Krasny"}
-          subtitle={"Doradztwo i finanse"}
-          text={textJumbo}
-          bottomBar={jumbotronBottom}
-          rightBox={this.ShowCurrentProject}
-          style={{
-            backgroundColor: "#f5f5f5",
-            boxShadow: "none",
-            minHeight: "550px",
-          }}
-        />
+        <LanguageContext.Consumer>
+          {({ pl }) => (
+            <>
+              <JumbotronReus
+                title={"Piotr Krasny"}
+                subtitle={
+                  pl ? doradztwoPageTexts.title[0] : doradztwoPageTexts.title[1]
+                }
+                text={textJumbo}
+                bottomBar={jumbotronBottom}
+                rightBox={this.ShowCurrentProject}
+                style={{
+                  backgroundColor: "#f5f5f5",
+                  boxShadow: "none",
+                  minHeight: "550px",
+                }}
+              />
 
-        <MDBContainer style={{ minHeight: "100vh" }}>
-          <MDBRow className="">
-            <MDBCol>
-              <h2 className="mb-3">Portfolio / zrealizowane projekty </h2>
-            </MDBCol>
-          </MDBRow>
-          <MDBRow className="justify-content-between">
-            <MDBCol md="7" className="">
-              {this.state.isLoaded && <this.ShowAllProjects />}
-            </MDBCol>
-            <MDBCol md="4" className="">
-              {this.state.isLoaded && <this.ShowFundsList />}
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
+              <MDBContainer style={{ minHeight: "100vh" }}>
+                <MDBRow className="">
+                  <MDBCol>
+                    <h2 className="mb-3">
+                      {pl
+                        ? doradztwoPageTexts.subtitle[0]
+                        : doradztwoPageTexts.subtitle[1]}
+                    </h2>
+                  </MDBCol>
+                </MDBRow>
+                <MDBRow className="justify-content-between">
+                  <MDBCol md="7" className="">
+                    {this.state.isLoaded && <this.ShowAllProjects />}
+                  </MDBCol>
+                  <MDBCol md="4" className="">
+                    {this.state.isLoaded && <this.ShowFundsList />}
+                  </MDBCol>
+                </MDBRow>
+              </MDBContainer>
+            </>
+          )}
+        </LanguageContext.Consumer>
       </Layout>
     )
   }
