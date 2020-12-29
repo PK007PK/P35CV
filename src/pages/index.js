@@ -25,7 +25,7 @@ const IndexPage = ({ data }) => {
     </p>
   )
 
-  const buttonsForJumbo = () => (
+  const buttonsForJumbo = ({ pl }) => (
     <div className="text-md-right homepage-btn-bar">
       <MDBBtn
         href="https://github.com/PK007PK"
@@ -74,6 +74,7 @@ const IndexPage = ({ data }) => {
         }}
         imgSource={jumbotronImg}
       />
+
       <MDBContainer className="mt-5">
         <MDBRow className="justify-content-between">
           <MDBCol md="7" className="text-right">

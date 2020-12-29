@@ -24,7 +24,7 @@ const Programowanie = ({ data, location }) => {
   const jumbotronImg = data.placeholderImage.childImageSharp.fluid
 
   const textForJumbo = () => (
-    <p className="text-right my-4">
+    <p className="text-right">
       Od 2019 roku dużo czasu poświęcam nauce programowania. Interesuje mnie JAM
       Stack (Javascript-APIs-Markup). Moją ulubioną technologią jest React.js
     </p>
