@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { LanguageContext } from "./layout"
+import TransitionLink from "gatsby-plugin-transition-link"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 import { Link } from "gatsby"
 import {
@@ -36,13 +38,13 @@ class Navbar extends Component {
           <MDBNavbar color="unique-color-dark" dark expand="md">
             <MDBContainer>
               <MDBNavbarBrand>
-                <Link to="/">
+                <AniLink cover bg="#1C2331" duration={0.4} to="/">
                   <i
                     className="fas fa-check-double mr-2"
                     style={{ color: "white" }}
                   ></i>
                   <strong className="white-text">Piotr Krasny</strong>
-                </Link>
+                </AniLink>
               </MDBNavbarBrand>
               <MDBNavbarToggler onClick={this.toggleCollapse} />
               <MDBCollapse
@@ -52,31 +54,41 @@ class Navbar extends Component {
               >
                 <MDBNavbarNav right>
                   <MDBNavItem className="mr-3">
-                    <Link
+                    <AniLink
+                      cover
+                      bg="#1C2331"
+                      duration={0.4}
                       to="/doradztwo"
                       className="nav-link"
                       activeClassName="active"
                     >
                       {pl ? text.item1[0] : text.item1[1]}
-                    </Link>
+                    </AniLink>
                   </MDBNavItem>
                   <MDBNavItem className="mr-3">
-                    <Link
+                    <AniLink
+                      cover
+                      bg="#1C2331"
+                      duration={0.4}
                       to="/programowanie"
                       className="nav-link"
                       activeClassName="active"
                     >
                       {pl ? text.item2[0] : text.item2[1]}
-                    </Link>
+                    </AniLink>
                   </MDBNavItem>
                   <MDBNavItem className="mr-5">
-                    <Link
+                    <AniLink
+                      cover
+                      bg="#1C2331"
+                      duration={0.4}
+                      // color="#1C2331"
                       to="/kontakt"
                       className="nav-link"
                       activeClassName="active"
                     >
                       {pl ? text.item3[0] : text.item3[1]}
-                    </Link>
+                    </AniLink>
                   </MDBNavItem>
                   <MDBNavItem>
                     <MDBBtn

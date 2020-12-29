@@ -1,6 +1,11 @@
 // Your custom styles
-
+html {
+  overflow: -moz-scrollbars-vertical; 
+  overflow-y: scroll;
+}
 // This makes the footer stick to the bottom of the viewport
+
+
   .site {
     display: flex;
     min-height: 100vh;
