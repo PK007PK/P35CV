@@ -16,6 +16,7 @@ import {
   MDBCardBody,
   MDBIcon,
   MDBCardText,
+  MDBBtn,
 } from "mdbreact"
 
 import GrantProjectCard from "../components/GrantProjectCard"
@@ -32,14 +33,16 @@ class IndexPage extends React.Component {
   }
 
   componentDidMount() {
-    this.initializeData()
-    setInterval(this.addValue, 35)
+    // this.initializeData()
+    // this.state.isLoaded && setInterval(this.addValue, 35)
   }
 
-  initializeData = () =>
+  initializeData = () => {
     this.setState(prevState => ({
       isLoaded: !prevState.isLoaded,
     }))
+    setInterval(this.addValue, 35)
+  }
 
   addValue = () => {
     const n = this.state.amount
@@ -53,6 +56,26 @@ class IndexPage extends React.Component {
       }))
     }
   }
+
+  ShowInitialButton = () => (
+    <LanguageContext.Consumer>
+      {({ pl }) => (
+        <div
+          style={{
+            minHeight: "360px",
+            width: "100%",
+          }}
+          className="d-flex justify-content-center align-items-center"
+        >
+          <div>
+            <MDBBtn color="pink" onClick={this.initializeData}>
+              {pl ? "Wczytaj dane" : "Load data"}
+            </MDBBtn>
+          </div>
+        </div>
+      )}
+    </LanguageContext.Consumer>
+  )
 
   ShowAllProjects = () => (
     <div className="d-flex flex-column-reverse flex-wrap justify-content-between">
@@ -170,6 +193,7 @@ class IndexPage extends React.Component {
           this.props.location.state &&
           this.props.location.state.lang
         }
+        style={{ backgroundColor: "#f5f5f5" }}
       >
         <LanguageContext.Consumer>
           {({ pl }) => (
@@ -181,33 +205,38 @@ class IndexPage extends React.Component {
                 }
                 text={textJumbo}
                 bottomBar={jumbotronBottom}
-                rightBox={this.ShowCurrentProject}
+                rightBox={
+                  this.state.isLoaded
+                    ? this.ShowCurrentProject
+                    : this.ShowInitialButton
+                }
                 style={{
                   backgroundColor: "#f5f5f5",
                   boxShadow: "none",
                   minHeight: "550px",
                 }}
               />
-
-              <MDBContainer style={{ minHeight: "100vh" }}>
-                <MDBRow className="">
-                  <MDBCol>
-                    <h2 className="mb-3">
-                      {pl
-                        ? doradztwoPageTexts.subtitle[0]
-                        : doradztwoPageTexts.subtitle[1]}
-                    </h2>
-                  </MDBCol>
-                </MDBRow>
-                <MDBRow className="justify-content-between">
-                  <MDBCol md="7" className="">
-                    {this.state.isLoaded && <this.ShowAllProjects />}
-                  </MDBCol>
-                  <MDBCol md="4" className="">
-                    {this.state.isLoaded && <this.ShowFundsList />}
-                  </MDBCol>
-                </MDBRow>
-              </MDBContainer>
+              {this.state.isLoaded && (
+                <MDBContainer>
+                  <MDBRow className="">
+                    <MDBCol>
+                      <h2 className="mb-3">
+                        {pl
+                          ? doradztwoPageTexts.subtitle[0]
+                          : doradztwoPageTexts.subtitle[1]}
+                      </h2>
+                    </MDBCol>
+                  </MDBRow>
+                  <MDBRow className="justify-content-between">
+                    <MDBCol md="7" className="">
+                      {this.state.isLoaded && <this.ShowAllProjects />}
+                    </MDBCol>
+                    <MDBCol md="4" className="">
+                      {this.state.isLoaded && <this.ShowFundsList />}
+                    </MDBCol>
+                  </MDBRow>
+                </MDBContainer>
+              )}
             </>
           )}
         </LanguageContext.Consumer>
