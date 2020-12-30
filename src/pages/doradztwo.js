@@ -164,7 +164,13 @@ class IndexPage extends React.Component {
     )
 
     return (
-      <Layout lang={this.props.location && this.props.location.state.lang}>
+      <Layout
+        lang={
+          this.props.location &&
+          this.props.location.state &&
+          this.props.location.state.lang
+        }
+      >
         <LanguageContext.Consumer>
           {({ pl }) => (
             <>
