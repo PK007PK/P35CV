@@ -16,7 +16,7 @@ import Layout from "../components/layout"
 import Jumbotron2 from "../components/jumbotron2"
 import JumbotronReus from "../components/JumbotronReus"
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, location }) => {
   const jumbotronImg = data.placeholderImage.childImageSharp.fluid
 
   const textForJumbo = () => (
@@ -63,7 +63,7 @@ const IndexPage = ({ data }) => {
   )
 
   return (
-    <Layout>
+    <Layout lang={location.state && location.state.lang}>
       <LanguageContext.Consumer>
         {({ pl }) => (
           <>

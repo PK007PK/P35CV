@@ -9,6 +9,15 @@ export const LanguageContext = React.createContext()
 class Layout extends React.Component {
   state = { pl: true, changeFn: () => this.changeLanguage }
 
+  componentDidMount() {
+    console.log("Pl w propsach: ", this.props.lang)
+    this.setState({ pl: this.props.lang === "eng" ? false : true })
+  }
+
+  componentDidUpdate() {
+    // console.log("Pl w state po update: ", this.state.pl)
+  }
+
   changeLanguage = () => this.setState(prevState => ({ pl: !prevState.pl }))
 
   render() {

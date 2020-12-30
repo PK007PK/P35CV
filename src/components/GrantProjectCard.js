@@ -23,8 +23,8 @@ const GrantProjectCard = ({ name, title, value, grant, style, whiteText }) => {
         <div className=""></div>
       </div>
       <div className="card-footer d-flex justify-content-between ">
-        <small class="">Wartość: {value} zł</small>
-        <small class="">Dotacja: {grant} zł</small>
+        <small className="">Wartość: {value} zł</small>
+        <small className="">Dotacja: {grant} zł</small>
       </div>
     </div>
   )

@@ -23,20 +23,6 @@ const Programowanie = ({ data, location }) => {
   const posts = data.allMarkdownRemark.nodes
   const jumbotronImg = data.placeholderImage.childImageSharp.fluid
 
-  // const textForJumbo = () => (
-  //   <LanguageContext>
-  //     {pl => (
-  //       <>
-  //         <p className="text-right">
-  //           {pl
-  //             ? programowaniePageTexts.description[0]
-  //             : programowaniePageTexts.description[1]}
-  //         </p>
-  //       </>
-  //     )}
-  //   </LanguageContext>
-  // )
-
   const iconBar = () => (
     <div className="d-flex justify-content-end">
       <MDBIcon
@@ -54,7 +40,7 @@ const Programowanie = ({ data, location }) => {
   )
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout lang={location.state && location.state.lang}>
       <LanguageContext.Consumer>
         {({ pl }) => (
           <>
@@ -107,7 +93,7 @@ const Programowanie = ({ data, location }) => {
                             <MDBCardBody>
                               <MDBCardTitle>{title}</MDBCardTitle>
                               <MDBCardText className="">
-                                <small class="text-muted">{date}</small>
+                                <small className="text-muted">{date}</small>
                               </MDBCardText>{" "}
                               <MDBCardText className="">
                                 {description}
@@ -124,22 +110,22 @@ const Programowanie = ({ data, location }) => {
                                 </Link>
                               )}
                               {live && (
-                                <Link
+                                <a
                                   to={live}
-                                  className="btn btn-sm"
+                                  className="btn btn-sm text-dark"
                                   itemProp="url"
                                 >
                                   <span itemProp="headline">Live</span>
-                                </Link>
+                                </a>
                               )}
                               {githubRepo && (
-                                <Link
+                                <a
                                   to={githubRepo}
-                                  className="btn btn-sm"
+                                  className="btn btn-sm text-dark"
                                   itemProp="url"
                                 >
                                   <span itemProp="headline">Github</span>
-                                </Link>
+                                </a>
                               )}
                             </div>
                           </MDBCard>

@@ -22,7 +22,7 @@ const JumbotronReus = ({
           className="justify-content-between"
           style={{ alignItems: "center" }}
         >
-          <MDBCol lg={7}>
+          <MDBCol lg="7">
             <h1 className="h1 text-right">
               {title}
               <br />
@@ -38,7 +38,7 @@ const JumbotronReus = ({
             {bottomBar && <BottomBar />}
           </MDBCol>
 
-          <MDBCol lg={4} className="mt-4 mt-md-0">
+          <MDBCol lg="4" className="mt-4 mt-md-0">
             {(imgSource && (
               <MDBCard>
                 <ImageReusable className="card-img" source={imgSource} />

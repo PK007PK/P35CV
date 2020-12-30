@@ -122,7 +122,7 @@ class IndexPage extends React.Component {
     ))
 
   render() {
-    const data = this.props.data
+    // const data = this.props.data
     const textJumbo = () => (
       <LanguageContext.Consumer>
         {({ pl }) => (
@@ -164,7 +164,7 @@ class IndexPage extends React.Component {
     )
 
     return (
-      <Layout>
+      <Layout lang={this.props.location && this.props.location.state.lang}>
         <LanguageContext.Consumer>
           {({ pl }) => (
             <>

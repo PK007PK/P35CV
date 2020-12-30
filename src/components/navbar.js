@@ -38,7 +38,13 @@ class Navbar extends Component {
           <MDBNavbar color="unique-color-dark" dark expand="md">
             <MDBContainer>
               <MDBNavbarBrand>
-                <AniLink cover bg="#1C2331" duration={0.4} to="/">
+                <AniLink
+                  state={{ lang: pl ? "pl" : "eng" }}
+                  cover
+                  bg="#1C2331"
+                  duration={0.4}
+                  to="/"
+                >
                   <i
                     className="fas fa-check-double mr-2"
                     style={{ color: "white" }}
@@ -55,6 +61,7 @@ class Navbar extends Component {
                 <MDBNavbarNav right>
                   <MDBNavItem className="mr-3">
                     <AniLink
+                      state={{ lang: pl ? "pl" : "eng" }}
                       cover
                       bg="#1C2331"
                       duration={0.4}
@@ -68,6 +75,7 @@ class Navbar extends Component {
                   <MDBNavItem className="mr-3">
                     <AniLink
                       cover
+                      state={{ lang: pl ? "pl" : "eng" }}
                       bg="#1C2331"
                       duration={0.4}
                       to="/programowanie"
@@ -82,7 +90,7 @@ class Navbar extends Component {
                       cover
                       bg="#1C2331"
                       duration={0.4}
-                      // color="#1C2331"
+                      state={{ lang: pl ? "pl" : "eng" }}
                       to="/kontakt"
                       className="nav-link"
                       activeClassName="active"

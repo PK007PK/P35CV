@@ -5,18 +5,7 @@ import Form from "../components/Form"
 import Layout from "../components/layout"
 import JumbotronReus from "../components/JumbotronReus"
 
-const KontaktPage = ({ data }) => {
-  const jumbotronImg = data.placeholderImage.childImageSharp.fluid
-
-  const textForJumbo = () => (
-    <p className="text-right my-4">
-      Dziękuję, że odwiedziłaś / odwiedziłeś moją stronę.
-      <br /> Zapraszam Cię do zapoznania się z moim CV, oraz projektami które
-      wykonałem.<br></br>Mam nadzieję, że uda nam się nawiązać korzystną
-      współpracę
-    </p>
-  )
-
+const KontaktPage = ({ data, location }) => {
   const contactInfo = () => (
     <LanguageContext.Consumer>
       {({ pl }) => (
@@ -46,6 +35,7 @@ const KontaktPage = ({ data }) => {
 
   return (
     <Layout
+      lang={location.state && location.state.lang}
       style={{
         backgroundColor: "#f5f5f5",
       }}
