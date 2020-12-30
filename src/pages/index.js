@@ -281,7 +281,7 @@ export const pageQuery = graphql`
   query {
     placeholderImage: file(relativePath: { eq: "pk.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 300) {
+        fluid(maxWidth: 700) {
           ...GatsbyImageSharpFluid
         }
       }
