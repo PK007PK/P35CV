@@ -63,7 +63,7 @@ const IndexPage = ({ data, location }) => {
   )
 
   return (
-    <Layout lang={location.state && location.state.lang}>
+    <Layout lang={location && location.state && location.state.lang}>
       <LanguageContext.Consumer>
         {({ pl }) => (
           <>

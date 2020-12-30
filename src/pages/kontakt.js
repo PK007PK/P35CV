@@ -35,7 +35,7 @@ const KontaktPage = ({ data, location }) => {
 
   return (
     <Layout
-      lang={location.state && location.state.lang}
+      lang={location && location.state && location.state.lang}
       style={{
         backgroundColor: "#f5f5f5",
       }}

@@ -15,6 +15,7 @@ import {
   MDBCardTitle,
   MDBCardText,
   MDBBadge,
+  MDBBtn,
 } from "mdbreact"
 import JumbotronReus from "../components/JumbotronReus"
 
@@ -40,7 +41,7 @@ const Programowanie = ({ data, location }) => {
   )
 
   return (
-    <Layout lang={location.state && location.state.lang}>
+    <Layout lang={location && location.state && location.state.lang}>
       <LanguageContext.Consumer>
         {({ pl }) => (
           <>
@@ -103,29 +104,35 @@ const Programowanie = ({ data, location }) => {
                               {post.fields.slug && (
                                 <Link
                                   to={post.fields.slug}
-                                  className="btn btn-sm"
+                                  className="btn btn-sm indigo white-text"
                                   itemProp="url"
                                 >
                                   <span itemProp="headline">Więcej</span>
                                 </Link>
                               )}
                               {live && (
-                                <a
-                                  to={live}
-                                  className="btn btn-sm text-dark"
+                                <MDBBtn
+                                  href={live}
+                                  target="_blank"
+                                  color="indigo"
+                                  rel="noopener noreferrer"
+                                  className="btn btn-sm"
                                   itemProp="url"
                                 >
-                                  <span itemProp="headline">Live</span>
-                                </a>
+                                  Live
+                                </MDBBtn>
                               )}
                               {githubRepo && (
-                                <a
-                                  to={githubRepo}
-                                  className="btn btn-sm text-dark"
+                                <MDBBtn
+                                  href={githubRepo}
+                                  target="_blank"
+                                  color="indigo"
+                                  rel="noopener noreferrer"
+                                  className="btn btn-sm"
                                   itemProp="url"
                                 >
                                   <span itemProp="headline">Github</span>
-                                </a>
+                                </MDBBtn>
                               )}
                             </div>
                           </MDBCard>
