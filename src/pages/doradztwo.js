@@ -17,6 +17,7 @@ import {
   MDBIcon,
   MDBCardText,
   MDBBtn,
+  MDBAnimation,
 } from "mdbreact"
 
 import GrantProjectCard from "../components/GrantProjectCard"
@@ -68,9 +69,11 @@ class IndexPage extends React.Component {
           className="d-flex justify-content-center align-items-center"
         >
           <div>
-            <MDBBtn color="pink" onClick={this.initializeData}>
-              {pl ? "Wczytaj dane" : "Load data"}
-            </MDBBtn>
+            <MDBAnimation type="rollIn">
+              <MDBBtn color="pink" onClick={this.initializeData}>
+                {pl ? "Wczytaj dane" : "Load data"}
+              </MDBBtn>
+            </MDBAnimation>
           </div>
         </div>
       )}
