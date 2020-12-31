@@ -304,7 +304,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    placeholderImage: file(relativePath: { eq: "pk.jpg" }) {
+    placeholderImage: file(relativePath: { eq: "pkinf1.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 300) {
           ...GatsbyImageSharpFluid
