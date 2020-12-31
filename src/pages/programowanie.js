@@ -69,12 +69,15 @@ const Programowanie = ({ data, location }) => {
             <MDBContainer>
               <ol style={{ listStyle: `none`, paddingLeft: 0 }}>
                 {posts.map(post => {
-                  const title = post.frontmatter.title || post.fields.slug
                   const fluid =
                     post.frontmatter.thumbnail &&
                     post.frontmatter.thumbnail.childImageSharp.fluid
                   const {
+                    title,
+                    titleEng,
                     description,
+                    descriptionEng,
+                    showMore,
                     react,
                     gatsby,
                     bootstrap,
@@ -92,22 +95,26 @@ const Programowanie = ({ data, location }) => {
                           <MDBCard className="post-list-item mb-0">
                             <Image className="card-img" fluid={fluid} />
                             <MDBCardBody>
-                              <MDBCardTitle>{title}</MDBCardTitle>
+                              <MDBCardTitle>
+                                {pl ? title : titleEng}
+                              </MDBCardTitle>
                               <MDBCardText className="">
                                 <small className="text-muted">{date}</small>
-                              </MDBCardText>{" "}
+                              </MDBCardText>
                               <MDBCardText className="">
-                                {description}
-                              </MDBCardText>{" "}
+                                {pl ? description : descriptionEng}
+                              </MDBCardText>
                             </MDBCardBody>
                             <div className="card-footer">
-                              {post.fields.slug && (
+                              {showMore && (
                                 <Link
                                   to={post.fields.slug}
                                   className="btn btn-sm indigo white-text"
                                   itemProp="url"
                                 >
-                                  <span itemProp="headline">Więcej</span>
+                                  <span itemProp="headline">
+                                    {pl ? "Więcej" : "More"}
+                                  </span>
                                 </Link>
                               )}
                               {live && (
@@ -220,7 +227,7 @@ const Programowanie = ({ data, location }) => {
                                 />
                                 <span style={{ fontSize: "1.3rem" }}>
                                   {" "}
-                                  netlifyCMS
+                                  netlify
                                 </span>
                               </MDBBadge>
                             )}
@@ -275,7 +282,10 @@ export const pageQuery = graphql`
           # date(formatString: "MMMM DD, YYYY")
           date(formatString: "YYYY-MM-DD")
           title
+          titleEng
           description
+          descriptionEng
+          showMore
           live
           githubRepo
           thumbnail {
