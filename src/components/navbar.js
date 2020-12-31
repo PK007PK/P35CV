@@ -1,10 +1,8 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { LanguageContext } from "./layout"
-import TransitionLink from "gatsby-plugin-transition-link"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 
-import { Link } from "gatsby"
 import {
   MDBNavbar,
   MDBNavbarBrand,
