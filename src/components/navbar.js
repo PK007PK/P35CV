@@ -67,7 +67,9 @@ class Navbar extends Component {
                       duration={0.4}
                       to="/doradztwo"
                       className="nav-link"
-                      activeClassName="active"
+                      activeStyle={{
+                        fontWeight: "bold",
+                      }}
                     >
                       {pl ? text.item1[0] : text.item1[1]}
                     </AniLink>
@@ -80,7 +82,9 @@ class Navbar extends Component {
                       duration={0.4}
                       to="/programowanie"
                       className="nav-link"
-                      activeClassName="active"
+                      activeStyle={{
+                        fontWeight: "bold",
+                      }}
                     >
                       {pl ? text.item2[0] : text.item2[1]}
                     </AniLink>
@@ -93,7 +97,9 @@ class Navbar extends Component {
                       state={{ lang: pl ? "pl" : "eng" }}
                       to="/kontakt"
                       className="nav-link"
-                      activeClassName="active"
+                      activeStyle={{
+                        fontWeight: "bold",
+                      }}
                     >
                       {pl ? text.item3[0] : text.item3[1]}
                     </AniLink>
