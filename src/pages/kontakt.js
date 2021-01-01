@@ -4,7 +4,7 @@ import { LanguageContext } from "../components/layout"
 import Form from "../components/Form"
 import Layout from "../components/layout"
 import JumbotronReus from "../components/JumbotronReus"
-
+import SEO from "../components/seo"
 const KontaktPage = ({ data, location }) => {
   const contactInfo = () => (
     <LanguageContext.Consumer>
@@ -43,20 +43,23 @@ const KontaktPage = ({ data, location }) => {
       {" "}
       <LanguageContext.Consumer>
         {({ pl }) => (
-          <JumbotronReus
-            title={"Piotr Krasny"}
-            subtitle={pl ? "Kontakt" : "Contact"}
-            // text={textForJumbo}
-            bottomBar={contactInfo}
-            rightBox={Form}
-            style={{
-              backgroundColor: "#f5f5f5",
-              boxShadow: "none",
-              minHeight: "100%",
-              marginBottom: 0,
-            }}
-            // imgSource={jumbotronImg}
-          />
+          <>
+            <SEO title={pl ? "Kontakt" : "Contact"} />
+            <JumbotronReus
+              title={"Piotr Krasny"}
+              subtitle={pl ? "Kontakt" : "Contact"}
+              // text={textForJumbo}
+              bottomBar={contactInfo}
+              rightBox={Form}
+              style={{
+                backgroundColor: "#f5f5f5",
+                boxShadow: "none",
+                minHeight: "100%",
+                marginBottom: 0,
+              }}
+              // imgSource={jumbotronImg}
+            />
+          </>
         )}
       </LanguageContext.Consumer>
     </Layout>

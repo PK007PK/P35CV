@@ -3,7 +3,7 @@ import React from "react"
 import { doradztwoPageTexts } from "../data/doradztwoPageText"
 import { LanguageContext } from "../components/layout"
 
-// import SEO from "../components/seo"
+import SEO from "../components/seo"
 import Layout from "../components/layout"
 
 import JumbotronReus from "../components/JumbotronReus"
@@ -147,47 +147,49 @@ class IndexPage extends React.Component {
       </MDBCard>
     ))
 
+  textJumbo = () => (
+    <LanguageContext.Consumer>
+      {({ pl }) => (
+        <p className="text-right">
+          {pl
+            ? doradztwoPageTexts.description[0]
+            : doradztwoPageTexts.description[1]}
+        </p>
+      )}
+    </LanguageContext.Consumer>
+  )
+
+  jumbotronBottom = () => (
+    <LanguageContext.Consumer>
+      {({ pl }) => (
+        <div className="text-right">
+          <MDBProgress
+            height="0.2rem"
+            value={(this.state.amount / 180) * 100}
+            className="my-2"
+          />
+          <p className="">
+            {pl
+              ? doradztwoPageTexts.projectsAmount[0]
+              : doradztwoPageTexts.projectsAmount[1]}
+            : {this.state.amount}
+            <br />
+            {pl
+              ? doradztwoPageTexts.projectsValue[0]
+              : doradztwoPageTexts.projectsValue[1]}
+            : {this.state.values.toLocaleString()} zł
+            <br />
+            {pl
+              ? doradztwoPageTexts.grants[0]
+              : doradztwoPageTexts.grants[1]}:{" "}
+            {this.state.grants.toLocaleString()} zł
+          </p>
+        </div>
+      )}
+    </LanguageContext.Consumer>
+  )
   render() {
     // const data = this.props.data
-    const textJumbo = () => (
-      <LanguageContext.Consumer>
-        {({ pl }) => (
-          <p className="text-right">
-            {pl
-              ? doradztwoPageTexts.description[0]
-              : doradztwoPageTexts.description[1]}
-          </p>
-        )}
-      </LanguageContext.Consumer>
-    )
-
-    const jumbotronBottom = () => (
-      <LanguageContext.Consumer>
-        {({ pl }) => (
-          <div className="text-right">
-            <MDBProgress
-              height="0.2rem"
-              value={(this.state.amount / 180) * 100}
-              className="my-2"
-            />
-            <p className="">
-              {pl
-                ? doradztwoPageTexts.projectsAmount[0]
-                : doradztwoPageTexts.projectsAmount[1]}
-              : {this.state.amount}
-              <br />
-              {pl
-                ? doradztwoPageTexts.projectsValue[0]
-                : doradztwoPageTexts.projectsValue[1]}
-              : {this.state.values.toLocaleString()} zł
-              <br />
-              {pl ? doradztwoPageTexts.grants[0] : doradztwoPageTexts.grants[1]}
-              : {this.state.grants.toLocaleString()} zł
-            </p>
-          </div>
-        )}
-      </LanguageContext.Consumer>
-    )
 
     return (
       <Layout
@@ -201,13 +203,14 @@ class IndexPage extends React.Component {
         <LanguageContext.Consumer>
           {({ pl }) => (
             <>
+              <SEO title="Doradztwo" />
               <JumbotronReus
                 title={"Piotr Krasny"}
                 subtitle={
                   pl ? doradztwoPageTexts.title[0] : doradztwoPageTexts.title[1]
                 }
-                text={textJumbo}
-                bottomBar={jumbotronBottom}
+                text={this.textJumbo}
+                bottomBar={this.jumbotronBottom}
                 rightBox={
                   this.state.isLoaded
                     ? this.ShowCurrentProject

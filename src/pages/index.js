@@ -13,7 +13,7 @@ import {
 
 import { LanguageContext } from "../components/layout"
 import Layout from "../components/layout"
-// import SEO from "../components/seo"
+import SEO from "../components/seo"
 import Jumbotron2 from "../components/jumbotron2"
 import JumbotronReus from "../components/JumbotronReus"
 
@@ -68,6 +68,7 @@ const IndexPage = ({ data, location }) => {
       <LanguageContext.Consumer>
         {({ pl }) => (
           <>
+            <SEO title={pl ? "Strona Główna" : "Home"} />
             <JumbotronReus
               title={"Piotr Krasny"}
               subtitle={pl ? indexPageTexts.title[0] : indexPageTexts.title[1]}

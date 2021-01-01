@@ -1,15 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `Piotr Krasny, CV`,
+    title: `Piotr Krasny CV`,
     author: {
       name: `Piotr Krasny`,
       summary: `Piotr Krasny`,
     },
-    description: `CV and portfolio website`,
+    description: `Personal CV and portfolio website`,
     siteUrl: `https://pkcv.netlify.app/`,
-    social: {
-      // twitter: `kylemathews`,
-    },
   },
   plugins: [
     `gatsby-plugin-transition-link`,

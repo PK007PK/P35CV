@@ -45,7 +45,7 @@ const Programowanie = ({ data, location }) => {
       <LanguageContext.Consumer>
         {({ pl }) => (
           <>
-            <SEO title="Piotr Krasny CV: programowanie" />
+            <SEO title={pl ? "Programowanie" : "Programming"} />
             <JumbotronReus
               title={"Piotr Krasny"}
               subtitle={
@@ -153,12 +153,11 @@ const Programowanie = ({ data, location }) => {
                                 style={{ boxShadow: "none" }}
                               >
                                 <MDBIcon
-                                  style={{ fontSize: "1.3rem" }}
+                                  style={{ fontSize: "1.1rem" }}
                                   size="lg"
                                   icon="hashtag"
                                 />
-                                <span style={{ fontSize: "1.3rem" }}>
-                                  {" "}
+                                <span style={{ fontSize: "1.1rem" }}>
                                   react
                                 </span>
                               </MDBBadge>
@@ -170,12 +169,11 @@ const Programowanie = ({ data, location }) => {
                                 style={{ boxShadow: "none" }}
                               >
                                 <MDBIcon
-                                  style={{ fontSize: "1.3rem" }}
+                                  style={{ fontSize: "1.1rem" }}
                                   size="lg"
                                   icon="hashtag"
                                 />
-                                <span style={{ fontSize: "1.3rem" }}>
-                                  {" "}
+                                <span style={{ fontSize: "1.1rem" }}>
                                   gatsby
                                 </span>
                               </MDBBadge>
@@ -187,12 +185,11 @@ const Programowanie = ({ data, location }) => {
                                 style={{ boxShadow: "none" }}
                               >
                                 <MDBIcon
-                                  style={{ fontSize: "1.3rem" }}
+                                  style={{ fontSize: "1.1rem" }}
                                   size="lg"
                                   icon="hashtag"
                                 />
-                                <span style={{ fontSize: "1.3rem" }}>
-                                  {" "}
+                                <span style={{ fontSize: "1.1rem" }}>
                                   bootstrap
                                 </span>
                               </MDBBadge>
@@ -204,12 +201,11 @@ const Programowanie = ({ data, location }) => {
                                 style={{ boxShadow: "none" }}
                               >
                                 <MDBIcon
-                                  style={{ fontSize: "1.3rem" }}
+                                  style={{ fontSize: "1.1rem" }}
                                   size="lg"
                                   icon="hashtag"
                                 />
-                                <span style={{ fontSize: "1.3rem" }}>
-                                  {" "}
+                                <span style={{ fontSize: "1.1rem" }}>
                                   mdbootstrap
                                 </span>
                               </MDBBadge>
@@ -221,12 +217,11 @@ const Programowanie = ({ data, location }) => {
                                 style={{ boxShadow: "none" }}
                               >
                                 <MDBIcon
-                                  style={{ fontSize: "1.3rem" }}
+                                  style={{ fontSize: "1.1rem" }}
                                   size="lg"
                                   icon="hashtag"
                                 />
-                                <span style={{ fontSize: "1.3rem" }}>
-                                  {" "}
+                                <span style={{ fontSize: "1.1rem" }}>
                                   netlify
                                 </span>
                               </MDBBadge>
@@ -238,12 +233,15 @@ const Programowanie = ({ data, location }) => {
                                 style={{ boxShadow: "none" }}
                               >
                                 <MDBIcon
-                                  style={{ fontSize: "1.3rem" }}
+                                  style={{ fontSize: "1.1rem" }}
                                   size="lg"
                                   icon="hashtag"
                                 />
-                                <span style={{ fontSize: "1.3rem" }}>
-                                  {" "}
+                                <span
+                                  style={{
+                                    fontSize: "1.1rem",
+                                  }}
+                                >
                                   netlifyCMS
                                 </span>
                               </MDBBadge>
