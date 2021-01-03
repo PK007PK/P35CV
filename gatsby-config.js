@@ -20,19 +20,84 @@ module.exports = {
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
-        // printRejected: true, // Print removed selectors and processed file names
-        // develop: true, // Enable while using `gatsby develop`
-        // tailwind: true, // Enable tailwindcss support
+        printRejected: true, // Print removed selectors and processed file names
+        develop: true, // Enable while using `gatsby develop`
+        whitelist: [
+          "body",
+          "html",
+          "container",
+          "row",
+          "col",
+          "footer-copyright",
+          "py-0",
+          "py-1",
+          "py-2",
+          "py-3",
+          "py-4",
+          "py-5",
+          "px-0",
+          "px-1",
+          "px-2",
+          "px-3",
+          "px-4",
+          "px-5",
+          "fab",
+          "fa-react",
+          "gatsbyIcon",
+          "text-left",
+          "text-right",
+          "fa-file-pdf",
+          "far",
+          "fab",
+          "fa",
+          "fa-lg",
+          "fa-linkedin-in",
+          "fa-github",
+          "css3-alt",
+          "sass",
+          "fa-js",
+          "fa-react",
+          "fa-css3-alt",
+          "fa-html5",
+          "hashtag",
+          "fa-hashtag",
+          "fa-3x",
+          "fa-sass",
+        ],
+        whitelistPatterns: [
+          /0$/,
+          /1$/,
+          /2$/,
+          /3$/,
+          /4$/,
+          /5$/,
+          /right$/,
+          /left$/,
+          /center$/,
+        ],
+        whitelistPatternsChildren: [
+          /0$/,
+          /1$/,
+          /2$/,
+          /3$/,
+          /4$/,
+          /5$/,
+          /right$/,
+          /left$/,
+          /center$/,
+        ],
         // whitelist: ["whitelist"], // Don't remove this selector
+
         // ignore: ["src/styles/carousel/", "prismjs/", "docsearch.js/"], // Ignore files/folders
-        // ignore: ["src/styles/carousel/"], // Ignore files/folders
+        //ignore: ["colors"], // Ignore files/folders
         // ignore: [
         // "MDBNavbar",
         // "MDBNavbarNav",
         // "MDBNavbarToggler",
         // "MDBCollapse",
         //], // Ignore files/folders
-        // purgeOnly: ["components/", "/main.css", "bootstrap/"], // Purge only these files/folders
+        //purgeOnly: ["src/assets/scss/"], // Purge only these files/folders
+        // purgeOnly: ["all.min.css", "bootstrap.min.css", "mdb-free.scss"], // Purge only these files/folders
         purgeOnly: ["all.min.css"], // Purge only these files/folders
       },
     },

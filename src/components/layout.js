@@ -10,7 +10,6 @@ class Layout extends React.Component {
   state = { pl: true, changeFn: () => this.changeLanguage }
 
   componentDidMount() {
-    console.log("Pl w propsach: ", this.props.lang)
     this.setState({ pl: this.props.lang === "eng" ? false : true })
   }
 
