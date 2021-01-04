@@ -129,23 +129,28 @@ class IndexPage extends React.Component {
     'Fundusze EOG / "Norweskie"',
   ]
 
-  ShowFundsList = () =>
-    this.fundsList.map(item => (
-      <MDBCard
-        className="mb-4"
-        style={{
-          backgroundColor: "#2E2E2E",
-          color: "white",
-        }}
-      >
-        <MDBCardBody>
-          <MDBCardText className="text-center text-white">
-            <MDBIcon far icon="bookmark" className="mr-2" />
-            {item}
-          </MDBCardText>
-        </MDBCardBody>
-      </MDBCard>
-    ))
+  ShowFundsList = () => (
+    <LanguageContext.Consumer>
+      {({ pl }) =>
+        doradztwoPageTexts.programs.map(item => (
+          <MDBCard
+            className="mb-4"
+            style={{
+              backgroundColor: "#2E2E2E",
+              color: "white",
+            }}
+          >
+            <MDBCardBody>
+              <MDBCardText className="text-center text-white">
+                <MDBIcon far icon="bookmark" className="mr-2" />
+                {pl ? item[0] : item[1]}
+              </MDBCardText>
+            </MDBCardBody>
+          </MDBCard>
+        ))
+      }
+    </LanguageContext.Consumer>
+  )
 
   textJumbo = () => (
     <LanguageContext.Consumer>

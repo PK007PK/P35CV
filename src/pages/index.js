@@ -14,7 +14,7 @@ import {
 import { LanguageContext } from "../components/layout"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Jumbotron2 from "../components/jumbotron2"
+// import Jumbotron2 from "../components/jumbotron2"
 import JumbotronReus from "../components/JumbotronReus"
 
 const IndexPage = ({ data, location }) => {

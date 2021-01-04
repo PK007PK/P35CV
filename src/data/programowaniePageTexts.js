@@ -1,7 +1,7 @@
 export const programowaniePageTexts = {
-  title: ["Programowanie", "zxzxc zx"],
+  title: ["Programowanie", "Programming"],
   description: [
-    "Od 2019 roku dużo czasu poświęcam nauce programowania. Interesuje mnie JAM Stack (Javascript-APIs-Markup). Moją ulubioną technologią jest React.js",
-    "fggffg",
+    "Od 2019 roku uczę się programowania. Interesuje mnie JAM Stack (Javascript-APIs-Markup). Moją ulubioną technologią jest React.js",
+    "I have been learning programming since 2019. I am interested in JAM Stack (Javascript-APIs-Markup). My favourite technology is React.js",
   ],
 }

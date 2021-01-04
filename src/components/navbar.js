@@ -25,9 +25,9 @@ class Navbar extends Component {
 
   render() {
     const text = {
-      item1: ["Doradztwo i finanse", "xzx"],
-      item2: ["Programowanie", "zxxz"],
-      item3: ["Kontakt", "zxzx"],
+      item1: ["Doradztwo i finanse", "Consulting and finance"],
+      item2: ["Programowanie", "Programming"],
+      item3: ["Kontakt", "Contact"],
     }
 
     return (

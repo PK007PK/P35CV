@@ -20,7 +20,7 @@ import {
 import JumbotronReus from "../components/JumbotronReus"
 
 const Programowanie = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+  // const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
   const jumbotronImg = data.placeholderImage.childImageSharp.fluid
 
