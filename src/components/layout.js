@@ -32,7 +32,9 @@ class Layout extends React.Component {
     return (
       <LanguageContext.Provider value={this.state}>
         <div className="site" style={style}>
-          {!this.state.print && <Navbar printFn={this.changePrint} />}
+          {!this.state.print && (
+            <Navbar printFn={this.changePrint} pathname={this.props.pathname} />
+          )}
           <main className="site-content">{children}</main>
           {!this.state.print && <Footer />}
         </div>

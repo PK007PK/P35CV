@@ -103,20 +103,25 @@ class Navbar extends Component {
                       {pl ? text.item3[0] : text.item3[1]}
                     </AniLink>
                   </MDBNavItem>
-                  <MDBNavItem className="mr-1 d-flex align-items-center">
-                    <MDBTooltip domElement tag="span" placement="bottom">
-                      <spam>
-                        <MDBBtn className="btn-sm" onClick={this.props.printFn}>
-                          <i className="fas fa-print"></i>
-                        </MDBBtn>
-                      </spam>
-                      <span>
-                        {pl
-                          ? "Wesja do druku na 20 sekund"
-                          : "Print version for 20 seconds"}
-                      </span>
-                    </MDBTooltip>
-                  </MDBNavItem>
+                  {this.props.pathname === "/" && (
+                    <MDBNavItem className="mr-1 d-flex align-items-center">
+                      <MDBTooltip domElement tag="span" placement="bottom">
+                        <span>
+                          <MDBBtn
+                            className="btn-sm"
+                            onClick={this.props.printFn}
+                          >
+                            <i className="fas fa-print"></i>
+                          </MDBBtn>
+                        </span>
+                        <span>
+                          {pl
+                            ? "Wesja do druku na 20 sekund"
+                            : "Print version for 20 seconds"}
+                        </span>
+                      </MDBTooltip>
+                    </MDBNavItem>
+                  )}
                   <MDBNavItem>
                     <MDBBtn
                       onClick={changeFn()}

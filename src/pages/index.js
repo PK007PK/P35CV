@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-
+// import { useLocation } from "react-router-dom"
 import { indexPageTexts } from "../data/indexPageTexts"
 import {
   MDBContainer,
@@ -57,36 +57,44 @@ const IndexPage = ({ data, location }) => {
   )
 
   const buttonsForJumbo = () => (
-    <div className=" homepage-btn-bar">
-      <MDBBtn
-        href="https://github.com/PK007PK"
-        target="_blank"
-        color="indigo"
-        rel="noopener noreferrer"
-        className="waves-effect w-100 mx-0 mx-md-2"
-      >
-        CV PDF
-        <MDBIcon fas icon="file-pdf" className="ml-2" />
-      </MDBBtn>
-      <MDBBtn
-        href="https://github.com/PK007PK"
-        target="_blank"
-        color="pink"
-        rel="noopener noreferrer"
-        className="waves-effect w-100 mx-0 mx-md-2"
-      >
-        LinkedIn <MDBIcon fab icon="linkedin-in" className="ml-2" />
-      </MDBBtn>
-      <MDBBtn
-        href="https://github.com/PK007PK"
-        target="_blank"
-        color="amber"
-        rel="noopener noreferrer"
-        className="waves-effect w-100 mx-0 ml-md-2"
-      >
-        Github <MDBIcon fab icon="github" className="ml-2" />
-      </MDBBtn>
-    </div>
+    <LanguageContext.Consumer>
+      {({ pl }) => (
+        <div className=" homepage-btn-bar">
+          <MDBBtn
+            href={
+              pl
+                ? "/20210105PiotrKrasnyCvPl.pdf"
+                : "/20210105PiotrKrasnyCvEng.pdf"
+            }
+            target="_blank"
+            color="indigo"
+            rel="noopener noreferrer"
+            className="waves-effect w-100 mx-0 mx-md-2"
+          >
+            CV PDF
+            <MDBIcon fas icon="file-pdf" className="ml-2" />
+          </MDBBtn>
+          <MDBBtn
+            href="https://github.com/PK007PK"
+            target="_blank"
+            color="pink"
+            rel="noopener noreferrer"
+            className="waves-effect w-100 mx-0 mx-md-2"
+          >
+            LinkedIn <MDBIcon fab icon="linkedin-in" className="ml-2" />
+          </MDBBtn>
+          <MDBBtn
+            href="https://github.com/PK007PK"
+            target="_blank"
+            color="amber"
+            rel="noopener noreferrer"
+            className="waves-effect w-100 mx-0 ml-md-2"
+          >
+            Github <MDBIcon fab icon="github" className="ml-2" />
+          </MDBBtn>
+        </div>
+      )}
+    </LanguageContext.Consumer>
   )
 
   const buttonForCV = () => (
@@ -103,6 +111,8 @@ const IndexPage = ({ data, location }) => {
     </div>
   )
 
+  // const location = useLocation()
+
   // var allClasses = []
 
   // var allElements = document.querySelectorAll("*")
@@ -118,7 +128,10 @@ const IndexPage = ({ data, location }) => {
   // console.log(allClasses)
 
   return (
-    <Layout lang={location && location.state && location.state.lang}>
+    <Layout
+      lang={location && location.state && location.state.lang}
+      pathname={location && location.pathname}
+    >
       <LanguageContext.Consumer>
         {({ pl, print }) => (
           <>
@@ -129,11 +142,19 @@ const IndexPage = ({ data, location }) => {
               text={print ? textForCV : textForJumbo}
               bottomBar={print ? buttonForCV : buttonsForJumbo}
               // rightBox={}
-              style={{
-                backgroundColor: "#f5f5f5",
-                boxShadow: "none",
-                minHeight: "550px",
-              }}
+              style={
+                print
+                  ? {
+                      boxShadow: "none",
+                      minHeight: "550px",
+                      backgroundColor: "white",
+                    }
+                  : {
+                      backgroundColor: "#f5f5f5",
+                      boxShadow: "none",
+                      minHeight: "550px",
+                    }
+              }
               imgSource={print ? jumbotronImg2 : jumbotronImg}
             />
 
@@ -487,10 +508,17 @@ const IndexPage = ({ data, location }) => {
               </MDBRow>
             </MDBContainer>
             <div
-              style={{
-                backgroundColor: "#f5f5f5",
-                boxShadow: "none",
-              }}
+              style={
+                print
+                  ? {
+                      boxShadow: "none",
+                      backgroundColor: "white",
+                    }
+                  : {
+                      boxShadow: "none",
+                      backgroundColor: "#f5f5f5",
+                    }
+              }
               className="mt-5"
             >
               {print && (
@@ -498,7 +526,7 @@ const IndexPage = ({ data, location }) => {
                   <MDBJumbotron
                     className="mb-0"
                     style={{
-                      backgroundColor: "#f5f5f5",
+                      backgroundColor: "white",
                     }}
                   >
                     <p>
