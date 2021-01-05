@@ -12,6 +12,7 @@ import {
   MDBCollapse,
   MDBContainer,
   MDBBtn,
+  MDBTooltip,
 } from "mdbreact"
 
 class Navbar extends Component {
@@ -63,7 +64,7 @@ class Navbar extends Component {
                       cover
                       bg="#1C2331"
                       duration={0.4}
-                      to="/doradztwo"
+                      to="/consulting"
                       className="nav-link"
                       activeStyle={{
                         fontWeight: "bold",
@@ -78,7 +79,7 @@ class Navbar extends Component {
                       state={{ lang: pl ? "pl" : "eng" }}
                       bg="#1C2331"
                       duration={0.4}
-                      to="/programowanie"
+                      to="/programming"
                       className="nav-link"
                       activeStyle={{
                         fontWeight: "bold",
@@ -93,7 +94,7 @@ class Navbar extends Component {
                       bg="#1C2331"
                       duration={0.4}
                       state={{ lang: pl ? "pl" : "eng" }}
-                      to="/kontakt"
+                      to="/contact"
                       className="nav-link"
                       activeStyle={{
                         fontWeight: "bold",
@@ -101,6 +102,20 @@ class Navbar extends Component {
                     >
                       {pl ? text.item3[0] : text.item3[1]}
                     </AniLink>
+                  </MDBNavItem>
+                  <MDBNavItem className="mr-1 d-flex align-items-center">
+                    <MDBTooltip domElement tag="span" placement="bottom">
+                      <spam>
+                        <MDBBtn className="btn-sm" onClick={this.props.printFn}>
+                          <i className="fas fa-print"></i>
+                        </MDBBtn>
+                      </spam>
+                      <span>
+                        {pl
+                          ? "Wesja do druku na 20 sekund"
+                          : "Print version for 20 seconds"}
+                      </span>
+                    </MDBTooltip>
                   </MDBNavItem>
                   <MDBNavItem>
                     <MDBBtn

@@ -1,4 +1,6 @@
 import React from "react"
+import { Link } from "gatsby"
+
 import { indexPageTexts } from "../data/indexPageTexts"
 import {
   MDBContainer,
@@ -9,29 +11,53 @@ import {
   MDBBtn,
   MDBIcon,
   MDBAnimation,
+  MDBJumbotron,
 } from "mdbreact"
 
 import { LanguageContext } from "../components/layout"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-// import Jumbotron2 from "../components/jumbotron2"
+
 import JumbotronReus from "../components/JumbotronReus"
 
 const IndexPage = ({ data, location }) => {
   const jumbotronImg = data.placeholderImage.childImageSharp.fluid
+  const jumbotronImg2 = data.placeholderImage2.childImageSharp.fluid
 
   const textForJumbo = () => (
     <LanguageContext.Consumer>
       {({ pl }) => (
-        <p className="text-right">
+        <p className="">
           {pl ? indexPageTexts.description[0] : indexPageTexts.description[1]}
         </p>
       )}
     </LanguageContext.Consumer>
   )
 
+  const textForCV = () => (
+    <LanguageContext.Consumer>
+      {({ pl }) => (
+        <p className="lead">
+          {pl ? (
+            <>
+              16 lat doświadczenia w branży doradczej
+              <br />
+              Kompetencje w obszarze organizacji, zarządzania i finansów
+            </>
+          ) : (
+            <>
+              16 years of experience in the consulting industry
+              <br />
+              Competence in organisational, management and financial matters
+            </>
+          )}
+        </p>
+      )}
+    </LanguageContext.Consumer>
+  )
+
   const buttonsForJumbo = () => (
-    <div className="text-md-right homepage-btn-bar">
+    <div className=" homepage-btn-bar">
       <MDBBtn
         href="https://github.com/PK007PK"
         target="_blank"
@@ -63,6 +89,20 @@ const IndexPage = ({ data, location }) => {
     </div>
   )
 
+  const buttonForCV = () => (
+    <div className="">
+      <p className="lead mb-1 " style={{ fontSize: "25px" }}>
+        krasny.netlify.app
+      </p>
+      <p className="lead mb-1" style={{ fontSize: "18px" }}>
+        krasny.piotr@gmail.com
+      </p>
+      <p className="lead mb-1" style={{ fontSize: "18px" }}>
+        tel.: 509 527 925
+      </p>
+    </div>
+  )
+
   // var allClasses = []
 
   // var allElements = document.querySelectorAll("*")
@@ -80,26 +120,32 @@ const IndexPage = ({ data, location }) => {
   return (
     <Layout lang={location && location.state && location.state.lang}>
       <LanguageContext.Consumer>
-        {({ pl }) => (
+        {({ pl, print }) => (
           <>
             <SEO title={pl ? "Strona Główna" : "Home"} />
             <JumbotronReus
               title={"Piotr Krasny"}
               subtitle={pl ? indexPageTexts.title[0] : indexPageTexts.title[1]}
-              text={textForJumbo}
-              bottomBar={buttonsForJumbo}
+              text={print ? textForCV : textForJumbo}
+              bottomBar={print ? buttonForCV : buttonsForJumbo}
               // rightBox={}
               style={{
                 backgroundColor: "#f5f5f5",
                 boxShadow: "none",
                 minHeight: "550px",
               }}
-              imgSource={jumbotronImg}
+              imgSource={print ? jumbotronImg2 : jumbotronImg}
             />
 
             <MDBContainer className="mt-5">
-              <MDBRow className="justify-content-between">
-                <MDBCol md="7" className="text-right">
+              <MDBRow
+                className={
+                  print
+                    ? "justify-content-between flex-row-reverse text-left mt-5"
+                    : "justify-content-between text-right mt-5"
+                }
+              >
+                <MDBCol md="7" className="">
                   <MDBAnimation reveal type="slideInUp">
                     <h2 className="h3">
                       {pl
@@ -128,19 +174,35 @@ const IndexPage = ({ data, location }) => {
                   <MDBAnimation reveal type="slideInUp">
                     <MDBCard className="my-3 mt-md-0">
                       <MDBCardBody>
-                        <p className="h2 text-center font-weight-lighter mb-0">
+                        <p className="h2 card-title text-center font-weight-lighter mb-0">
                           {pl
                             ? indexPageTexts.advert1[0]
                             : indexPageTexts.advert1[1]}
                         </p>
+                        {print && (
+                          <Link to="/consulting">
+                            <p className="card-text text-center mt-4">
+                              <strong style={{ color: "#CC0000" }}>
+                                Portfolio:
+                              </strong>{" "}
+                              krasny.netlify.app/consulting
+                            </p>
+                          </Link>
+                        )}
                       </MDBCardBody>
                     </MDBCard>
                   </MDBAnimation>
                 </MDBCol>
               </MDBRow>
 
-              <MDBRow className="mt-5 justify-content-between">
-                <MDBCol md="7" className="text-right">
+              <MDBRow
+                className={
+                  print
+                    ? "justify-content-between flex-row-reverse text-left mt-5"
+                    : "justify-content-between text-right mt-5"
+                }
+              >
+                <MDBCol md="7" className="">
                   <ul className="list-unstyled">
                     <MDBAnimation reveal type="slideInUp">
                       <li className="mb-3">
@@ -192,8 +254,14 @@ const IndexPage = ({ data, location }) => {
                 </MDBCol>
               </MDBRow>
 
-              <MDBRow className="mt-5 justify-content-between">
-                <MDBCol md="7" className="text-right">
+              <MDBRow
+                className={
+                  print
+                    ? "justify-content-between flex-row-reverse text-left mt-5"
+                    : "justify-content-between text-right mt-5"
+                }
+              >
+                <MDBCol md="7" className="">
                   <ul className="list-unstyled">
                     <MDBAnimation reveal type="slideInUp">
                       <li className="mb-3">
@@ -245,7 +313,112 @@ const IndexPage = ({ data, location }) => {
                 </MDBCol>
               </MDBRow>
 
-              <MDBRow className="text-right mt-5 justify-content-between">
+              <MDBRow
+                className={
+                  print
+                    ? "justify-content-between flex-row-reverse text-left mt-5"
+                    : "justify-content-between text-right mt-5"
+                }
+              >
+                <MDBCol md="7" className="">
+                  <h2 className="h3">
+                    {pl
+                      ? indexPageTexts.subtitleSkills[0]
+                      : indexPageTexts.subtitleSkills[1]}
+                  </h2>
+                  <ul className="list-unstyled">
+                    <MDBAnimation reveal type="slideInUp">
+                      <li className="mb-3">
+                        <strong className="h5">
+                          {pl
+                            ? indexPageTexts.subtitleSkillsSubtitle1[0]
+                            : indexPageTexts.subtitleSkillsSubtitle1[1]}
+                        </strong>
+                        <br></br>
+                        {pl
+                          ? indexPageTexts.skill1[0]
+                          : indexPageTexts.skill1[1]}
+                        <br />
+                        {pl
+                          ? indexPageTexts.skill2[0]
+                          : indexPageTexts.skill2[1]}
+                      </li>
+                      <li className="mb-3">
+                        <strong className="h5">
+                          {pl
+                            ? indexPageTexts.subtitleSkillsSubtitle2[0]
+                            : indexPageTexts.subtitleSkillsSubtitle2[1]}
+                        </strong>
+                        <br></br>
+
+                        {pl ? indexPageTexts.it1[0] : indexPageTexts.it1[1]}
+                        <br />
+                        <br />
+                        {pl ? indexPageTexts.it2[0] : indexPageTexts.it2[1]}
+                      </li>
+                    </MDBAnimation>
+                  </ul>
+                </MDBCol>
+                <MDBCol md="4" className="my-3 mt-md-0">
+                  <MDBAnimation reveal type="slideInUp">
+                    <MDBCard>
+                      <MDBCardBody>
+                        <div className="d-flex justify-content-around">
+                          <MDBIcon
+                            color="red"
+                            fab
+                            size="3x"
+                            icon="html5"
+                            className="red-text"
+                          />
+                          <MDBIcon
+                            fab
+                            size="3x"
+                            icon="css3-alt"
+                            className="blue-text"
+                          />
+                          <MDBIcon
+                            fab
+                            size="3x"
+                            icon="sass"
+                            className="pink-text"
+                          />
+                          <MDBIcon
+                            fab
+                            size="3x"
+                            icon="js"
+                            className="amber-text"
+                          />
+                          <MDBIcon
+                            fab
+                            size="3x"
+                            icon="react"
+                            className="blue-text"
+                          />
+                        </div>
+                        {print && (
+                          <Link to={"/programming"}>
+                            <p className="card-text text-center mt-5">
+                              <strong style={{ color: "#CC0000" }}>
+                                Portfolio:
+                              </strong>{" "}
+                              krasny.netlify.app/programming
+                            </p>
+                          </Link>
+                        )}
+                      </MDBCardBody>
+                    </MDBCard>
+                  </MDBAnimation>
+                </MDBCol>
+              </MDBRow>
+
+              <MDBRow
+                className={
+                  print
+                    ? "justify-content-between flex-row-reverse text-left mt-5"
+                    : "justify-content-between text-right mt-5"
+                }
+              >
                 <MDBCol md="7" className="text-righ">
                   <MDBAnimation reveal type="slideInUp">
                     <h2 className="h3">
@@ -320,9 +493,20 @@ const IndexPage = ({ data, location }) => {
               }}
               className="mt-5"
             >
-              {/* <MDBContainer>
-                <Jumbotron2 className="mt-5"></Jumbotron2>
-              </MDBContainer> */}
+              {print && (
+                <MDBContainer>
+                  <MDBJumbotron
+                    className="mb-0"
+                    style={{
+                      backgroundColor: "#f5f5f5",
+                    }}
+                  >
+                    <p>
+                      {pl ? indexPageTexts.rodo[0] : indexPageTexts.rodo[1]}
+                    </p>
+                  </MDBJumbotron>
+                </MDBContainer>
+              )}
             </div>
           </>
         )}
@@ -334,6 +518,13 @@ const IndexPage = ({ data, location }) => {
 export const pageQuery = graphql`
   query {
     placeholderImage: file(relativePath: { eq: "formal.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 700) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    placeholderImage2: file(relativePath: { eq: "formal2.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 700) {
           ...GatsbyImageSharpFluid

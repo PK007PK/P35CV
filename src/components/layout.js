@@ -7,7 +7,7 @@ import Footer from "./footer"
 export const LanguageContext = React.createContext()
 
 class Layout extends React.Component {
-  state = { pl: true, changeFn: () => this.changeLanguage }
+  state = { pl: true, print: false, changeFn: () => this.changeLanguage }
 
   componentDidMount() {
     this.setState({ pl: this.props.lang === "eng" ? false : true })
@@ -19,15 +19,22 @@ class Layout extends React.Component {
 
   changeLanguage = () => this.setState(prevState => ({ pl: !prevState.pl }))
 
+  changePrint = () => {
+    this.setState(prevState => ({ print: !prevState.print }))
+    setTimeout(() => {
+      this.setState(prevState => ({ print: !prevState.print }))
+    }, 30000)
+  }
+
   render() {
     const { children, style } = this.props
 
     return (
       <LanguageContext.Provider value={this.state}>
         <div className="site" style={style}>
-          <Navbar />
+          {!this.state.print && <Navbar printFn={this.changePrint} />}
           <main className="site-content">{children}</main>
-          <Footer />
+          {!this.state.print && <Footer />}
         </div>
       </LanguageContext.Provider>
     )

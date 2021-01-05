@@ -57,6 +57,17 @@ export const indexPageTexts = {
     "Organizacja i zarządzanie firmą",
     "Company organisation and management",
   ],
+  subtitleSkills: ["Umiejętności", "Personal skills and competences"],
+  subtitleSkillsSubtitle1: ["Języki", "Languages"],
+  skill1: ["Język polski: rodzimy ", "Polish - native"],
+  skill2: ["Język angielski: B2", "Englis: B2"],
+  subtitleSkillsSubtitle2: ["IT", "IT"],
+  it1: ["HTML, CSS/SCSS, JS, React JS", "HTML, CSS/SCSS, JS, React JS"],
+  it2: [
+    "bardzo dobra znajomość narzędzi MS Office wykorzystywanych do tworzenie obszernych dokumentów tekstowych (np. studiów wykonalności) i arkusze kalkulacyjne (analiza finansowa, z wykorzystaniem tabel przestawnych)",
+    "very good knowledge of MS Office tools used to create extensive text documents (eg feasibi l ity studies) and spreadsheets (financial analysis, using Pivot Tables)",
+  ],
+
   subtitle2: ["Edukacja", "Education"],
   point7: ["2003 - 2004", "2003 - 2004"],
   text7: ["Politechnika Krakowska", "Cracow University of Technology"],
@@ -78,5 +89,8 @@ export const indexPageTexts = {
     "V Liceum Ogólnokształcące im. A. Witkowskiego w Krakowie",
     "5th A. Witkowski Secondary School in Cracow",
   ],
-  rodo: ["", ""],
+  rodo: [
+    "Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (RODO).",
+    "According to art. 7 par. 2 RODO I expressly and voluntarily agree to the processing of my personal data contained in the appl ication documents, including Curriculum Vitae (CV) in order to carry out the recruitment process, as well as for the needs of future recruitment processes. At the same time, I declare that my consent meets all the conditions referred to in art. 7 RODO, i .e. I am entitled to withdraw it at any time, the request for consent has been presented to me in a clear and comprehensible form.",
+  ],
 }

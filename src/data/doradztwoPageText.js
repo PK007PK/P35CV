@@ -16,6 +16,6 @@ export const doradztwoPageTexts = {
     ["Fundusze strukturalne 2007 - 2013", "Structural Funds 2007 - 2013"],
     ["Fundusze strukturalne 2014 - 2020", "Structural Funds 2014 - 2020"],
     ["NFOŚ / WFOŚ", "NFOŚ / WFOŚ"],
-    ['Fundusze EOG / "Norweskie"', "Iceland, Liechtenstein, Normay Grants"],
+    ['Fundusze EOG / "Norweskie"', "Iceland, Liechtenstein, Norway Grants"],
   ],
 }
