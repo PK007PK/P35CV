@@ -2,6 +2,7 @@ import React from "react"
 import { navigate } from "gatsby-link"
 import { MDBCard, MDBCardBody, MDBBtn, MDBIcon, MDBInput } from "mdbreact"
 import { LanguageContext } from "./layout"
+
 function encode(data) {
   return Object.keys(data)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
@@ -31,8 +32,8 @@ export default function Form({ admin }) {
   }
 
   return (
-    <LanguageContext.Consumer>
-      {({ pl }) => (
+    // <LanguageContext.Consumer>
+    //   {({ pl }) => (
         <MDBCard>
           <MDBCardBody>
             <form
@@ -106,6 +107,6 @@ export default function Form({ admin }) {
           </MDBCardBody>
         </MDBCard>
       )}
-    </LanguageContext.Consumer>
+    // </LanguageContext.Consumer>
   )
 }
