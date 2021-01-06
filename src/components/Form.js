@@ -32,8 +32,8 @@ export default function Form({ admin }) {
   }
 
   return (
-    // <LanguageContext.Consumer>
-    //   {({ pl }) => (
+    <LanguageContext.Consumer>
+      {({ pl }) => (
         <MDBCard>
           <MDBCardBody>
             <form
@@ -107,6 +107,6 @@ export default function Form({ admin }) {
           </MDBCardBody>
         </MDBCard>
       )}
-    // </LanguageContext.Consumer>
+    </LanguageContext.Consumer>
   )
 }
