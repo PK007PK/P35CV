@@ -10,10 +10,10 @@ export const indexPageTexts = {
     "06.2004 - 12.2020: Masterprojekt s.c. (limited liability partnership)",
   ],
   lead2: ["Współwłaściciel. Project Manager", "Co-owner. Project Manager"],
-  lead3: ["Konsultant Funduszy Europejskich", "European Funding Consultant"],
+  lead3: ["Specjalista Funduszy Europejskich", "European Funds Specialist"],
   advert1: [
     "480 mln PLN bezzwrotnych dotacji pozyskanych dla moich klientów",
-    "PLN 480 million of non-refundable subsidies obtained for my clients",
+    "480 million PLN of non-refundable subsidies obtained for my clients",
   ],
   description2: [
     "Masterprojekt s.c. to firma doradcza obsługująca podmioty sektora ochrony zdrowia w zakresie pozyskiowania środków zewnętrznych na finansowanie inwestycji. Obszarem naszych zainteresowań były fundusze strukturalne UE oraz środki krajowe. Firma dla swoich klientów pozyskała około 480 mln zł dotacji na blisko 180 projektów inwestycyjnych",
@@ -26,8 +26,8 @@ export const indexPageTexts = {
   ],
   point2: ["Obsługa finansowa projektów", "Financial services for projects"],
   text2: [
-    "Prognozy finansowe, analizy efektywności ekonomicznej, kalkulacja wskaźników, przygotowanie arkuszy MsExcel",
-    "Financial forecasts, economic efficiency analyses, calculation of indicators, preparation of MsExcel sheets ",
+    "Prognozy finansowe, analizy efektywności ekonomicznej, kalkulacja wskaźników ",
+    "Financial forecasts, economic efficiency analyses, calculation of indicators ",
   ],
   point3: ["Rozliczanie projektów", "Project settlement"],
   text3: [
