@@ -6,9 +6,16 @@ module.exports = {
       summary: `Piotr Krasny`,
     },
     description: `Personal CV and portfolio website`,
-    siteUrl: `https://pkcv.netlify.app/`,
+    siteUrl: `https://krasny.netlify.app/`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap.xml`,
+        exclude: [`/thanks`],
+      },
+    },
     `gatsby-plugin-transition-link`,
     `gatsby-plugin-sass`,
     {
