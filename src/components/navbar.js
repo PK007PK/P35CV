@@ -34,7 +34,7 @@ class Navbar extends Component {
     return (
       <LanguageContext.Consumer>
         {({ pl, changeFn }) => (
-          <MDBNavbar color="unique-color-dark" dark expand="md">
+          <MDBNavbar color="unique-color-dark" dark expand="lg">
             <MDBContainer>
               <MDBNavbarBrand>
                 <AniLink
@@ -114,11 +114,7 @@ class Navbar extends Component {
                             <i className="fas fa-print"></i>
                           </MDBBtn>
                         </span>
-                        <span>
-                          {pl
-                            ? "Wesja do druku na 20 sekund"
-                            : "Print version for 20 seconds"}
-                        </span>
+                        <span>{pl ? "Wesja do druku" : "Print version"}</span>
                       </MDBTooltip>
                     </MDBNavItem>
                   )}

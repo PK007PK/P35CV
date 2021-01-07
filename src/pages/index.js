@@ -12,6 +12,7 @@ import {
   MDBIcon,
   MDBAnimation,
   MDBJumbotron,
+  MDBTooltip,
 } from "mdbreact"
 
 import { LanguageContext } from "../components/layout"
@@ -98,17 +99,32 @@ const IndexPage = ({ data, location }) => {
   )
 
   const buttonForCV = () => (
-    <div className="">
-      <p className="lead mb-1 " style={{ fontSize: "25px" }}>
-        krasny.netlify.app
-      </p>
-      <p className="lead mb-1" style={{ fontSize: "18px" }}>
-        krasny.piotr@gmail.com
-      </p>
-      <p className="lead mb-1" style={{ fontSize: "18px" }}>
-        tel.: 509 527 925
-      </p>
-    </div>
+    <LanguageContext.Consumer>
+      {({ changePrint, pl }) => (
+        <div className="">
+          <p className="lead mb-1 " style={{ fontSize: "25px" }}>
+            krasny.netlify.app
+          </p>
+          <p className="lead mb-1" style={{ fontSize: "18px" }}>
+            krasny.piotr@gmail.com
+          </p>
+          <p className="lead mb-1" style={{ fontSize: "18px" }}>
+            tel.: 509 527 925
+          </p>
+
+          <MDBTooltip placement="right">
+            <MDBBtn className="d-print-none" onClick={changePrint}>
+              {pl ? "Powrót" : "Go back"}
+            </MDBBtn>
+            <div>
+              {pl
+                ? "Przycisk niewidoczny na wydruku"
+                : "Button invisible on print"}
+            </div>
+          </MDBTooltip>
+        </div>
+      )}
+    </LanguageContext.Consumer>
   )
 
   // const location = useLocation()

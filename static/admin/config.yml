@@ -23,6 +23,7 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description Pl", name: "description", widget: "string" }
       - { label: "Description Emg", name: "descriptionEng", widget: "string" }
+      - { label: "Tags", name: "tags", widget: "string" }
       - {
           label: "Show more?",
           name: "showMore",

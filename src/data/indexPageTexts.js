@@ -64,7 +64,7 @@ export const indexPageTexts = {
   subtitleSkillsSubtitle2: ["IT", "IT"],
   it1: ["HTML, CSS/SCSS, JS, React JS", "HTML, CSS/SCSS, JS, React JS"],
   it2: [
-    "bardzo dobra znajomość narzędzi MS Office wykorzystywanych do tworzenie obszernych dokumentów tekstowych (np. studiów wykonalności) i arkusze kalkulacyjne (analiza finansowa, z wykorzystaniem tabel przestawnych)",
+    "Bardzo dobra znajomość narzędzi MS Office wykorzystywanych do tworzenie obszernych dokumentów tekstowych (np. studiów wykonalności) i arkusze kalkulacyjne (analiza finansowa, z wykorzystaniem tabel przestawnych)",
     "very good knowledge of MS Office tools used to create extensive text documents (eg feasibi l ity studies) and spreadsheets (financial analysis, using Pivot Tables)",
   ],
 
