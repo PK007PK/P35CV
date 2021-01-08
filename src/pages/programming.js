@@ -5,6 +5,7 @@ import { LanguageContext } from "../components/layout"
 import { programowaniePageTexts } from "../data/programowaniePageTexts"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+
 import {
   MDBContainer,
   MDBIcon,
@@ -91,17 +92,15 @@ const Programowanie = ({ data, location }) => {
                     titleEng,
                     description,
                     descriptionEng,
+                    tags,
                     showMore,
-                    react,
-                    gatsby,
-                    bootstrap,
-                    mdbootstrap,
-                    netlify,
-                    netlifyCms,
                     githubRepo,
                     live,
                     date,
                   } = post.frontmatter
+                  let allTagsInPost = new Array()
+                  allTagsInPost = tags.split(",")
+                  console.log(allTagsInPost)
                   return (
                     <li key={post.fields.slug}>
                       <MDBRow className="justify-content-between mb-5">
@@ -159,108 +158,21 @@ const Programowanie = ({ data, location }) => {
                           </MDBCard>
                         </MDBCol>
                         <MDBCol md="4" className="mt-4 mt-md-0">
-                          <div className="mb-3 d-flex flex-wrap">
-                            {react && (
-                              <MDBBadge
-                                color="light"
-                                className="mb-3 mr-3"
-                                style={{ boxShadow: "none" }}
-                              >
-                                <MDBIcon
-                                  style={{ fontSize: "1.1rem" }}
-                                  size="lg"
-                                  icon="hashtag"
-                                />
-                                <span style={{ fontSize: "1.1rem" }}>
-                                  react
-                                </span>
-                              </MDBBadge>
-                            )}
-                            {gatsby && (
-                              <MDBBadge
-                                color="light"
-                                className="mb-3 mr-3"
-                                style={{ boxShadow: "none" }}
-                              >
-                                <MDBIcon
-                                  style={{ fontSize: "1.1rem" }}
-                                  size="lg"
-                                  icon="hashtag"
-                                />
-                                <span style={{ fontSize: "1.1rem" }}>
-                                  gatsby
-                                </span>
-                              </MDBBadge>
-                            )}
-                            {bootstrap && (
-                              <MDBBadge
-                                color="light"
-                                className="mb-3 mr-3"
-                                style={{ boxShadow: "none" }}
-                              >
-                                <MDBIcon
-                                  style={{ fontSize: "1.1rem" }}
-                                  size="lg"
-                                  icon="hashtag"
-                                />
-                                <span style={{ fontSize: "1.1rem" }}>
-                                  bootstrap
-                                </span>
-                              </MDBBadge>
-                            )}
-                            {mdbootstrap && (
-                              <MDBBadge
-                                color="light"
-                                className="mb-3 mr-3"
-                                style={{ boxShadow: "none" }}
-                              >
-                                <MDBIcon
-                                  style={{ fontSize: "1.1rem" }}
-                                  size="lg"
-                                  icon="hashtag"
-                                />
-                                <span style={{ fontSize: "1.1rem" }}>
-                                  mdbootstrap
-                                </span>
-                              </MDBBadge>
-                            )}
-                            {netlify && (
-                              <MDBBadge
-                                color="light"
-                                className="mb-3 mr-3"
-                                style={{ boxShadow: "none" }}
-                              >
-                                <MDBIcon
-                                  style={{ fontSize: "1.1rem" }}
-                                  size="lg"
-                                  icon="hashtag"
-                                />
-                                <span style={{ fontSize: "1.1rem" }}>
-                                  netlify
-                                </span>
-                              </MDBBadge>
-                            )}
-                            {netlifyCms && (
-                              <MDBBadge
-                                color="light"
-                                className="mb-3 mr-3"
-                                style={{ boxShadow: "none" }}
-                              >
-                                <MDBIcon
-                                  style={{ fontSize: "1.1rem" }}
-                                  size="lg"
-                                  icon="hashtag"
-                                />
-                                <span
-                                  style={{
-                                    fontSize: "1.1rem",
-                                  }}
-                                >
-                                  netlifyCMS
-                                </span>
-                              </MDBBadge>
-                            )}
-                          </div>
+                          {allTagsInPost.map((item, index) => (
+                            <MDBBadge
+                              key={index}
+                              color="light"
+                              className="mb-3 mr-3"
+                              style={{ boxShadow: "none" }}
+                            >
+                              <MDBIcon
+                                style={{ fontSize: "1rem" }}
+                                size="lg"
+                                icon="hashtag"
+                              />
+                              <span style={{ fontSize: "1rem" }}>{item}</span>
+                            </MDBBadge>
+                          ))}
                         </MDBCol>
                       </MDBRow>
                     </li>
@@ -297,6 +209,7 @@ export const pageQuery = graphql`
           titleEng
           description
           descriptionEng
+          tags
           showMore
           live
           githubRepo

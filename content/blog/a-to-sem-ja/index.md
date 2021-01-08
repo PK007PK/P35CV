@@ -17,7 +17,7 @@ descriptionEng: "Experiment with bootstrap (mdbreact version). I always avoided
 tags: reactjs,gatsby,mdbootstrap,netlifycms,netlify
 showMore: false
 githubRepo: https://github.com/PK007PK/P35CV
-live: https://pkcv.netlify.app/
+live: https://krasny.netlify.app/
 react: true
 gatsby: true
 bootstrap: false
