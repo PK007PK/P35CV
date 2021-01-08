@@ -89,7 +89,7 @@ const IndexPage = ({ data, location }) => {
             target="_blank"
             color="amber"
             rel="noopener noreferrer"
-            className="waves-effect w-100 mx-0 ml-md-2"
+            className="waves-effect w-100 mx-0 mx-md-2 mr-lg-0"
           >
             Github <MDBIcon fab icon="github" className="ml-2" />
           </MDBBtn>

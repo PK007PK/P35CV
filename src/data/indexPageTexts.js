@@ -17,7 +17,7 @@ export const indexPageTexts = {
   ],
   description2: [
     "Masterprojekt s.c. to firma doradcza obsługująca podmioty sektora ochrony zdrowia w zakresie pozyskiowania środków zewnętrznych na finansowanie inwestycji. Obszarem naszych zainteresowań były fundusze strukturalne UE oraz środki krajowe. Firma dla swoich klientów pozyskała około 480 mln zł dotacji na blisko 180 projektów inwestycyjnych",
-    "Masterprojekt s.c. is a consulting company providing services to healthcare sector entities in the field of acquiring external funds for investment financing. Our area of interest was EU structural funds and national funds. The company has obtained about PLN 480 million in grants for its clients for nearly 180 investment projects.",
+    "Masterprojekt s.c. is a consulting company providing services to healthcare sector entities in the field of acquiring external funds for investment financing. Our area of interest was EU structural funds and national funds. The company has obtained about PLN 480 million in grants for its clients for nearly 180 investment projects",
   ],
   point1: ["Przygotowanie dokumentacji", "Preparation of documentation"],
   text1: [

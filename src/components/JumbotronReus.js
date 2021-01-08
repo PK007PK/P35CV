@@ -42,7 +42,7 @@ const JumbotronReus = ({
                     (typeof text === "function" && <Text />)}
                   <hr
                     className=""
-                    style={{ width: "30rem", marginInlineEnd: 0 }}
+                    style={{ width: "100%", marginInlineEnd: 0 }}
                   />
                   {bottomBar && <BottomBar />}
                 </MDBCol>
