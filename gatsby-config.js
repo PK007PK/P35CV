@@ -96,6 +96,7 @@ module.exports = {
         printRejected: true, // Print removed selectors and processed file names
         develop: false, // Enable while using `gatsby develop`
         whitelist: [
+          "navbar-expand-lg",
           "fa-print",
           "font-weight-bold",
           "animated",
