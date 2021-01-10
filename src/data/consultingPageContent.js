@@ -46,7 +46,7 @@ export const ShowInitialButton = ({ fn }) => (
         className="d-flex justify-content-center align-items-center"
       >
         <div>
-          <MDBAnimation type="rollIn">
+          <MDBAnimation reveal type="rollIn">
             <MDBBtn color="pink" onClick={fn}>
               {pl ? "Wczytaj dane" : "Click to load data"}
             </MDBBtn>

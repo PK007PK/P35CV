@@ -8,17 +8,15 @@ import {
   MDBContainer,
   MDBRow,
   MDBCol,
-  MDBProgress,
   MDBCard,
   MDBCardBody,
   MDBIcon,
   MDBCardText,
-  MDBBtn,
   MDBAnimation,
+  MDBBtn,
 } from "mdbreact"
 import {
   doradztwoPageTexts,
-  ShowInitialButton,
   TextJumbo,
   ProgresBarAndStats,
 } from "../data/consultingPageContent"
@@ -33,13 +31,16 @@ class IndexPage extends React.Component {
     values: 0,
     grants: 0,
     isLoaded: false,
+    loadingStarted: false,
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.setState(prevState => ({ isLoaded: !prevState.isLoaded }))
+  }
 
   loadData = () => {
     this.setState(prevState => ({
-      isLoaded: !prevState.isLoaded,
+      loadingStarted: !prevState.loadingStarted,
     }))
     setInterval(this.addValue, 35)
   }
@@ -56,6 +57,28 @@ class IndexPage extends React.Component {
       }))
     }
   }
+
+  ShowInitialButton = () => (
+    <PageContext.Consumer>
+      {({ pl }) => (
+        <div
+          style={{
+            minHeight: "360px",
+            width: "100%",
+          }}
+          className="d-flex justify-content-center align-items-center"
+        >
+          <div>
+            <MDBAnimation reveal type="rollIn">
+              <MDBBtn color="pink" onClick={this.loadData}>
+                {pl ? "Wczytaj dane" : "Click to load data"}
+              </MDBBtn>
+            </MDBAnimation>
+          </div>
+        </div>
+      )}
+    </PageContext.Consumer>
+  )
 
   ShowAllProjects = () => (
     <div className="d-flex flex-column-reverse flex-wrap justify-content-between">
@@ -143,40 +166,44 @@ class IndexPage extends React.Component {
           {({ pl }) => (
             <>
               <SEO title="Doradztwo" />
-              <Jumbo
-                title={"Piotr Krasny"}
-                subtitle={
-                  pl ? doradztwoPageTexts.title[0] : doradztwoPageTexts.title[1]
-                }
-                text={() => (
-                  <TextJumbo
-                    text={
-                      pl
-                        ? doradztwoPageTexts.description[0]
-                        : doradztwoPageTexts.description[1]
-                    }
-                  />
-                )}
-                bottomBar={() => (
-                  <ProgresBarAndStats
-                    progres={(this.state.amount / 180) * 100}
-                    countedAmount={this.state.amount}
-                    countedProjectsValue={this.state.values.toLocaleString()}
-                    countedProjectsGrants={this.state.grants.toLocaleString()}
-                  />
-                )}
-                rightBox={
-                  this.state.isLoaded
-                    ? this.ShowCurrentProject
-                    : () => <ShowInitialButton fn={this.loadData} />
-                }
-                style={{
-                  backgroundColor: "#f5f5f5",
-                  boxShadow: "none",
-                  minHeight: "550px",
-                }}
-              />
               {this.state.isLoaded && (
+                <Jumbo
+                  title={"Piotr Krasny"}
+                  subtitle={
+                    pl
+                      ? doradztwoPageTexts.title[0]
+                      : doradztwoPageTexts.title[1]
+                  }
+                  text={() => (
+                    <TextJumbo
+                      text={
+                        pl
+                          ? doradztwoPageTexts.description[0]
+                          : doradztwoPageTexts.description[1]
+                      }
+                    />
+                  )}
+                  bottomBar={() => (
+                    <ProgresBarAndStats
+                      progres={(this.state.amount / 180) * 100}
+                      countedAmount={this.state.amount}
+                      countedProjectsValue={this.state.values.toLocaleString()}
+                      countedProjectsGrants={this.state.grants.toLocaleString()}
+                    />
+                  )}
+                  rightBox={
+                    this.state.loadingStarted
+                      ? this.ShowCurrentProject
+                      : this.ShowInitialButton
+                  }
+                  style={{
+                    backgroundColor: "#f5f5f5",
+                    boxShadow: "none",
+                    minHeight: "550px",
+                  }}
+                />
+              )}
+              {this.state.loadingStarted && (
                 <MDBContainer>
                   <MDBRow className="">
                     <MDBCol>
