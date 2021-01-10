@@ -1,16 +1,12 @@
 import React from "react"
 import { PageContext } from "../components/layout"
+import GrantProjectCard from "../components/GrantProjectCard"
 import {
-  MDBContainer,
-  MDBRow,
-  MDBCol,
   MDBProgress,
   MDBCard,
   MDBCardBody,
   MDBIcon,
   MDBCardText,
-  MDBBtn,
-  MDBAnimation,
 } from "mdbreact"
 
 export const doradztwoPageTexts = {
@@ -34,28 +30,6 @@ export const doradztwoPageTexts = {
     ['Fundusze EOG / "Norweskie"', "Iceland, Liechtenstein, Norway Grants"],
   ],
 }
-
-export const ShowInitialButton = ({ fn }) => (
-  <PageContext.Consumer>
-    {({ pl }) => (
-      <div
-        style={{
-          minHeight: "360px",
-          width: "100%",
-        }}
-        className="d-flex justify-content-center align-items-center"
-      >
-        <div>
-          <MDBAnimation reveal type="rollIn">
-            <MDBBtn color="pink" onClick={fn}>
-              {pl ? "Wczytaj dane" : "Click to load data"}
-            </MDBBtn>
-          </MDBAnimation>
-        </div>
-      </div>
-    )}
-  </PageContext.Consumer>
-)
 
 export const TextJumbo = ({ text }) => (
   <PageContext.Consumer>
@@ -91,4 +65,52 @@ export const ProgresBarAndStats = ({
       </div>
     )}
   </PageContext.Consumer>
+)
+
+export const ShowAllProjects = ({ projectBase }) => (
+  <div className="d-flex flex-column-reverse flex-wrap justify-content-between">
+    {projectBase.map(project => (
+      <GrantProjectCard
+        name={project.podmiot}
+        title={project.projekt}
+        value={project.wartosc}
+        grant={project.dotacja}
+        style={{ marginBottom: "1.5rem" }}
+      />
+    ))}
+  </div>
+)
+
+export const ShowFundsList = () => (
+  <PageContext.Consumer>
+    {({ pl }) =>
+      doradztwoPageTexts.programs.map(item => (
+        <MDBCard
+          className="mb-4"
+          style={{
+            backgroundColor: "#2E2E2E",
+            color: "white",
+          }}
+        >
+          <MDBCardBody>
+            <MDBCardText className="text-center text-white">
+              <MDBIcon far icon="bookmark" className="mr-2" />
+              {pl ? item[0] : item[1]}
+            </MDBCardText>
+          </MDBCardBody>
+        </MDBCard>
+      ))
+    }
+  </PageContext.Consumer>
+)
+
+export const ShowCurrentProject = ({ name, title, value, grant }) => (
+  <GrantProjectCard
+    whiteText
+    style={{ minHeight: "360px", backgroundColor: "#2BBBAD", color: "white" }}
+    name={name}
+    title={title}
+    value={value}
+    grant={grant}
+  />
 )

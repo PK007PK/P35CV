@@ -18,41 +18,12 @@ import {
   MDBBadge,
   MDBBtn,
 } from "mdbreact"
-import { programowaniePageTexts } from "../data/programowaniePageTexts"
+
+import { programmingPageContent, iconBar } from "../data/programmingPageContent"
 
 const Programowanie = ({ data, location }) => {
   const posts = data.allMarkdownRemark.nodes
   const jumbotronImg = data.placeholderImage.childImageSharp.fluid
-
-  const iconBar = () => (
-    <div className="d-flex justify-content-end">
-      <MDBIcon
-        color="red"
-        fab
-        size="3x"
-        icon="html5"
-        className="mr-3 red-text"
-      />
-      <MDBIcon fab size="3x" icon="css3-alt" className="mr-3 blue-text" />
-      <MDBIcon fab size="3x" icon="sass" className="mr-3 pink-text" />
-      <MDBIcon fab size="3x" icon="js" className="mr-3 amber-text" />
-      <MDBIcon fab size="3x" icon="react" className="blue-text" />
-    </div>
-  )
-
-  // var allClasses = []
-
-  // var allElements = document.querySelectorAll("*")
-
-  // for (var i = 0; i < allElements.length; i++) {
-  //   var classes = allElements[i].className.toString().split(/\s+/)
-  //   for (var j = 0; j < classes.length; j++) {
-  //     var cls = classes[j]
-  //     if (cls && allClasses.indexOf(cls) === -1) allClasses.push(cls)
-  //   }
-  // }
-
-  // console.log(allClasses)
 
   return (
     <Layout lang={location && location.state && location.state.lang}>
@@ -64,13 +35,13 @@ const Programowanie = ({ data, location }) => {
               title={"Piotr Krasny"}
               subtitle={
                 pl
-                  ? programowaniePageTexts.title[0]
-                  : programowaniePageTexts.title[1]
+                  ? programmingPageContent.title[0]
+                  : programmingPageContent.title[1]
               }
               text={
                 pl
-                  ? programowaniePageTexts.description[0]
-                  : programowaniePageTexts.description[1]
+                  ? programmingPageContent.description[0]
+                  : programmingPageContent.description[1]
               }
               bottomBar={iconBar}
               style={{
@@ -86,6 +57,7 @@ const Programowanie = ({ data, location }) => {
                   const fluid =
                     post.frontmatter.thumbnail &&
                     post.frontmatter.thumbnail.childImageSharp.fluid
+
                   const {
                     title,
                     titleEng,
@@ -97,9 +69,10 @@ const Programowanie = ({ data, location }) => {
                     live,
                     date,
                   } = post.frontmatter
+
                   let allTagsInPost = []
                   allTagsInPost = tags.split(",")
-                  console.log(allTagsInPost)
+
                   return (
                     <li key={post.fields.slug}>
                       <MDBRow className="justify-content-between mb-5">
