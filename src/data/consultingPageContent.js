@@ -1,21 +1,6 @@
 import React from "react"
 import { PageContext } from "../components/layout"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import JumbotronReus from "../components/JumbotronReus"
-import GrantProjectCard from "../components/GrantProjectCard"
-import {
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBProgress,
-  MDBCard,
-  MDBCardBody,
-  MDBIcon,
-  MDBCardText,
-  MDBBtn,
-  MDBAnimation,
-} from "mdbreact"
+import { MDBBtn, MDBAnimation } from "mdbreact"
 
 export const doradztwoPageTexts = {
   title: ["Doradztwo i  finanse", "Consulting and finance"],

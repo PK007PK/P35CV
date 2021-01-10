@@ -1,6 +1,6 @@
 import React from "react"
 import { PageContext } from "../components/layout"
-import { MDBContainer, MDBRow, MDBCol, MDBFooter, MDBTooltip } from "mdbreact"
+import { MDBContainer, MDBRow, MDBCol, MDBFooter } from "mdbreact"
 
 const Footer = ({ printFn }) => {
   return (

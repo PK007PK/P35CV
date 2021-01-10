@@ -97,7 +97,7 @@ const Programowanie = ({ data, location }) => {
                     live,
                     date,
                   } = post.frontmatter
-                  let allTagsInPost = new Array()
+                  let allTagsInPost = []
                   allTagsInPost = tags.split(",")
                   console.log(allTagsInPost)
                   return (

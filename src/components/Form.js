@@ -92,7 +92,6 @@ export default function Form({ admin }) {
                   label={pl ? "Wiadomość:" : "Message:"}
                   icon="pencil-alt"
                   name="text"
-                  iconSize="4"
                   iconSize="2x"
                 />
               </div>
