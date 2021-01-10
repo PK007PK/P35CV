@@ -1,16 +1,5 @@
 import React from "react"
-import {
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBBtn,
-  MDBIcon,
-  MDBAnimation,
-  MDBJumbotron,
-  MDBTooltip,
-} from "mdbreact"
+import { MDBBtn, MDBIcon, MDBTooltip } from "mdbreact"
 
 import { PageContext } from "../components/layout"
 
@@ -111,7 +100,7 @@ export const indexPageTexts = {
   ],
 }
 
-export const textForJumbo = () => (
+export const TextForJumbo = () => (
   <PageContext.Consumer>
     {({ pl }) => (
       <p className="">
@@ -121,7 +110,7 @@ export const textForJumbo = () => (
   </PageContext.Consumer>
 )
 
-export const textForJumboPrint = () => (
+export const TextForJumboPrint = () => (
   <PageContext.Consumer>
     {({ pl }) => (
       <p className="lead">
@@ -143,7 +132,7 @@ export const textForJumboPrint = () => (
   </PageContext.Consumer>
 )
 
-export const buttonsForJumbo = () => (
+export const ButtonsForJumbo = () => (
   <PageContext.Consumer>
     {({ pl }) => (
       <div className=" homepage-btn-bar">
@@ -184,7 +173,7 @@ export const buttonsForJumbo = () => (
   </PageContext.Consumer>
 )
 
-export const buttonForJumboPrint = () => (
+export const ButtonForJumboPrint = () => (
   <PageContext.Consumer>
     {({ changePrint, pl }) => (
       <div className="">

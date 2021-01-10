@@ -1,7 +1,7 @@
 import React from "react"
 import { PageContext } from "../components/layout"
 import Layout from "../components/layout"
-import JumbotronReus from "../components/jumbotronReus"
+import Jumbo from "../components/jumbo"
 import SEO from "../components/seo"
 import { MDBBtn } from "mdbreact"
 
@@ -77,7 +77,7 @@ const KontaktThanksPage = ({ data, location }) => {
         {({ pl }) => (
           <>
             <SEO title={pl ? "Kontakt" : "Contact"} />
-            <JumbotronReus
+            <Jumbo
               title={"Piotr Krasny"}
               subtitle={pl ? "Kontakt" : "Contact"}
               // text={textForJumbo}

@@ -2,7 +2,7 @@ import React from "react"
 import { PageContext } from "../components/layout"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import JumbotronReus from "../components/JumbotronReus"
+import Jumbo from "../components/jumbo"
 import GrantProjectCard from "../components/GrantProjectCard"
 import {
   MDBContainer,
@@ -217,7 +217,7 @@ class IndexPage extends React.Component {
           {({ pl }) => (
             <>
               <SEO title="Doradztwo" />
-              <JumbotronReus
+              <Jumbo
                 title={"Piotr Krasny"}
                 subtitle={
                   pl ? doradztwoPageTexts.title[0] : doradztwoPageTexts.title[1]

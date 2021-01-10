@@ -2,7 +2,7 @@ import React from "react"
 import Image from "gatsby-image"
 import { Link, graphql } from "gatsby"
 import { PageContext } from "../components/layout"
-import JumbotronReus from "../components/jumbotronReus"
+import Jumbo from "../components/jumbo"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -60,7 +60,7 @@ const Programowanie = ({ data, location }) => {
         {({ pl }) => (
           <>
             <SEO title={pl ? "Programowanie" : "Programming"} />
-            <JumbotronReus
+            <Jumbo
               title={"Piotr Krasny"}
               subtitle={
                 pl

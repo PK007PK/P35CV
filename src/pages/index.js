@@ -3,9 +3,9 @@ import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import { PageContext } from "../components/layout"
 import Layout from "../components/layout"
-import JumbotronReus from "../components/jumbotronReus"
+import Jumbo from "../components/jumbo"
 import SEO from "../components/seo"
-import CardSimple from "../components/CardSimple"
+import CardSimple from "../components/cardSimple"
 import {
   MDBContainer,
   MDBRow,
@@ -17,10 +17,10 @@ import {
 
 import {
   indexPageTexts,
-  textForJumbo,
-  textForJumboPrint,
-  buttonsForJumbo,
-  buttonForJumboPrint,
+  TextForJumbo,
+  TextForJumboPrint,
+  ButtonsForJumbo,
+  ButtonForJumboPrint,
 } from "../data/indexPageContent"
 
 const IndexPage = ({ data, location }) => {
@@ -35,11 +35,11 @@ const IndexPage = ({ data, location }) => {
         {({ pl, print }) => (
           <>
             <SEO title={pl ? "Strona Główna" : "Home"} />
-            <JumbotronReus
+            <Jumbo
               title={"Piotr Krasny"}
               subtitle={pl ? indexPageTexts.title[0] : indexPageTexts.title[1]}
-              text={print ? textForJumboPrint : textForJumbo}
-              bottomBar={print ? buttonForJumboPrint : buttonsForJumbo}
+              text={print ? TextForJumboPrint : TextForJumbo}
+              bottomBar={print ? ButtonForJumboPrint : ButtonsForJumbo}
               style={
                 print
                   ? {
