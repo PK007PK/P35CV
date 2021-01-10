@@ -1,8 +1,8 @@
 import React from "react"
 import Image from "gatsby-image"
 import { Link, graphql } from "gatsby"
-import { LanguageContext } from "../components/layout"
-import { programowaniePageTexts } from "../data/programowaniePageTexts"
+import { PageContext } from "../components/layout"
+import JumbotronReus from "../components/jumbotronReus"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -18,10 +18,9 @@ import {
   MDBBadge,
   MDBBtn,
 } from "mdbreact"
-import JumbotronReus from "../components/JumbotronReus"
+import { programowaniePageTexts } from "../data/programowaniePageTexts"
 
 const Programowanie = ({ data, location }) => {
-  // const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
   const jumbotronImg = data.placeholderImage.childImageSharp.fluid
 
@@ -57,7 +56,7 @@ const Programowanie = ({ data, location }) => {
 
   return (
     <Layout lang={location && location.state && location.state.lang}>
-      <LanguageContext.Consumer>
+      <PageContext.Consumer>
         {({ pl }) => (
           <>
             <SEO title={pl ? "Programowanie" : "Programming"} />
@@ -182,7 +181,7 @@ const Programowanie = ({ data, location }) => {
             </MDBContainer>
           </>
         )}
-      </LanguageContext.Consumer>
+      </PageContext.Consumer>
     </Layout>
   )
 }

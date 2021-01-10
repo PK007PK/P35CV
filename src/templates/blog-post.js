@@ -1,18 +1,8 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
-import {
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBBtn,
-  MDBIcon,
-} from "mdbreact"
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { MDBContainer } from "mdbreact"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark

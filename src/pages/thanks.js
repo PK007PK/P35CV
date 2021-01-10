@@ -1,19 +1,18 @@
 import React from "react"
-import { MDBBtn } from "mdbreact"
-import { LanguageContext } from "../components/layout"
-
+import { PageContext } from "../components/layout"
 import Layout from "../components/layout"
-import JumbotronReus from "../components/JumbotronReus"
+import JumbotronReus from "../components/jumbotronReus"
 import SEO from "../components/seo"
+import { MDBBtn } from "mdbreact"
+
 const KontaktThanksPage = ({ data, location }) => {
   const contactInfo = () => (
-    <LanguageContext.Consumer>
+    <PageContext.Consumer>
       {({ pl }) => (
         <div className="text-right">
           <MDBBtn
             href="tel:509527925"
             target="_blank"
-            // color="pink"
             rel="noopener noreferrer"
             className="waves-effect"
           >
@@ -30,11 +29,11 @@ const KontaktThanksPage = ({ data, location }) => {
           </MDBBtn>
         </div>
       )}
-    </LanguageContext.Consumer>
+    </PageContext.Consumer>
   )
 
   const thanksTxt = () => (
-    <LanguageContext.Consumer>
+    <PageContext.Consumer>
       {({ pl }) => (
         <div className="card">
           <div className="card-body text-left">
@@ -50,7 +49,7 @@ const KontaktThanksPage = ({ data, location }) => {
           </div>
         </div>
       )}
-    </LanguageContext.Consumer>
+    </PageContext.Consumer>
   )
   // var allClasses = []
 
@@ -74,7 +73,7 @@ const KontaktThanksPage = ({ data, location }) => {
       }}
     >
       {" "}
-      <LanguageContext.Consumer>
+      <PageContext.Consumer>
         {({ pl }) => (
           <>
             <SEO title={pl ? "Kontakt" : "Contact"} />
@@ -94,7 +93,7 @@ const KontaktThanksPage = ({ data, location }) => {
             />
           </>
         )}
-      </LanguageContext.Consumer>
+      </PageContext.Consumer>
     </Layout>
   )
 }

@@ -1,8 +1,7 @@
 import React from "react"
-
+import { PageContext } from "../components/layout"
 import ImageReusable from "../components/ImageReusable"
 import { MDBJumbotron, MDBContainer, MDBRow, MDBCol, MDBCard } from "mdbreact"
-import { LanguageContext } from "../components/layout"
 
 const JumbotronReus = ({
   title,
@@ -18,7 +17,7 @@ const JumbotronReus = ({
   const BottomBar = bottomBar
   return (
     <>
-      <LanguageContext.Consumer>
+      <PageContext.Consumer>
         {({ print }) => (
           <MDBJumbotron style={style}>
             <MDBContainer className={print ? "mt-2" : "mt-5"}>
@@ -59,7 +58,7 @@ const JumbotronReus = ({
             </MDBContainer>
           </MDBJumbotron>
         )}
-      </LanguageContext.Consumer>
+      </PageContext.Consumer>
     </>
   )
 }

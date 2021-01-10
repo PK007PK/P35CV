@@ -1,7 +1,7 @@
 import React from "react"
+import { PageContext } from "./layout"
 import { navigate } from "gatsby-link"
 import { MDBCard, MDBCardBody, MDBBtn, MDBIcon, MDBInput } from "mdbreact"
-import { LanguageContext } from "./layout"
 
 function encode(data) {
   return Object.keys(data)
@@ -32,7 +32,7 @@ export default function Form({ admin }) {
   }
 
   return (
-    <LanguageContext.Consumer>
+    <PageContext.Consumer>
       {({ pl }) => (
         <MDBCard>
           <MDBCardBody>
@@ -107,6 +107,6 @@ export default function Form({ admin }) {
           </MDBCardBody>
         </MDBCard>
       )}
-    </LanguageContext.Consumer>
+    </PageContext.Consumer>
   )
 }

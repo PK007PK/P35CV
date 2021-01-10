@@ -1,13 +1,14 @@
 import React from "react"
-import { MDBBtn } from "mdbreact"
-import { LanguageContext } from "../components/layout"
-import Form from "../components/Form"
+import { PageContext } from "../components/layout"
 import Layout from "../components/layout"
-import JumbotronReus from "../components/JumbotronReus"
+import JumbotronReus from "../components/jumbotronReus"
+import Form from "../components/form"
 import SEO from "../components/seo"
+import { MDBBtn } from "mdbreact"
+
 const KontaktPage = ({ data, location }) => {
   const contactInfo = () => (
-    <LanguageContext.Consumer>
+    <PageContext.Consumer>
       {({ pl }) => (
         <div className="text-right">
           <MDBBtn
@@ -30,7 +31,7 @@ const KontaktPage = ({ data, location }) => {
           </MDBBtn>
         </div>
       )}
-    </LanguageContext.Consumer>
+    </PageContext.Consumer>
   )
 
   // var allClasses = []
@@ -55,7 +56,7 @@ const KontaktPage = ({ data, location }) => {
       }}
     >
       {" "}
-      <LanguageContext.Consumer>
+      <PageContext.Consumer>
         {({ pl }) => (
           <>
             <SEO title={pl ? "Kontakt" : "Contact"} />
@@ -75,7 +76,7 @@ const KontaktPage = ({ data, location }) => {
             />
           </>
         )}
-      </LanguageContext.Consumer>
+      </PageContext.Consumer>
     </Layout>
   )
 }

@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import { LanguageContext } from "./layout"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { PageContext } from "./layout"
 
 import {
   MDBNavbar,
@@ -32,7 +32,7 @@ class Navbar extends Component {
     }
 
     return (
-      <LanguageContext.Consumer>
+      <PageContext.Consumer>
         {({ pl, changeFn }) => (
           <MDBNavbar color="unique-color-dark" dark expand="lg">
             <MDBContainer>
@@ -133,7 +133,7 @@ class Navbar extends Component {
             </MDBContainer>
           </MDBNavbar>
         )}
-      </LanguageContext.Consumer>
+      </PageContext.Consumer>
     )
   }
 }

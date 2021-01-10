@@ -1,3 +1,22 @@
+import React from "react"
+import { PageContext } from "../components/layout"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import JumbotronReus from "../components/JumbotronReus"
+import GrantProjectCard from "../components/GrantProjectCard"
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBProgress,
+  MDBCard,
+  MDBCardBody,
+  MDBIcon,
+  MDBCardText,
+  MDBBtn,
+  MDBAnimation,
+} from "mdbreact"
+
 export const doradztwoPageTexts = {
   title: ["Doradztwo i  finanse", "Consulting and finance"],
   description: [
@@ -19,3 +38,25 @@ export const doradztwoPageTexts = {
     ['Fundusze EOG / "Norweskie"', "Iceland, Liechtenstein, Norway Grants"],
   ],
 }
+
+export const ShowInitialButton = ({ fn }) => (
+  <PageContext.Consumer>
+    {({ pl }) => (
+      <div
+        style={{
+          minHeight: "360px",
+          width: "100%",
+        }}
+        className="d-flex justify-content-center align-items-center"
+      >
+        <div>
+          <MDBAnimation type="rollIn">
+            <MDBBtn color="pink" onClick={fn}>
+              {pl ? "Wczytaj dane" : "Click to load data"}
+            </MDBBtn>
+          </MDBAnimation>
+        </div>
+      </div>
+    )}
+  </PageContext.Consumer>
+)

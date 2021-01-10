@@ -1,3 +1,19 @@
+import React from "react"
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBCard,
+  MDBCardBody,
+  MDBBtn,
+  MDBIcon,
+  MDBAnimation,
+  MDBJumbotron,
+  MDBTooltip,
+} from "mdbreact"
+
+import { PageContext } from "../components/layout"
+
 export const indexPageTexts = {
   title: ["Curriculum Vitae", "Curriculum Vitae"],
   description: [
@@ -94,3 +110,105 @@ export const indexPageTexts = {
     "According to art. 7 par. 2 RODO I expressly and voluntarily agree to the processing of my personal data contained in the appl ication documents, including Curriculum Vitae (CV) in order to carry out the recruitment process, as well as for the needs of future recruitment processes. At the same time, I declare that my consent meets all the conditions referred to in art. 7 RODO, i .e. I am entitled to withdraw it at any time, the request for consent has been presented to me in a clear and comprehensible form.",
   ],
 }
+
+export const textForJumbo = () => (
+  <PageContext.Consumer>
+    {({ pl }) => (
+      <p className="">
+        {pl ? indexPageTexts.description[0] : indexPageTexts.description[1]}
+      </p>
+    )}
+  </PageContext.Consumer>
+)
+
+export const textForJumboPrint = () => (
+  <PageContext.Consumer>
+    {({ pl }) => (
+      <p className="lead">
+        {pl ? (
+          <>
+            16 lat doświadczenia w branży doradczej
+            <br />
+            Kompetencje w obszarze organizacji, zarządzania i finansów
+          </>
+        ) : (
+          <>
+            16 years of experience in the consulting industry
+            <br />
+            Competence in organisational, management and financial matters
+          </>
+        )}
+      </p>
+    )}
+  </PageContext.Consumer>
+)
+
+export const buttonsForJumbo = () => (
+  <PageContext.Consumer>
+    {({ pl }) => (
+      <div className=" homepage-btn-bar">
+        <MDBBtn
+          href={
+            pl
+              ? "/20210105PiotrKrasnyCvPl.pdf"
+              : "/20210105PiotrKrasnyCvEng.pdf"
+          }
+          target="_blank"
+          color="indigo"
+          rel="noopener noreferrer"
+          className="waves-effect w-100 mx-0 mx-md-2"
+        >
+          CV PDF
+          <MDBIcon fas icon="file-pdf" className="ml-2" />
+        </MDBBtn>
+        <MDBBtn
+          href="https://github.com/PK007PK"
+          target="_blank"
+          color="pink"
+          rel="noopener noreferrer"
+          className="waves-effect w-100 mx-0 mx-md-2"
+        >
+          LinkedIn <MDBIcon fab icon="linkedin-in" className="ml-2" />
+        </MDBBtn>
+        <MDBBtn
+          href="https://github.com/PK007PK"
+          target="_blank"
+          color="amber"
+          rel="noopener noreferrer"
+          className="waves-effect w-100 mx-0 mx-md-2 mr-lg-0"
+        >
+          Github <MDBIcon fab icon="github" className="ml-2" />
+        </MDBBtn>
+      </div>
+    )}
+  </PageContext.Consumer>
+)
+
+export const buttonForJumboPrint = () => (
+  <PageContext.Consumer>
+    {({ changePrint, pl }) => (
+      <div className="">
+        <p className="lead mb-1 " style={{ fontSize: "25px" }}>
+          krasny.netlify.app
+        </p>
+        <p className="lead mb-1" style={{ fontSize: "18px" }}>
+          krasny.piotr@gmail.com
+        </p>
+        <p className="lead mb-1" style={{ fontSize: "18px" }}>
+          tel.: 509 527 925
+        </p>
+
+        <MDBTooltip placement="right">
+          <MDBBtn className="d-print-none" onClick={changePrint}>
+            {pl ? "Powrót" : "Go back"}
+          </MDBBtn>
+          <div>
+            {pl
+              ? "Przycisk niewidoczny na wydruku"
+              : "Button invisible on print"}
+          </div>
+        </MDBTooltip>
+      </div>
+    )}
+  </PageContext.Consumer>
+)

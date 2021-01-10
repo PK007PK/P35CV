@@ -1,10 +1,10 @@
 import React from "react"
-
-import { LanguageContext } from "../components/layout"
+import { PageContext } from "../components/layout"
 import { MDBContainer, MDBRow, MDBCol, MDBFooter, MDBTooltip } from "mdbreact"
+
 const Footer = ({ printFn }) => {
   return (
-    <LanguageContext.Consumer>
+    <PageContext.Consumer>
       {({ pl }) => (
         <MDBFooter color="unique-color-dark" className="font-small">
           <div className="footer-copyright py-3">
@@ -34,7 +34,7 @@ const Footer = ({ printFn }) => {
           </div>
         </MDBFooter>
       )}
-    </LanguageContext.Consumer>
+    </PageContext.Consumer>
   )
 }
 

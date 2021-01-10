@@ -1,10 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
-
 import Navbar from "./navbar"
 import Footer from "./footer"
 
-export const LanguageContext = React.createContext()
+export const PageContext = React.createContext()
 
 class Layout extends React.Component {
   state = {
@@ -18,9 +17,7 @@ class Layout extends React.Component {
     this.setState({ pl: this.props.lang === "eng" ? false : true })
   }
 
-  componentDidUpdate() {
-    // console.log("Pl w state po update: ", this.state.pl)
-  }
+  componentDidUpdate() {}
 
   changeLanguage = () => this.setState(prevState => ({ pl: !prevState.pl }))
 
@@ -32,7 +29,7 @@ class Layout extends React.Component {
     const { children, style } = this.props
 
     return (
-      <LanguageContext.Provider value={this.state}>
+      <PageContext.Provider value={this.state}>
         <div className="site" style={style}>
           {!this.state.print && (
             <Navbar printFn={this.changePrint} pathname={this.props.pathname} />
@@ -40,7 +37,7 @@ class Layout extends React.Component {
           <main className="site-content">{children}</main>
           {!this.state.print && <Footer />}
         </div>
-      </LanguageContext.Provider>
+      </PageContext.Provider>
     )
   }
 }

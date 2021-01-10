@@ -1,10 +1,9 @@
 import React from "react"
-
-import { LanguageContext } from "./layout"
+import { PageContext } from "./layout"
 
 const GrantProjectCard = ({ name, title, value, grant, style, whiteText }) => {
   return (
-    <LanguageContext.Consumer>
+    <PageContext.Consumer>
       {({ pl }) => (
         <div style={style} className="card">
           <div className="card-body d-flex flex-column justify-content-between">
@@ -36,7 +35,7 @@ const GrantProjectCard = ({ name, title, value, grant, style, whiteText }) => {
           </div>
         </div>
       )}
-    </LanguageContext.Consumer>
+    </PageContext.Consumer>
   )
 }
 

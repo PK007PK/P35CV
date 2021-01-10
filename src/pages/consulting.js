@@ -1,12 +1,9 @@
 import React from "react"
-
-import { doradztwoPageTexts } from "../data/doradztwoPageText"
-import { LanguageContext } from "../components/layout"
-
-import SEO from "../components/seo"
+import { PageContext } from "../components/layout"
 import Layout from "../components/layout"
-
+import SEO from "../components/seo"
 import JumbotronReus from "../components/JumbotronReus"
+import GrantProjectCard from "../components/GrantProjectCard"
 import {
   MDBContainer,
   MDBRow,
@@ -19,8 +16,8 @@ import {
   MDBBtn,
   MDBAnimation,
 } from "mdbreact"
+import { doradztwoPageTexts } from "../data/consultingPageContent"
 
-import GrantProjectCard from "../components/GrantProjectCard"
 import allProjects from "../data/data"
 
 class IndexPage extends React.Component {
@@ -33,12 +30,9 @@ class IndexPage extends React.Component {
     isLoaded: false,
   }
 
-  componentDidMount() {
-    // this.initializeData()
-    // this.state.isLoaded && setInterval(this.addValue, 35)
-  }
+  componentDidMount() {}
 
-  initializeData = () => {
+  loadData = () => {
     this.setState(prevState => ({
       isLoaded: !prevState.isLoaded,
     }))
@@ -59,7 +53,7 @@ class IndexPage extends React.Component {
   }
 
   ShowInitialButton = () => (
-    <LanguageContext.Consumer>
+    <PageContext.Consumer>
       {({ pl }) => (
         <div
           style={{
@@ -70,14 +64,14 @@ class IndexPage extends React.Component {
         >
           <div>
             <MDBAnimation type="rollIn">
-              <MDBBtn color="pink" onClick={this.initializeData}>
-                {pl ? "Wczytaj dane" : "Load data"}
+              <MDBBtn color="pink" onClick={this.loadData}>
+                {pl ? "Wczytaj dane" : "Click to load data"}
               </MDBBtn>
             </MDBAnimation>
           </div>
         </div>
       )}
-    </LanguageContext.Consumer>
+    </PageContext.Consumer>
   )
 
   ShowAllProjects = () => (
@@ -130,7 +124,7 @@ class IndexPage extends React.Component {
   ]
 
   ShowFundsList = () => (
-    <LanguageContext.Consumer>
+    <PageContext.Consumer>
       {({ pl }) =>
         doradztwoPageTexts.programs.map(item => (
           <MDBCard
@@ -149,11 +143,11 @@ class IndexPage extends React.Component {
           </MDBCard>
         ))
       }
-    </LanguageContext.Consumer>
+    </PageContext.Consumer>
   )
 
   textJumbo = () => (
-    <LanguageContext.Consumer>
+    <PageContext.Consumer>
       {({ pl }) => (
         <p className="text-right">
           {pl
@@ -161,11 +155,11 @@ class IndexPage extends React.Component {
             : doradztwoPageTexts.description[1]}
         </p>
       )}
-    </LanguageContext.Consumer>
+    </PageContext.Consumer>
   )
 
   jumbotronBottom = () => (
-    <LanguageContext.Consumer>
+    <PageContext.Consumer>
       {({ pl }) => (
         <div className="text-right">
           <MDBProgress
@@ -191,7 +185,7 @@ class IndexPage extends React.Component {
           </p>
         </div>
       )}
-    </LanguageContext.Consumer>
+    </PageContext.Consumer>
   )
   render() {
     // const data = this.props.data
@@ -219,7 +213,7 @@ class IndexPage extends React.Component {
         }
         style={{ backgroundColor: "#f5f5f5" }}
       >
-        <LanguageContext.Consumer>
+        <PageContext.Consumer>
           {({ pl }) => (
             <>
               <SEO title="Doradztwo" />
@@ -264,7 +258,7 @@ class IndexPage extends React.Component {
               )}
             </>
           )}
-        </LanguageContext.Consumer>
+        </PageContext.Consumer>
       </Layout>
     )
   }

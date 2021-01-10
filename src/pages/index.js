@@ -1,163 +1,45 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { Link } from "gatsby"
-// import { useLocation } from "react-router-dom"
-import { indexPageTexts } from "../data/indexPageTexts"
+import { PageContext } from "../components/layout"
+import Layout from "../components/layout"
+import JumbotronReus from "../components/jumbotronReus"
+import SEO from "../components/seo"
+import CardSimple from "../components/CardSimple"
 import {
   MDBContainer,
   MDBRow,
   MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBBtn,
   MDBIcon,
   MDBAnimation,
   MDBJumbotron,
-  MDBTooltip,
 } from "mdbreact"
 
-import { LanguageContext } from "../components/layout"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-
-import JumbotronReus from "../components/JumbotronReus"
+import {
+  indexPageTexts,
+  textForJumbo,
+  textForJumboPrint,
+  buttonsForJumbo,
+  buttonForJumboPrint,
+} from "../data/indexPageContent"
 
 const IndexPage = ({ data, location }) => {
   const jumbotronImg = data.placeholderImage.childImageSharp.fluid
-  const jumbotronImg2 = data.placeholderImage2.childImageSharp.fluid
-
-  const textForJumbo = () => (
-    <LanguageContext.Consumer>
-      {({ pl }) => (
-        <p className="">
-          {pl ? indexPageTexts.description[0] : indexPageTexts.description[1]}
-        </p>
-      )}
-    </LanguageContext.Consumer>
-  )
-
-  const textForCV = () => (
-    <LanguageContext.Consumer>
-      {({ pl }) => (
-        <p className="lead">
-          {pl ? (
-            <>
-              16 lat doświadczenia w branży doradczej
-              <br />
-              Kompetencje w obszarze organizacji, zarządzania i finansów
-            </>
-          ) : (
-            <>
-              16 years of experience in the consulting industry
-              <br />
-              Competence in organisational, management and financial matters
-            </>
-          )}
-        </p>
-      )}
-    </LanguageContext.Consumer>
-  )
-
-  const buttonsForJumbo = () => (
-    <LanguageContext.Consumer>
-      {({ pl }) => (
-        <div className=" homepage-btn-bar">
-          <MDBBtn
-            href={
-              pl
-                ? "/20210105PiotrKrasnyCvPl.pdf"
-                : "/20210105PiotrKrasnyCvEng.pdf"
-            }
-            target="_blank"
-            color="indigo"
-            rel="noopener noreferrer"
-            className="waves-effect w-100 mx-0 mx-md-2"
-          >
-            CV PDF
-            <MDBIcon fas icon="file-pdf" className="ml-2" />
-          </MDBBtn>
-          <MDBBtn
-            href="https://github.com/PK007PK"
-            target="_blank"
-            color="pink"
-            rel="noopener noreferrer"
-            className="waves-effect w-100 mx-0 mx-md-2"
-          >
-            LinkedIn <MDBIcon fab icon="linkedin-in" className="ml-2" />
-          </MDBBtn>
-          <MDBBtn
-            href="https://github.com/PK007PK"
-            target="_blank"
-            color="amber"
-            rel="noopener noreferrer"
-            className="waves-effect w-100 mx-0 mx-md-2 mr-lg-0"
-          >
-            Github <MDBIcon fab icon="github" className="ml-2" />
-          </MDBBtn>
-        </div>
-      )}
-    </LanguageContext.Consumer>
-  )
-
-  const buttonForCV = () => (
-    <LanguageContext.Consumer>
-      {({ changePrint, pl }) => (
-        <div className="">
-          <p className="lead mb-1 " style={{ fontSize: "25px" }}>
-            krasny.netlify.app
-          </p>
-          <p className="lead mb-1" style={{ fontSize: "18px" }}>
-            krasny.piotr@gmail.com
-          </p>
-          <p className="lead mb-1" style={{ fontSize: "18px" }}>
-            tel.: 509 527 925
-          </p>
-
-          <MDBTooltip placement="right">
-            <MDBBtn className="d-print-none" onClick={changePrint}>
-              {pl ? "Powrót" : "Go back"}
-            </MDBBtn>
-            <div>
-              {pl
-                ? "Przycisk niewidoczny na wydruku"
-                : "Button invisible on print"}
-            </div>
-          </MDBTooltip>
-        </div>
-      )}
-    </LanguageContext.Consumer>
-  )
-
-  // const location = useLocation()
-
-  // var allClasses = []
-
-  // var allElements = document.querySelectorAll("*")
-
-  // for (var i = 0; i < allElements.length; i++) {
-  //   var classes = allElements[i].className.toString().split(/\s+/)
-  //   for (var j = 0; j < classes.length; j++) {
-  //     var cls = classes[j]
-  //     if (cls && allClasses.indexOf(cls) === -1) allClasses.push(cls)
-  //   }
-  // }
-
-  // console.log(allClasses)
-
+  const jumbotronImgPrint = data.placeholderImage2.childImageSharp.fluid
   return (
     <Layout
       lang={location && location.state && location.state.lang}
       pathname={location && location.pathname}
     >
-      <LanguageContext.Consumer>
+      <PageContext.Consumer>
         {({ pl, print }) => (
           <>
             <SEO title={pl ? "Strona Główna" : "Home"} />
             <JumbotronReus
               title={"Piotr Krasny"}
               subtitle={pl ? indexPageTexts.title[0] : indexPageTexts.title[1]}
-              text={print ? textForCV : textForJumbo}
-              bottomBar={print ? buttonForCV : buttonsForJumbo}
-              // rightBox={}
+              text={print ? textForJumboPrint : textForJumbo}
+              bottomBar={print ? buttonForJumboPrint : buttonsForJumbo}
               style={
                 print
                   ? {
@@ -171,7 +53,7 @@ const IndexPage = ({ data, location }) => {
                       minHeight: "550px",
                     }
               }
-              imgSource={print ? jumbotronImg2 : jumbotronImg}
+              imgSource={print ? jumbotronImgPrint : jumbotronImg}
             />
 
             <MDBContainer className="mt-5">
@@ -208,27 +90,20 @@ const IndexPage = ({ data, location }) => {
                   </MDBAnimation>
                 </MDBCol>
                 <MDBCol md="4" className="">
-                  <MDBAnimation reveal type="slideInUp">
-                    <MDBCard className="my-3 mt-md-0">
-                      <MDBCardBody>
-                        <p className="h2 card-title text-center font-weight-lighter mb-0">
-                          {pl
-                            ? indexPageTexts.advert1[0]
-                            : indexPageTexts.advert1[1]}
+                  <CardSimple text>
+                    {" "}
+                    {pl ? indexPageTexts.advert1[0] : indexPageTexts.advert1[1]}
+                    {print && (
+                      <Link to="/consulting">
+                        <p className="card-text text-center mt-4">
+                          <strong style={{ color: "#CC0000" }}>
+                            Portfolio:
+                          </strong>{" "}
+                          krasny.netlify.app/consulting
                         </p>
-                        {print && (
-                          <Link to="/consulting">
-                            <p className="card-text text-center mt-4">
-                              <strong style={{ color: "#CC0000" }}>
-                                Portfolio:
-                              </strong>{" "}
-                              krasny.netlify.app/consulting
-                            </p>
-                          </Link>
-                        )}
-                      </MDBCardBody>
-                    </MDBCard>
-                  </MDBAnimation>
+                      </Link>
+                    )}
+                  </CardSimple>
                 </MDBCol>
               </MDBRow>
 
@@ -277,17 +152,9 @@ const IndexPage = ({ data, location }) => {
                   </ul>
                 </MDBCol>
                 <MDBCol md="4" className="">
-                  <MDBAnimation reveal type="slideInUp">
-                    <MDBCard className="my-3 mt-md-0">
-                      <MDBCardBody>
-                        <p className="h4 text-center font-weight-lighter mb-0">
-                          {pl
-                            ? indexPageTexts.advert2[0]
-                            : indexPageTexts.advert2[1]}
-                        </p>
-                      </MDBCardBody>
-                    </MDBCard>
-                  </MDBAnimation>
+                  <CardSimple text>
+                    {pl ? indexPageTexts.advert2[0] : indexPageTexts.advert2[1]}
+                  </CardSimple>
                 </MDBCol>
               </MDBRow>
 
@@ -336,17 +203,9 @@ const IndexPage = ({ data, location }) => {
                   </ul>
                 </MDBCol>
                 <MDBCol md="4" className="my-3 mt-md-0">
-                  <MDBAnimation reveal type="slideInUp">
-                    <MDBCard className="">
-                      <MDBCardBody>
-                        <p className="h4 text-center font-weight-lighter mb-0 ">
-                          {pl
-                            ? indexPageTexts.advert3[0]
-                            : indexPageTexts.advert3[1]}
-                        </p>
-                      </MDBCardBody>
-                    </MDBCard>
-                  </MDBAnimation>
+                  <CardSimple text>
+                    {pl ? indexPageTexts.advert3[0] : indexPageTexts.advert3[1]}
+                  </CardSimple>
                 </MDBCol>
               </MDBRow>
 
@@ -397,55 +256,46 @@ const IndexPage = ({ data, location }) => {
                   </ul>
                 </MDBCol>
                 <MDBCol md="4" className="my-3 mt-md-0">
-                  <MDBAnimation reveal type="slideInUp">
-                    <MDBCard>
-                      <MDBCardBody>
-                        <div className="d-flex justify-content-around">
-                          <MDBIcon
-                            color="red"
-                            fab
-                            size="3x"
-                            icon="html5"
-                            className="red-text"
-                          />
-                          <MDBIcon
-                            fab
-                            size="3x"
-                            icon="css3-alt"
-                            className="blue-text"
-                          />
-                          <MDBIcon
-                            fab
-                            size="3x"
-                            icon="sass"
-                            className="pink-text"
-                          />
-                          <MDBIcon
-                            fab
-                            size="3x"
-                            icon="js"
-                            className="amber-text"
-                          />
-                          <MDBIcon
-                            fab
-                            size="3x"
-                            icon="react"
-                            className="blue-text"
-                          />
-                        </div>
-                        {print && (
-                          <Link to={"/programming"}>
-                            <p className="card-text text-center mt-5">
-                              <strong style={{ color: "#CC0000" }}>
-                                Portfolio:
-                              </strong>{" "}
-                              krasny.netlify.app/programming
-                            </p>
-                          </Link>
-                        )}
-                      </MDBCardBody>
-                    </MDBCard>
-                  </MDBAnimation>
+                  <CardSimple icons>
+                    <div className="d-flex justify-content-around">
+                      <MDBIcon
+                        color="red"
+                        fab
+                        size="3x"
+                        icon="html5"
+                        className="red-text"
+                      />
+                      <MDBIcon
+                        fab
+                        size="3x"
+                        icon="css3-alt"
+                        className="blue-text"
+                      />
+                      <MDBIcon
+                        fab
+                        size="3x"
+                        icon="sass"
+                        className="pink-text"
+                      />
+                      <MDBIcon fab size="3x" icon="js" className="amber-text" />
+                      <MDBIcon
+                        fab
+                        size="3x"
+                        icon="react"
+                        className="blue-text"
+                      />
+                    </div>
+                    {print && (
+                      <Link to={"/programming"}>
+                        <p className="card-text text-center mt-5">
+                          <strong style={{ color: "#CC0000" }}>
+                            Portfolio:
+                          </strong>{" "}
+                          krasny.netlify.app/programming
+                        </p>
+                      </Link>
+                    )}
+                  </CardSimple>
                 </MDBCol>
               </MDBRow>
 
@@ -509,17 +359,13 @@ const IndexPage = ({ data, location }) => {
                   </ul>
                 </MDBCol>
                 <MDBCol md="4" className="">
-                  <MDBAnimation reveal type="slideInUp">
-                    <MDBCard className="my-3 mt-md-0">
-                      <MDBCardBody className="">
-                        <div className="d-flex justify-content-around align-items-center">
-                          <i className="politechnika"></i>
-                          <i className="ekonomiczna"></i>
-                          <i className="lo"></i>
-                        </div>
-                      </MDBCardBody>
-                    </MDBCard>
-                  </MDBAnimation>
+                  <CardSimple icons>
+                    <div className="d-flex justify-content-around align-items-center">
+                      <i className="politechnika"></i>
+                      <i className="ekonomiczna"></i>
+                      <i className="lo"></i>
+                    </div>
+                  </CardSimple>
                 </MDBCol>
               </MDBRow>
             </MDBContainer>
@@ -554,9 +400,14 @@ const IndexPage = ({ data, location }) => {
             </div>
           </>
         )}
-      </LanguageContext.Consumer>
+      </PageContext.Consumer>
     </Layout>
   )
+}
+
+IndexPage.propTypes = {
+  data: PropTypes.object,
+  location: PropTypes.object,
 }
 
 export const pageQuery = graphql`
