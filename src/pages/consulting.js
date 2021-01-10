@@ -16,7 +16,12 @@ import {
   MDBBtn,
   MDBAnimation,
 } from "mdbreact"
-import { doradztwoPageTexts } from "../data/consultingPageContent"
+import {
+  doradztwoPageTexts,
+  ShowInitialButton,
+  TextJumbo,
+  ProgresBarAndStats,
+} from "../data/consultingPageContent"
 
 import allProjects from "../data/data"
 
@@ -51,28 +56,6 @@ class IndexPage extends React.Component {
       }))
     }
   }
-
-  ShowInitialButton = () => (
-    <PageContext.Consumer>
-      {({ pl }) => (
-        <div
-          style={{
-            minHeight: "360px",
-            width: "100%",
-          }}
-          className="d-flex justify-content-center align-items-center"
-        >
-          <div>
-            <MDBAnimation type="rollIn">
-              <MDBBtn color="pink" onClick={this.loadData}>
-                {pl ? "Wczytaj dane" : "Click to load data"}
-              </MDBBtn>
-            </MDBAnimation>
-          </div>
-        </div>
-      )}
-    </PageContext.Consumer>
-  )
 
   ShowAllProjects = () => (
     <div className="d-flex flex-column-reverse flex-wrap justify-content-between">
@@ -146,64 +129,7 @@ class IndexPage extends React.Component {
     </PageContext.Consumer>
   )
 
-  textJumbo = () => (
-    <PageContext.Consumer>
-      {({ pl }) => (
-        <p className="text-right">
-          {pl
-            ? doradztwoPageTexts.description[0]
-            : doradztwoPageTexts.description[1]}
-        </p>
-      )}
-    </PageContext.Consumer>
-  )
-
-  jumbotronBottom = () => (
-    <PageContext.Consumer>
-      {({ pl }) => (
-        <div className="text-right">
-          <MDBProgress
-            height="0.2rem"
-            value={(this.state.amount / 180) * 100}
-            className="my-2"
-          />
-          <p className="">
-            {pl
-              ? doradztwoPageTexts.projectsAmount[0]
-              : doradztwoPageTexts.projectsAmount[1]}
-            : {this.state.amount}
-            <br />
-            {pl
-              ? doradztwoPageTexts.projectsValue[0]
-              : doradztwoPageTexts.projectsValue[1]}
-            : {this.state.values.toLocaleString()} zł
-            <br />
-            {pl
-              ? doradztwoPageTexts.grants[0]
-              : doradztwoPageTexts.grants[1]}:{" "}
-            {this.state.grants.toLocaleString()} zł
-          </p>
-        </div>
-      )}
-    </PageContext.Consumer>
-  )
   render() {
-    // const data = this.props.data
-
-    // var allClasses = []
-
-    // var allElements = document.querySelectorAll("*")
-
-    // for (var i = 0; i < allElements.length; i++) {
-    //   var classes = allElements[i].className.toString().split(/\s+/)
-    //   for (var j = 0; j < classes.length; j++) {
-    //     var cls = classes[j]
-    //     if (cls && allClasses.indexOf(cls) === -1) allClasses.push(cls)
-    //   }
-    // }
-
-    // console.log(allClasses)
-
     return (
       <Layout
         lang={
@@ -222,12 +148,27 @@ class IndexPage extends React.Component {
                 subtitle={
                   pl ? doradztwoPageTexts.title[0] : doradztwoPageTexts.title[1]
                 }
-                text={this.textJumbo}
-                bottomBar={this.jumbotronBottom}
+                text={() => (
+                  <TextJumbo
+                    text={
+                      pl
+                        ? doradztwoPageTexts.description[0]
+                        : doradztwoPageTexts.description[1]
+                    }
+                  />
+                )}
+                bottomBar={() => (
+                  <ProgresBarAndStats
+                    progres={(this.state.amount / 180) * 100}
+                    countedAmount={this.state.amount}
+                    countedProjectsValue={this.state.values.toLocaleString()}
+                    countedProjectsGrants={this.state.grants.toLocaleString()}
+                  />
+                )}
                 rightBox={
                   this.state.isLoaded
                     ? this.ShowCurrentProject
-                    : this.ShowInitialButton
+                    : () => <ShowInitialButton fn={this.loadData} />
                 }
                 style={{
                   backgroundColor: "#f5f5f5",

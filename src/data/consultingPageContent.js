@@ -1,6 +1,17 @@
 import React from "react"
 import { PageContext } from "../components/layout"
-import { MDBBtn, MDBAnimation } from "mdbreact"
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBProgress,
+  MDBCard,
+  MDBCardBody,
+  MDBIcon,
+  MDBCardText,
+  MDBBtn,
+  MDBAnimation,
+} from "mdbreact"
 
 export const doradztwoPageTexts = {
   title: ["Doradztwo i  finanse", "Consulting and finance"],
@@ -41,6 +52,42 @@ export const ShowInitialButton = ({ fn }) => (
             </MDBBtn>
           </MDBAnimation>
         </div>
+      </div>
+    )}
+  </PageContext.Consumer>
+)
+
+export const TextJumbo = ({ text }) => (
+  <PageContext.Consumer>
+    {({ pl }) => <p className="text-right">{text}</p>}
+  </PageContext.Consumer>
+)
+
+export const ProgresBarAndStats = ({
+  progres,
+  countedAmount,
+  countedProjectsValue,
+  countedProjectsGrants,
+}) => (
+  <PageContext.Consumer>
+    {({ pl }) => (
+      <div className="text-right">
+        <MDBProgress height="0.2rem" value={progres} className="my-2" />
+        <p className="">
+          {pl
+            ? doradztwoPageTexts.projectsAmount[0]
+            : doradztwoPageTexts.projectsAmount[1]}
+          : {countedAmount}
+          <br />
+          {pl
+            ? doradztwoPageTexts.projectsValue[0]
+            : doradztwoPageTexts.projectsValue[1]}
+          : {countedProjectsValue} zł
+          <br />
+          {pl
+            ? doradztwoPageTexts.grants[0]
+            : doradztwoPageTexts.grants[1]}: {countedProjectsGrants} zł
+        </p>
       </div>
     )}
   </PageContext.Consumer>
