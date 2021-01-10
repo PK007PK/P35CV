@@ -2,7 +2,7 @@ import React from "react"
 import { PageContext } from "../components/layout"
 import Layout from "../components/layout"
 import Jumbo from "../components/jumbo"
-import Form from "../components/form"
+import Form from "../components/Form"
 import SEO from "../components/seo"
 import { MDBBtn } from "mdbreact"
 
