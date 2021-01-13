@@ -96,6 +96,8 @@ module.exports = {
         printRejected: true, // Print removed selectors and processed file names
         develop: false, // Enable while using `gatsby develop`
         whitelist: [
+          "blue-grey",
+          "lighten-5",
           "mx-md-2",
           "mr-lg-0",
           "navbar-expand-lg",

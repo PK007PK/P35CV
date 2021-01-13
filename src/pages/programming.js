@@ -79,18 +79,21 @@ const Programowanie = ({ data, location }) => {
                         <MDBCol md="7">
                           <MDBCard className="post-list-item mb-0">
                             <Image className="card-img" fluid={fluid} />
-                            <MDBCardBody>
-                              <MDBCardTitle>
+                            <MDBCardBody
+                              className=""
+                              style={{ backgroundColor: "rgb(245, 245, 245)" }}
+                            >
+                              <MDBCardTitle className="">
                                 {pl ? title : titleEng}
                               </MDBCardTitle>
                               <MDBCardText className="">
-                                <small className="text-muted">{date}</small>
+                                <small className="">{date}</small>
                               </MDBCardText>
                               <MDBCardText className="">
                                 {pl ? description : descriptionEng}
                               </MDBCardText>
                             </MDBCardBody>
-                            <div className="card-footer">
+                            <div className="card-footer blue-grey lighten-5">
                               {showMore && (
                                 <Link
                                   to={post.fields.slug}

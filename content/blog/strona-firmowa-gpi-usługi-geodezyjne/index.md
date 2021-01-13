@@ -7,10 +7,11 @@ description: "Prosta strona firmowa lokalnej firmy wykonana w react js, gatsby,
   połączona z DatoCms. "
 descriptionEng: "Simple website of a local company made in react js, gatsby,
   combined with DatoCms. "
-tags: react,gatsby,datocms,styled-components,owndesign
+tags: react,gatsby,datoCms,styledComponents,myOwnDesign
 showMore: false
 githubRepo: https://github.com/PK007PK/P21GeodezjaReactGatsby
 live: https://geodezja.netlify.app/
 bodyEng: z
 ---
+
 z

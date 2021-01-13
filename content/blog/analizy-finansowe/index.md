@@ -10,7 +10,7 @@ description: Prosta strona projektu oparta na własnej bibliotece scss oraz
 descriptionEng: Simple website based on my own scss library and my own webpack
   configuration. Lighthouse scores close to 100 in each category. Responsive
   images, lazyloading, critical css as inline style. My own design.
-tags: webpack,scss,bem,own-design,responsive-images,lazyloading,critical-rendering-path
+tags: webpack,scss,bem,ownDesign,responsiveImages,lazyLoading,criticalRenderingPath
 showMore: false
 githubRepo: https://github.com/PK007PK/P12MpFinClassicWebpack
 live: https://finanseprojektu.pl/
@@ -22,4 +22,5 @@ netlify: false
 netlifyCms: false
 bodyEng: z
 ---
+
 z

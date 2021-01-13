@@ -14,7 +14,7 @@ descriptionEng: "Experiment with bootstrap (mdbreact version). I always avoided
   However, I would like to speed up my projects so experiments are necessary. At
   the same time, I don't feel like inventing what the project should look like.
   I want to play with the code. That is why i choose material design style."
-tags: reactjs,gatsby,mdbootstrap,netlifycms,netlify
+tags: reactjs,gatsby,mdbootstrap,netlifyCms,netlify
 showMore: false
 githubRepo: https://github.com/PK007PK/P35CV
 live: https://krasny.netlify.app/
