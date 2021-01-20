@@ -133,12 +133,12 @@ class Navbar extends Component {
                       </MDBTooltip>
                     </MDBNavItem>
                   )}
-                  <MDBNavItem>
+                  <MDBNavItem style={{ transition: "none" }}>
                     <MDBBtn
                       onClick={changeFn()}
-                      className="btn-sm mr-0"
+                      className="btn-sm mr-0 nav-link test"
                       color="pink"
-                      style={{ width: "80px" }}
+                      style={{ width: "80px", transition: "none" }}
                     >
                       {pl ? "Eng" : "Pl"}
                     </MDBBtn>
