@@ -34,8 +34,11 @@ class Navbar extends Component {
     return (
       <PageContext.Consumer>
         {({ pl, changeFn }) => (
-          <MDBNavbar color="unique-color-dark" dark expand="lg">
-            <MDBContainer>
+          <nav
+            className="navbar navbar-expand-lg navbar-dark shadow-none"
+            style={{ backgroundColor: "#1C2331" }}
+          >
+            <div className="container">
               <MDBNavbarBrand>
                 <AniLink
                   state={{ lang: pl ? "pl" : "eng" }}
@@ -51,12 +54,31 @@ class Navbar extends Component {
                   <strong className="white-text">Piotr Krasny</strong>
                 </AniLink>
               </MDBNavbarBrand>
-              <MDBNavbarToggler onClick={this.toggleCollapse} />
-              <MDBCollapse
+              <button
+                onClick={this.toggleCollapse}
+                className="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span className="navbar-toggler-icon"></span>
+              </button>
+              <div
+                className={
+                  this.state.isOpen
+                    ? "collapse show navbar-collapse"
+                    : "collapse navbar-collapse"
+                }
+                id="navbarNav"
+              >
+                {/* <MDBCollapse
                 id="navbarCollapse3"
                 isOpen={this.state.isOpen}
                 navbar
-              >
+              > */}
                 <MDBNavbarNav right>
                   <MDBNavItem className="mr-3">
                     <AniLink
@@ -144,9 +166,9 @@ class Navbar extends Component {
                     </MDBBtn>
                   </MDBNavItem>
                 </MDBNavbarNav>
-              </MDBCollapse>
-            </MDBContainer>
-          </MDBNavbar>
+              </div>
+            </div>
+          </nav>
         )}
       </PageContext.Consumer>
     )
