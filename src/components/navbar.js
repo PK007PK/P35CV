@@ -64,6 +64,21 @@ class Navbar extends Component {
                       cover
                       bg="#1C2331"
                       duration={0.4}
+                      to="/"
+                      className="nav-link"
+                      activeStyle={{
+                        fontWeight: "bold",
+                      }}
+                    >
+                      {pl ? "Główna" : "Home"}
+                    </AniLink>
+                  </MDBNavItem>
+                  <MDBNavItem className="mr-3">
+                    <AniLink
+                      state={{ lang: pl ? "pl" : "eng" }}
+                      cover
+                      bg="#1C2331"
+                      duration={0.4}
                       to="/consulting"
                       className="nav-link"
                       activeStyle={{
@@ -104,7 +119,7 @@ class Navbar extends Component {
                     </AniLink>
                   </MDBNavItem>
                   {this.props.pathname === "/" && (
-                    <MDBNavItem className="mr-1 d-flex align-items-center">
+                    <MDBNavItem className="d-none d-md-flex align-items-center mr-1">
                       <MDBTooltip domElement tag="span" placement="bottom">
                         <span>
                           <MDBBtn
