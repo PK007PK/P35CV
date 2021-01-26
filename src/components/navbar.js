@@ -4,13 +4,9 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { PageContext } from "./layout"
 
 import {
-  MDBNavbar,
   MDBNavbarBrand,
   MDBNavbarNav,
   MDBNavItem,
-  MDBNavbarToggler,
-  MDBCollapse,
-  MDBContainer,
   MDBBtn,
   MDBTooltip,
 } from "mdbreact"
@@ -74,11 +70,6 @@ class Navbar extends Component {
                 }
                 id="navbarNav"
               >
-                {/* <MDBCollapse
-                id="navbarCollapse3"
-                isOpen={this.state.isOpen}
-                navbar
-              > */}
                 <MDBNavbarNav right>
                   <MDBNavItem className="mr-3">
                     <AniLink
@@ -174,6 +165,7 @@ class Navbar extends Component {
     )
   }
 }
+
 Navbar.propTypes = {
   siteTitle: PropTypes.string,
 }
