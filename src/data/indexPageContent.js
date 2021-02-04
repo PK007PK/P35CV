@@ -139,8 +139,8 @@ export const ButtonsForJumbo = () => (
         <MDBBtn
           href={
             pl
-              ? "/20210105PiotrKrasnyCvPl.pdf"
-              : "/20210105PiotrKrasnyCvEng.pdf"
+              ? "/2021.01.31 Piotr Krasny CV web.pdf"
+              : "/2021.01.31 Piotr Krasny CV Eng web.pdf"
           }
           target="_blank"
           color="indigo"
