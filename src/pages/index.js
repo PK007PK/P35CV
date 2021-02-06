@@ -1,11 +1,14 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
+
 import { PageContext } from "../components/layout"
+
 import Layout from "../components/layout"
 import Jumbo from "../components/jumbo"
 import SEO from "../components/seo"
 import CardSimple from "../components/cardSimple"
+
 import { MDBContainer, MDBRow, MDBCol, MDBIcon, MDBJumbotron } from "mdbreact"
 
 import {

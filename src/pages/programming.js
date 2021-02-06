@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import Image from "gatsby-image"
 import { Link, graphql } from "gatsby"
 import { PageContext } from "../components/layout"
@@ -24,7 +24,7 @@ import { programmingPageContent, iconBar } from "../data/programmingPageContent"
 const Programowanie = ({ data, location }) => {
   const posts = data.allMarkdownRemark.nodes
   const jumbotronImg = data.placeholderImage.childImageSharp.fluid
-
+  // const { pl } = useContext({ PageContext })
   return (
     <Layout lang={location && location.state && location.state.lang}>
       <PageContext.Consumer>

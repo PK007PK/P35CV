@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 import { MDBCard, MDBCardBody } from "mdbreact"
 
@@ -12,5 +13,10 @@ const CardSimple = ({ children, text, icons }) => (
     )}
   </MDBCard>
 )
+
+CardSimple.propTypes = {
+  text: PropTypes.bool,
+  icons: PropTypes.bool,
+}
 
 export default CardSimple
