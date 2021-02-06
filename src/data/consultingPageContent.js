@@ -69,8 +69,9 @@ export const ProgresBarAndStats = ({
 
 export const ShowAllProjects = ({ projectBase }) => (
   <div className="d-flex flex-column-reverse flex-wrap justify-content-between">
-    {projectBase.map(project => (
+    {projectBase.map((project, index) => (
       <GrantProjectCard
+        key={index}
         name={project.podmiot}
         title={project.projekt}
         value={project.wartosc}
@@ -84,8 +85,9 @@ export const ShowAllProjects = ({ projectBase }) => (
 export const ShowFundsList = () => (
   <PageContext.Consumer>
     {({ pl }) =>
-      doradztwoPageTexts.programs.map(item => (
+      doradztwoPageTexts.programs.map((item, index) => (
         <MDBCard
+          key={index}
           className="mb-4"
           style={{
             backgroundColor: "#2E2E2E",
