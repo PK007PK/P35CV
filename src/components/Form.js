@@ -1,6 +1,8 @@
-import React from "react"
-import { PageContext } from "./layout"
+import React, { useState, useContext } from "react"
 import { navigate } from "gatsby-link"
+
+import { PageContext } from "./layout"
+
 import { MDBCard, MDBCardBody, MDBBtn, MDBIcon, MDBInput } from "mdbreact"
 
 function encode(data) {
@@ -10,8 +12,9 @@ function encode(data) {
 }
 
 export default function Form({ admin }) {
-  const [state, setState] = React.useState({})
+  const [state, setState] = useState({})
 
+  const { pl } = useContext(PageContext)
   const handleChange = e => {
     setState({ ...state, [e.target.name]: e.target.value })
   }
@@ -32,80 +35,76 @@ export default function Form({ admin }) {
   }
 
   return (
-    <PageContext.Consumer>
-      {({ pl }) => (
-        <MDBCard>
-          <MDBCardBody>
-            <form
-              name="PKCV contact form"
-              method="post"
-              action="/thanks/"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-              onSubmit={handleSubmit}
-              className="text-left"
-            >
-              {/* <div className="grey-text"> */}
-              {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-              <input type="hidden" name="hiden-input" value="contact" />
-              <div hidden>
-                <label htmlFor="bot-field">
-                  Don’t fill this out:{" "}
-                  <input
-                    name="bot-field"
-                    onChange={handleChange}
-                    autoComplete="off"
-                  />
-                </label>
-              </div>
-              <div className="grey-text">
-                <MDBInput
-                  label={pl ? "Imię:" : "Name:"}
-                  icon="user"
-                  group
-                  type="text"
-                  validate
-                  error="wrong"
-                  success="right"
-                  onChange={handleChange}
-                  autoComplete="off"
-                  required
-                  name="imie"
-                />
+    <MDBCard>
+      <MDBCardBody>
+        <form
+          name="PKCV contact form"
+          method="post"
+          action="/thanks/"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onSubmit={handleSubmit}
+          className="text-left"
+        >
+          {/* <div className="grey-text"> */}
+          {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+          <input type="hidden" name="hiden-input" value="contact" />
+          <div hidden>
+            <label htmlFor="bot-field">
+              Don’t fill this out:{" "}
+              <input
+                name="bot-field"
+                onChange={handleChange}
+                autoComplete="off"
+              />
+            </label>
+          </div>
+          <div className="grey-text">
+            <MDBInput
+              label={pl ? "Imię:" : "Name:"}
+              icon="user"
+              group
+              type="text"
+              validate
+              error="wrong"
+              success="right"
+              onChange={handleChange}
+              autoComplete="off"
+              required
+              name="imie"
+            />
 
-                <MDBInput
-                  label="Email"
-                  icon="envelope"
-                  group
-                  type="email"
-                  validate
-                  error="wrong"
-                  success="right"
-                  onChange={handleChange}
-                  autoComplete="off"
-                  required
-                  name="email"
-                />
-                <MDBInput
-                  type="textarea"
-                  rows="4"
-                  label={pl ? "Wiadomość:" : "Message:"}
-                  icon="pencil-alt"
-                  name="text"
-                  iconSize="2x"
-                />
-              </div>
+            <MDBInput
+              label="Email"
+              icon="envelope"
+              group
+              type="email"
+              validate
+              error="wrong"
+              success="right"
+              onChange={handleChange}
+              autoComplete="off"
+              required
+              name="email"
+            />
+            <MDBInput
+              type="textarea"
+              rows="4"
+              label={pl ? "Wiadomość:" : "Message:"}
+              icon="pencil-alt"
+              name="text"
+              iconSize="2x"
+            />
+          </div>
 
-              <div className="text-center">
-                <MDBBtn type="submit" outline color="warning">
-                  {pl ? "Wyślij:" : "Send:"}
-                  <MDBIcon far icon="paper-plane" className="ml-1" />
-                </MDBBtn>
-              </div>
-            </form>
-          </MDBCardBody>
-        </MDBCard>
-      )}
-    </PageContext.Consumer>
+          <div className="text-center">
+            <MDBBtn type="submit" outline color="warning">
+              {pl ? "Wyślij:" : "Send:"}
+              <MDBIcon far icon="paper-plane" className="ml-1" />
+            </MDBBtn>
+          </div>
+        </form>
+      </MDBCardBody>
+    </MDBCard>
   )
 }

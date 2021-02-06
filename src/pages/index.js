@@ -7,7 +7,7 @@ import { PageContext } from "../components/layout"
 import Layout from "../components/layout"
 import Jumbo from "../components/jumbo"
 import SEO from "../components/seo"
-import CardSimple from "../components/cardSimple"
+import CardSimple from "../components/CardSimple"
 
 import { MDBContainer, MDBRow, MDBCol, MDBIcon, MDBJumbotron } from "mdbreact"
 
