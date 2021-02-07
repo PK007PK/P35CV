@@ -1,34 +1,26 @@
 import React from "react"
 import { PageContext } from "../components/layout"
+
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Jumbo from "../components/jumbo"
+import ProgressBarAndStats from "../components/ProgressBarAndStats"
+import FundList from "../components/FundList"
+import GrantProjectCard from "../components/GrantProjectCard"
+import ShowAllProjects from "../components/ShowAllProjects"
+
 import { MDBContainer, MDBRow, MDBCol, MDBAnimation, MDBBtn } from "mdbreact"
 
-import {
-  doradztwoPageTexts,
-  TextJumbo,
-  ProgresBarAndStats,
-  ShowAllProjects,
-  ShowFundsList,
-  ShowCurrentProject,
-} from "../data/consultingPageContent"
-
+import { doradztwoPageTexts } from "../data/consultingPageContent"
 import allConsultingProjects from "../data/allConsultingProjects"
 
 class IndexPage extends React.Component {
-  interveal = ""
   state = {
     projects: [],
     amount: 0,
     values: 0,
     grants: 0,
-    isLoaded: false,
     loadingStarted: false,
-  }
-
-  componentDidMount() {
-    this.setState(prevState => ({ isLoaded: !prevState.isLoaded }))
   }
 
   loadData = () => {
@@ -74,13 +66,10 @@ class IndexPage extends React.Component {
   )
 
   render() {
+    const projectBase = this.state.projects
     return (
       <Layout
-        lang={
-          this.props.location &&
-          this.props.location.state &&
-          this.props.location.state.lang
-        }
+        lang={this.props.location.state.lang}
         style={{ backgroundColor: "#f5f5f5" }}
       >
         <PageContext.Consumer>
@@ -94,16 +83,15 @@ class IndexPage extends React.Component {
                   pl ? doradztwoPageTexts.title[0] : doradztwoPageTexts.title[1]
                 }
                 text={() => (
-                  <TextJumbo
-                    text={
-                      pl
-                        ? doradztwoPageTexts.description[0]
-                        : doradztwoPageTexts.description[1]
-                    }
-                  />
+                  <p className="text-right">
+                    {pl
+                      ? doradztwoPageTexts.description[0]
+                      : doradztwoPageTexts.description[1]}
+                  </p>
                 )}
                 bottomBar={() => (
-                  <ProgresBarAndStats
+                  <ProgressBarAndStats
+                    textBase={doradztwoPageTexts}
                     progres={(this.state.amount / 180) * 100}
                     countedAmount={this.state.amount}
                     countedProjectsValue={this.state.values.toLocaleString()}
@@ -113,34 +101,32 @@ class IndexPage extends React.Component {
                 rightBox={
                   this.state.loadingStarted
                     ? () => (
-                        <ShowCurrentProject
+                        <GrantProjectCard
+                          whiteText
+                          style={{
+                            minHeight: "360px",
+                            backgroundColor: "#2BBBAD",
+                            color: "white",
+                          }}
                           name={
-                            this.state.projects[0]
-                              ? this.state.projects[
-                                  this.state.projects.length - 1
-                                ].podmiot
-                              : "Ładowanie"
+                            projectBase[0]
+                              ? projectBase[projectBase.length - 1].podmiot
+                              : "Loading data"
                           }
                           title={
-                            this.state.projects[0]
-                              ? this.state.projects[
-                                  this.state.projects.length - 1
-                                ].projekt
-                              : "Ładowanie"
+                            projectBase[0]
+                              ? projectBase[projectBase.length - 1].projekt
+                              : "Loading data"
                           }
                           value={
-                            this.state.projects[0]
-                              ? this.state.projects[
-                                  this.state.projects.length - 1
-                                ].wartosc
-                              : "Ładowanie"
+                            projectBase[0]
+                              ? projectBase[projectBase.length - 1].wartosc
+                              : "Loading data"
                           }
                           grant={
-                            this.state.projects[0]
-                              ? this.state.projects[
-                                  this.state.projects.length - 1
-                                ].dotacja
-                              : "Ładowanie"
+                            projectBase[0]
+                              ? projectBase[projectBase.length - 1].dotacja
+                              : "Loading data"
                           }
                         />
                       )
@@ -152,7 +138,6 @@ class IndexPage extends React.Component {
                   minHeight: "550px",
                 }}
               />
-
               {this.state.loadingStarted && (
                 <MDBContainer>
                   <MDBRow className="">
@@ -166,12 +151,14 @@ class IndexPage extends React.Component {
                   </MDBRow>
                   <MDBRow className="justify-content-between">
                     <MDBCol md="7" className="">
-                      {this.state.isLoaded && (
+                      {this.state.loadingStarted && (
                         <ShowAllProjects projectBase={this.state.projects} />
                       )}
                     </MDBCol>
                     <MDBCol md="4" className="">
-                      {this.state.isLoaded && <ShowFundsList />}
+                      {this.state.loadingStarted && (
+                        <FundList list={doradztwoPageTexts.programs} />
+                      )}
                     </MDBCol>
                   </MDBRow>
                 </MDBContainer>
