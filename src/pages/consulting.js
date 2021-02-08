@@ -56,7 +56,10 @@ const IndexPage = ({ location }) => {
   }
 
   return (
-    <Layout lang={location.state.lang} style={{ backgroundColor: "#f5f5f5" }}>
+    <Layout
+      lang={location && location.state && location.state.lang}
+      style={{ backgroundColor: "#f5f5f5" }}
+    >
       <PageContext.Consumer>
         {({ pl }) => (
           <>
