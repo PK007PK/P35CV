@@ -1,9 +1,9 @@
 import React, { useContext } from "react"
 import Image from "gatsby-image"
 import { Link, graphql } from "gatsby"
-import { PageContext } from "../components/layout"
-import Jumbo from "../components/jumbo"
-import Layout from "../components/layout"
+import { PageContext } from "../components/Layout"
+import Jumbo from "../components/Jumbo"
+import Layout from "../components/Layout"
 import SEO from "../components/seo"
 
 import {

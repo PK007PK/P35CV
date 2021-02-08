@@ -1,7 +1,7 @@
 import React from "react"
-import { PageContext } from "../components/layout"
-import Layout from "../components/layout"
-import Jumbo from "../components/jumbo"
+import { PageContext } from "../components/Layout"
+import Layout from "../components/Layout"
+import Jumbo from "../components/Jumbo"
 import SEO from "../components/seo"
 import { MDBBtn } from "mdbreact"
 

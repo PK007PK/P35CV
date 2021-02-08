@@ -17,8 +17,6 @@ class Layout extends React.Component {
     this.setState({ pl: this.props.lang === "eng" ? false : true })
   }
 
-  componentDidUpdate() {}
-
   changeLanguage = () => this.setState(prevState => ({ pl: !prevState.pl }))
 
   changePrint = () => {

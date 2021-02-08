@@ -1,7 +1,7 @@
 import React from "react"
 import { MDBBtn, MDBIcon, MDBTooltip } from "mdbreact"
 
-import { PageContext } from "../components/layout"
+import { PageContext } from "../components/Layout"
 
 export const indexPageTexts = {
   title: ["Curriculum Vitae", "Curriculum Vitae"],

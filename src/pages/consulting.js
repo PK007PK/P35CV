@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
-import { PageContext } from "../components/layout"
+import { PageContext } from "../components/Layout"
 
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import SEO from "../components/seo"
-import Jumbo from "../components/jumbo"
+import Jumbo from "../components/Jumbo"
 import ProgressBarAndStats from "../components/ProgressBarAndStats"
 import FundList from "../components/FundList"
 import GrantProjectCard from "../components/GrantProjectCard"

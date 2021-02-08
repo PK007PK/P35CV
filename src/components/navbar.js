@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
-import { PageContext } from "./layout"
+import { PageContext } from "./Layout"
 
 import {
   MDBNavbarBrand,

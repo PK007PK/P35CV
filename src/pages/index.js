@@ -2,10 +2,10 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
-import { PageContext } from "../components/layout"
+import { PageContext } from "../components/Layout"
 
-import Layout from "../components/layout"
-import Jumbo from "../components/jumbo"
+import Layout from "../components/Layout"
+import Jumbo from "../components/Jumbo"
 import SEO from "../components/seo"
 import CardSimple from "../components/CardSimple"
 

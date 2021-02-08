@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import PropTypes from "prop-types"
 
-import { PageContext } from "./layout"
+import { PageContext } from "./Layout"
 
 const GrantProjectCard = ({ name, title, value, grant, style, whiteText }) => {
   const { pl } = useContext(PageContext)

@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { PageContext } from "../components/layout"
+import { PageContext } from "../components/Layout"
 import { MDBCard, MDBCardBody, MDBIcon, MDBCardText } from "mdbreact"
 
 const FundList = ({ list }) => {

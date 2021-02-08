@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react"
 import { navigate } from "gatsby-link"
 
-import { PageContext } from "./layout"
+import { PageContext } from "./Layout"
 
 import { MDBCard, MDBCardBody, MDBBtn, MDBIcon, MDBInput } from "mdbreact"
 

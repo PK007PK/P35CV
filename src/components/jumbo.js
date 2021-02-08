@@ -1,6 +1,7 @@
 import React from "react"
-import { PageContext } from "../components/layout"
-import ImageReusable from "../components/ImageReusable"
+import Img from "gatsby-image"
+
+import { PageContext } from "../components/Layout"
 import { MDBJumbotron, MDBContainer, MDBRow, MDBCol, MDBCard } from "mdbreact"
 
 const Jumbo = ({
@@ -49,7 +50,7 @@ const Jumbo = ({
                 <MDBCol md="4" className="mt-4 mt-md-0">
                   {(imgSource && (
                     <MDBCard>
-                      <ImageReusable className="card-img" source={imgSource} />
+                      <Img className="card-img" fluid={imgSource} />
                     </MDBCard>
                   )) ||
                     (rightBox && <RightBox />)}
