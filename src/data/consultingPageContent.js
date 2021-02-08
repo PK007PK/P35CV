@@ -4,7 +4,7 @@ export const doradztwoPageTexts = {
     "W latach 2004 - 2020 współtworzyłem firmę Masterprojekt S.C., przygotowywałem projekty, sporządzałem analizy finansowe, rozliczałem projekty",
     "In the years 2004-2020, I co-founded Masterprojekt S.C., prepared projects, prepared financial analyses, settled projects",
   ],
-  projectsAmount: ["Zrealizowane projekty", "Completed projects"],
+  projectsAmount: ["Wygrane konkursy", "Contest won"],
   projectsValue: ["Wartość projektów", "Projects value"],
   grants: ["Pozyskane dotacje", "Grants received"],
   subtitle: [
