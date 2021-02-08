@@ -14,11 +14,9 @@ const ButtonAnimated = ({ onClick }) => {
       className="d-flex justify-content-center align-items-center"
     >
       <div>
-        <MDBAnimation reveal type="rollIn">
-          <MDBBtn color="pink" onClick={onClick}>
-            {pl ? "Wczytaj dane" : "Click to load data"}
-          </MDBBtn>
-        </MDBAnimation>
+        <MDBBtn color="pink" onClick={onClick}>
+          {pl ? "Wczytaj dane" : "Click to load data"}
+        </MDBBtn>
       </div>
     </div>
   )

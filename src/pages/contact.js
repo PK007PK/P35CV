@@ -14,7 +14,6 @@ const KontaktPage = ({ data, location }) => {
           <MDBBtn
             href="tel:509527925"
             target="_blank"
-            // color="pink"
             rel="noopener noreferrer"
             className="waves-effect"
           >
@@ -34,20 +33,6 @@ const KontaktPage = ({ data, location }) => {
     </PageContext.Consumer>
   )
 
-  // var allClasses = []
-
-  // var allElements = document.querySelectorAll("*")
-
-  // for (var i = 0; i < allElements.length; i++) {
-  //   var classes = allElements[i].className.toString().split(/\s+/)
-  //   for (var j = 0; j < classes.length; j++) {
-  //     var cls = classes[j]
-  //     if (cls && allClasses.indexOf(cls) === -1) allClasses.push(cls)
-  //   }
-  // }
-
-  // console.log(allClasses)
-
   return (
     <Layout
       lang={location && location.state && location.state.lang}
@@ -63,7 +48,6 @@ const KontaktPage = ({ data, location }) => {
             <Jumbo
               title={"Piotr Krasny"}
               subtitle={pl ? "Kontakt" : "Contact"}
-              // text={textForJumbo}
               bottomBar={contactInfo}
               rightBox={Form}
               style={{
@@ -72,7 +56,6 @@ const KontaktPage = ({ data, location }) => {
                 minHeight: "100%",
                 marginBottom: 0,
               }}
-              // imgSource={jumbotronImg}
             />
           </>
         )}

@@ -94,7 +94,7 @@ module.exports = {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         printRejected: true, // Print removed selectors and processed file names
-        develop: false, // Enable while using `gatsby develop`
+        develop: true, // Enable while using `gatsby develop`
         whitelist: [
           "btn-pink btn Ripple-parent btn-sm mr-0 nav-link test",
           "collapse show navbar-collapse",
@@ -498,6 +498,7 @@ module.exports = {
           "card",
           "card-body",
           "text-left",
+          "text-light",
           "grey-text",
           "md-form",
           "form-group",

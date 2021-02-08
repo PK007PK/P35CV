@@ -38,8 +38,6 @@ const IndexPage = ({ location }) => {
     return () => clearInterval(interval)
   }, [loadingStarted, amount])
 
-  // useEffect(() => !isMounted && setIsMounted(true), [])
-
   const addValue = () => {
     const newItem = allConsultingProjects[amount]
     if (amount < allConsultingProjects.length) {
