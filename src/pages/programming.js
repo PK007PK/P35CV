@@ -54,7 +54,7 @@ const Programowanie = ({ data, location }) => {
               imgSource={jumbotronImg}
             />
             <MDBContainer>
-              <ol style={{ listStyle: `none`, paddingLeft: 0 }}>
+              <ul style={{ listStyle: `none`, paddingLeft: 0 }}>
                 {posts.map(post => {
                   const fluid =
                     post.frontmatter.thumbnail &&
@@ -155,7 +155,7 @@ const Programowanie = ({ data, location }) => {
                     </li>
                   )
                 })}
-              </ol>
+              </ul>
             </MDBContainer>
           </>
         )}
