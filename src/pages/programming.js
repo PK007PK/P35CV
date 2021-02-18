@@ -22,6 +22,7 @@ import {
 } from "mdbreact"
 
 import { programmingPageContent, iconBar } from "../data/programmingPageContent"
+import CardProject from "../components/CardProject"
 
 const Programowanie = ({ data, location }) => {
   const posts = data.allMarkdownRemark.nodes
@@ -79,60 +80,18 @@ const Programowanie = ({ data, location }) => {
                     <li key={post.fields.slug}>
                       <MDBRow className="justify-content-between mb-5">
                         <MDBCol md="7">
-                          <MDBCard className="post-list-item mb-0">
-                            <Image className="card-img" fluid={fluid} />
-                            <MDBCardBody
-                              className=""
-                              style={{ backgroundColor: "rgb(245, 245, 245)" }}
-                            >
-                              <MDBCardTitle className="">
-                                {pl ? title : titleEng}
-                              </MDBCardTitle>
-                              <MDBCardText className="">
-                                <small className="">{date}</small>
-                              </MDBCardText>
-                              <MDBCardText className="">
-                                {pl ? description : descriptionEng}
-                              </MDBCardText>
-                            </MDBCardBody>
-                            <div className="card-footer blue-grey lighten-5">
-                              {showMore && (
-                                <Link
-                                  to={post.fields.slug}
-                                  className="btn btn-sm indigo white-text"
-                                  itemProp="url"
-                                >
-                                  <span itemProp="headline">
-                                    {pl ? "Więcej" : "More"}
-                                  </span>
-                                </Link>
-                              )}
-                              {live && (
-                                <MDBBtn
-                                  href={live}
-                                  target="_blank"
-                                  color="indigo"
-                                  rel="noopener noreferrer"
-                                  className="btn btn-sm"
-                                  itemProp="url"
-                                >
-                                  Live
-                                </MDBBtn>
-                              )}
-                              {githubRepo && (
-                                <MDBBtn
-                                  href={githubRepo}
-                                  target="_blank"
-                                  color="indigo"
-                                  rel="noopener noreferrer"
-                                  className="btn btn-sm"
-                                  itemProp="url"
-                                >
-                                  <span itemProp="headline">Github</span>
-                                </MDBBtn>
-                              )}
-                            </div>
-                          </MDBCard>
+                          <CardProject
+                            fluid={fluid}
+                            title={title}
+                            titleEng={titleEng}
+                            date={date}
+                            description={description}
+                            descriptionEng={descriptionEng}
+                            showMore={showMore}
+                            live={live}
+                            githubRepo={githubRepo}
+                            post={post}
+                          />
                         </MDBCol>
                         <MDBCol md="4" className="mt-4 mt-md-0">
                           {allTagsInPost.map((item, index) => (

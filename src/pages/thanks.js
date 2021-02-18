@@ -5,7 +5,7 @@ import Jumbo from "../components/Jumbo"
 import SEO from "../components/seo"
 import { MDBBtn } from "mdbreact"
 
-const KontaktThanksPage = ({ data, location }) => {
+const ContactThanksPage = ({ data, location }) => {
   const contactInfo = () => (
     <PageContext.Consumer>
       {({ pl }) => (
@@ -110,4 +110,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default KontaktThanksPage
+export default ContactThanksPage

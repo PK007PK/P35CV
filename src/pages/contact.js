@@ -6,7 +6,7 @@ import Form from "../components/Form"
 import SEO from "../components/seo"
 import { MDBBtn } from "mdbreact"
 
-const KontaktPage = ({ data, location }) => {
+const ContactPage = ({ data, location }) => {
   const contactInfo = () => (
     <PageContext.Consumer>
       {({ pl }) => (
@@ -76,4 +76,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default KontaktPage
+export default ContactPage
