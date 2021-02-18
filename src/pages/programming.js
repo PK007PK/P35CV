@@ -73,9 +73,6 @@ const Programowanie = ({ data, location }) => {
                     date,
                   } = post.frontmatter
 
-                  let allTagsInPost = []
-                  allTagsInPost = tags.split(",")
-
                   return (
                     <li key={post.fields.slug}>
                       <MDBRow className="justify-content-between mb-5">
@@ -91,25 +88,10 @@ const Programowanie = ({ data, location }) => {
                             live={live}
                             githubRepo={githubRepo}
                             post={post}
+                            tags={tags}
                           />
                         </MDBCol>
-                        <MDBCol md="4" className="mt-4 mt-md-0">
-                          {allTagsInPost.map((item, index) => (
-                            <MDBBadge
-                              key={index}
-                              color="light"
-                              className="mb-3 mr-3"
-                              style={{ boxShadow: "none" }}
-                            >
-                              <MDBIcon
-                                style={{ fontSize: "1rem" }}
-                                size="lg"
-                                icon="hashtag"
-                              />
-                              <span style={{ fontSize: "1rem" }}>{item}</span>
-                            </MDBBadge>
-                          ))}
-                        </MDBCol>
+                        <MDBCol md="4" className="mt-4 mt-md-0"></MDBCol>
                       </MDBRow>
                     </li>
                   )

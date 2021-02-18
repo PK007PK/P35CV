@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import Image from "gatsby-image"
-import { Link, graphql } from "gatsby"
+import { Link } from "gatsby"
 
 import { PageContext } from "../components/Layout"
 
@@ -11,9 +11,10 @@ import {
   MDBCardText,
   MDBBadge,
   MDBBtn,
+  MDBIcon,
 } from "mdbreact"
 
-import { programmingPageContent, iconBar } from "../data/programmingPageContent"
+// import { programmingPageContent, iconBar } from "../data/programmingPageContent"
 
 export default function CardProject({
   fluid,
@@ -26,8 +27,24 @@ export default function CardProject({
   live,
   githubRepo,
   post,
+  tags,
 }) {
   const { pl } = useContext(PageContext)
+
+  const TagComponent = () => {
+    let allTagsInPost = tags.split(",")
+    return allTagsInPost.map((item, index) => (
+      <span key={index} className="mb-1 mr-3">
+        <MDBIcon
+          style={{ fontSize: "0.8rem", color: "gray" }}
+          size="sm"
+          icon="hashtag"
+        />
+        <span style={{ fontSize: "0.8rem", color: "gray" }}>{item}</span>
+      </span>
+    ))
+  }
+
   return (
     <MDBCard className="post-list-item mb-0">
       <Image className="card-img" fluid={fluid} />
@@ -39,10 +56,18 @@ export default function CardProject({
         <MDBCardText className="">
           <small className="">{date}</small>
         </MDBCardText>
-        <MDBCardText className="">
+        <MDBCardText className="" style={{ color: "#1C2331" }}>
           {pl ? description : descriptionEng}
         </MDBCardText>
       </MDBCardBody>
+      <div
+        className="card-footer"
+        style={{ backgroundColor: "rgb(245, 245, 245)" }}
+      >
+        <MDBCardText className="">
+          <TagComponent />
+        </MDBCardText>
+      </div>
       <div className="card-footer blue-grey lighten-5">
         {showMore && (
           <Link
