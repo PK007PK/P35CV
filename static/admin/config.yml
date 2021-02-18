@@ -34,25 +34,21 @@ collections:
       - { label: "Live", name: "live", widget: "string" }
       - { label: "Body Pl", name: "body", widget: "markdown" }
       - { label: "Body Eng", name: "bodyEng", widget: "markdown" }
-  - label: "Testimonials"
-    name: "testimonials"
-    widget: "list"
-    summary: "{{fields.quote}} - {{fields.author.name}}"
+  - name: "exercises"
+    label: "Exercises"
+    folder: "content/exercises"
+    create: true
+    # slug: "index"
+    media_folder: ""
+    public_folder: ""
+    # path: "{{title}}/index"
     fields:
-      - {
-          label: Quote,
-          name: quote,
-          widget: string,
-          default: "Everything is awesome!",
-        }
-      - label: Author
-        name: author
-        widget: object
-        fields:
-          - { label: Name, name: name, widget: string, default: "Emmet" }
-          - {
-              label: Avatar,
-              name: avatar,
-              widget: image,
-              default: "/img/emmet.jpg",
-            }
+      - { label: "Title Pl", name: "title", widget: "string" }
+      - { label: "Title Eng", name: "titleEng", widget: "string" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description Pl", name: "description", widget: "string" }
+      - { label: "Description Emg", name: "descriptionEng", widget: "string" }
+      - { label: "Tags", name: "tags", widget: "string" }
+      - { label: "GithubRepo", name: "githubRepo", widget: "string" }
+      - { label: "Live", name: "live", widget: "string" }
