@@ -14,39 +14,36 @@ import {
   MDBIcon,
 } from "mdbreact"
 
-// import { programmingPageContent, iconBar } from "../data/programmingPageContent"
-
-export default function CardProject({
-  fluid,
-  title,
-  titleEng,
-  date,
-  description,
-  descriptionEng,
-  showMore,
-  live,
-  githubRepo,
-  post,
-  tags,
-}) {
+export default function CardProject({ post, className }) {
   const { pl } = useContext(PageContext)
-
+  const {
+    title,
+    titleEng,
+    description,
+    descriptionEng,
+    tags,
+    showMore,
+    githubRepo,
+    live,
+    date,
+  } = post.frontmatter
+  const fluid = post.frontmatter.thumbnail?.childImageSharp?.fluid
   const TagComponent = () => {
     let allTagsInPost = tags.split(",")
     return allTagsInPost.map((item, index) => (
       <span key={index} className="mb-1 mr-3">
         <MDBIcon
-          style={{ fontSize: "0.8rem", color: "gray" }}
+          style={{ fontSize: "0.8rem", color: "#1C2331" }}
           size="sm"
           icon="hashtag"
         />
-        <span style={{ fontSize: "0.8rem", color: "gray" }}>{item}</span>
+        <span style={{ fontSize: "0.8rem", color: "#1C2331" }}>{item}</span>
       </span>
     ))
   }
 
   return (
-    <MDBCard className="post-list-item mb-0">
+    <MDBCard className={`post-list-item mb-0 ${className}`}>
       <Image className="card-img" fluid={fluid} />
       <MDBCardBody
         className=""
