@@ -34,3 +34,25 @@ collections:
       - { label: "Live", name: "live", widget: "string" }
       - { label: "Body Pl", name: "body", widget: "markdown" }
       - { label: "Body Eng", name: "bodyEng", widget: "markdown" }
+  - label: "Testimonials"
+    name: "testimonials"
+    widget: "list"
+    summary: "{{fields.quote}} - {{fields.author.name}}"
+    fields:
+      - {
+          label: Quote,
+          name: quote,
+          widget: string,
+          default: "Everything is awesome!",
+        }
+      - label: Author
+        name: author
+        widget: object
+        fields:
+          - { label: Name, name: name, widget: string, default: "Emmet" }
+          - {
+              label: Avatar,
+              name: avatar,
+              widget: image,
+              default: "/img/emmet.jpg",
+            }
