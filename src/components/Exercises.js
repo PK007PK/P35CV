@@ -1,9 +1,11 @@
 import { useStaticQuery, graphql } from "gatsby"
 import { MDBBtn, MDBIcon, MDBTypography } from "mdbreact"
-import React from "react"
+import React, { useContext } from "react"
 import AllTags from "./AllTags"
+import { PageContext } from "../components/Layout"
 
 export default function Excercises() {
+  const { pl } = useContext(PageContext)
   const data = useStaticQuery(graphql`
     query MyQuery {
       allMarkdownRemark(
@@ -46,11 +48,15 @@ export default function Excercises() {
           <li key={index}>
             <div class="card border-dark stylish-color mb-5 text-white">
               <div class="card-body text-dark ">
-                <h5 class="card-title text-center text-white">{title}</h5>
+                <h5 class="card-title text-center text-white">
+                  {pl ? title : titleEng}
+                </h5>
                 <div className="card-text text-white mb-2">
                   <small className="">{date}</small>
                 </div>
-                <p class="card-text text-white">{description}</p>
+                <p class="card-text text-white">
+                  {pl ? description : descriptionEng}
+                </p>
               </div>
               <div class="card-footer">
                 <AllTags tags={tags} />
