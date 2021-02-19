@@ -8,10 +8,11 @@ import Jumbo from "../components/Jumbo"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
 
-import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
+import { MDBContainer, MDBRow, MDBCol, MDBTypography } from "mdbreact"
 
 import { programmingPageContent, iconBar } from "../data/programmingPageContent"
 import CardProject from "../components/CardProject"
+import Excercises from "../components/Exercises"
 
 const programming = ({ data, location }) => {
   const posts = data.allMarkdownRemark.nodes
@@ -61,9 +62,37 @@ const programming = ({ data, location }) => {
             <MDBContainer>
               <MDBRow className="justify-content-between mb-5">
                 <MDBCol md="7">
+                  <div
+                    className="d-flex align-items-center justify-content-center"
+                    style={{ height: "80px" }}
+                  >
+                    <MDBTypography
+                      tag="h2"
+                      variant="h3"
+                      className="text-center m-0"
+                    >
+                      {pl ? "Projekty" : "Projects"}
+                    </MDBTypography>
+                  </div>
                   <DisplayProjects />
                 </MDBCol>
-                <MDBCol md="4" className="mt-4 mt-md-0"></MDBCol>
+                <MDBCol md="4" className="mt-4 mt-md-0">
+                  <div
+                    className="d-flex align-items-center justify-content-center"
+                    style={{ height: "80px" }}
+                  >
+                    <MDBTypography
+                      tag="h2"
+                      variant="h5"
+                      className="text-center m-0"
+                    >
+                      {pl
+                        ? "Dema / Startery / Prototypy / Ćwiczenia / Snippety"
+                        : "Demos / Boilerplates / Proof of concept / Excercises / Snippets"}
+                    </MDBTypography>
+                  </div>
+                  <Excercises />
+                </MDBCol>
               </MDBRow>
             </MDBContainer>
           </>
@@ -80,14 +109,16 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/blog/.*.md$/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       nodes {
         excerpt
         fields {
           slug
         }
         frontmatter {
-          # date(formatString: "MMMM DD, YYYY")
           date(formatString: "YYYY-MM-DD")
           title
           titleEng
@@ -104,12 +135,6 @@ export const pageQuery = graphql`
               }
             }
           }
-          react
-          gatsby
-          bootstrap
-          mdbootstrap
-          netlify
-          netlifyCms
         }
       }
     }

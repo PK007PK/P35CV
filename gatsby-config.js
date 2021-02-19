@@ -15,7 +15,13 @@ module.exports = {
         exclude: [`/thanks`],
       },
     },
-    // `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/exercises`,
+        name: `exercises`,
+      },
+    },
     `gatsby-plugin-transition-link`,
     `gatsby-plugin-sass`,
     {

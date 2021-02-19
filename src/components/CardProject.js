@@ -9,10 +9,9 @@ import {
   MDBCardBody,
   MDBCardTitle,
   MDBCardText,
-  MDBBadge,
   MDBBtn,
-  MDBIcon,
 } from "mdbreact"
+import AllTags from "./AllTags"
 
 export default function CardProject({ post, className }) {
   const { pl } = useContext(PageContext)
@@ -28,19 +27,6 @@ export default function CardProject({ post, className }) {
     date,
   } = post.frontmatter
   const fluid = post.frontmatter.thumbnail?.childImageSharp?.fluid
-  const TagComponent = () => {
-    let allTagsInPost = tags.split(",")
-    return allTagsInPost.map((item, index) => (
-      <span key={index} className="mb-1 mr-3">
-        <MDBIcon
-          style={{ fontSize: "0.8rem", color: "#1C2331" }}
-          size="sm"
-          icon="hashtag"
-        />
-        <span style={{ fontSize: "0.8rem", color: "#1C2331" }}>{item}</span>
-      </span>
-    ))
-  }
 
   return (
     <MDBCard className={`post-list-item mb-0 ${className}`}>
@@ -62,7 +48,7 @@ export default function CardProject({ post, className }) {
         style={{ backgroundColor: "rgb(245, 245, 245)" }}
       >
         <MDBCardText className="">
-          <TagComponent />
+          <AllTags tags={tags} />
         </MDBCardText>
       </div>
       <div className="card-footer blue-grey lighten-5">
@@ -81,7 +67,7 @@ export default function CardProject({ post, className }) {
             target="_blank"
             color="indigo"
             rel="noopener noreferrer"
-            className="btn btn-sm"
+            className="btn btn-sm ml-0"
             itemProp="url"
           >
             Live
