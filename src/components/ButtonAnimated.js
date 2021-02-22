@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 
 import { PageContext } from "../components/Layout"
-import { MDBAnimation, MDBBtn } from "mdbreact"
+import { MDBBtn } from "mdbreact"
 
 const ButtonAnimated = ({ onClick }) => {
   const { pl } = useContext(PageContext)

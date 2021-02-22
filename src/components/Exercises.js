@@ -1,5 +1,5 @@
 import { useStaticQuery, graphql } from "gatsby"
-import { MDBBtn, MDBIcon, MDBTypography } from "mdbreact"
+import { MDBBtn } from "mdbreact"
 import React, { useContext } from "react"
 import AllTags from "./AllTags"
 import { PageContext } from "../components/Layout"

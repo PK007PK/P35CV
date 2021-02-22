@@ -26,18 +26,6 @@ const IndexPage = ({ location }) => {
     setLoadingStarted(prevState => !prevState)
   }
 
-  useEffect(() => {
-    let interval = null
-    if (loadingStarted) {
-      interval = setInterval(() => {
-        addValue()
-      }, 15)
-    } else if (!loadingStarted && amount !== 0) {
-      clearInterval(interval)
-    }
-    return () => clearInterval(interval)
-  }, [loadingStarted, amount])
-
   const addValue = () => {
     const newItem = allConsultingProjects[amount]
     if (amount < allConsultingProjects.length) {
@@ -52,6 +40,18 @@ const IndexPage = ({ location }) => {
     }
     return null
   }
+
+  useEffect(() => {
+    let interval = null
+    if (loadingStarted) {
+      interval = setInterval(() => {
+        addValue()
+      }, 15)
+    } else if (!loadingStarted && amount !== 0) {
+      clearInterval(interval)
+    }
+    return () => clearInterval(interval)
+  }, [loadingStarted, amount])
 
   return (
     <Layout
