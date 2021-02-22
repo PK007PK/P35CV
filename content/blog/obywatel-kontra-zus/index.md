@@ -10,7 +10,7 @@ description: "Blog prawniczy zbudowany na react i gatsby, stylowanie
 descriptionEng: "Law blog built on react and gatsby, styled-components. Link to
   headless CMS. Minimalist design combined with rich media representation.
   YouTube integration (no videos to display at the moment though). "
-tags: react,gatsby,datocms,styledComponents,myOwnDesign
+tags: react,gatsby,datocms,styledComponents
 showMore: false
 githubRepo: https://github.com/PK007PK/P22EksperckaReactGatsbyv2
 live: https://obywatel.netlify.app/
