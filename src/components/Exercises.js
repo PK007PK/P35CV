@@ -18,6 +18,7 @@ export default function Excercises() {
               date(formatString: "YYYY-MM-DD")
               title
               titleEng
+              category
               description
               descriptionEng
               tags
@@ -36,6 +37,7 @@ export default function Excercises() {
         const {
           title,
           titleEng,
+          category,
           description,
           descriptionEng,
           tags,
@@ -44,24 +46,40 @@ export default function Excercises() {
           date,
         } = item.node.frontmatter
 
+        let color
+        switch (category) {
+          case "demo":
+            color = `blue-grey darken-1`
+            break
+          case "boilerplate":
+            color = `grey darken-1`
+            break
+          case "excercise":
+            color = `grey darken-3`
+            break
+          default:
+            color = `stylish-color-dark`
+        }
+        // ["demo", "boilerplate", "proof of concept", "excercise", "snippet"],
         return (
           <li key={index}>
-            <div class="card border-dark stylish-color mb-5 text-white">
-              <div class="card-body text-dark ">
-                <h5 class="card-title text-center text-white">
+            <div className={`card border-dark mb-5 text-white `.concat(color)}>
+              <div className="card-body text-dark ">
+                <h5 className="card-title text-center text-white">
                   {pl ? title : titleEng}
                 </h5>
-                <div className="card-text text-white mb-2">
+                <div className="card-text text-white my-3 d-flex justify-content-between">
                   <small className="">{date}</small>
+                  <small className="">{category}</small>
                 </div>
-                <p class="card-text text-white">
+                <p className="card-text text-white">
                   {pl ? description : descriptionEng}
                 </p>
               </div>
-              <div class="card-footer">
+              <div className="card-footer">
                 <AllTags tags={tags} />
               </div>
-              <div class="card-footer">
+              <div className="card-footer">
                 {live && (
                   <MDBBtn
                     href={live}

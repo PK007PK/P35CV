@@ -37,15 +37,17 @@ const ContactThanksPage = ({ data, location }) => {
       {({ pl }) => (
         <div className="card">
           <div className="card-body text-left">
-            <h5 class="card-title mt-5">
+            <h5 className="card-title mt-5">
               {pl ? "Wiadomość wysłana" : "Message sent"}
             </h5>
-            <p class="card-text">
+            <p className="card-text">
               {pl
                 ? "Dziękuję za wysłanie wiadomości. Postaram sie odpowiedzieć bezzwłocznie"
                 : "Thank you for your message. I will try to respond immediately"}
             </p>
-            <p class="card-text mb-5">{pl ? "Pozdrawiam" : "Kind regards"}</p>
+            <p className="card-text mb-5">
+              {pl ? "Pozdrawiam" : "Kind regards"}
+            </p>
           </div>
         </div>
       )}

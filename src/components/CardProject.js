@@ -47,9 +47,7 @@ export default function CardProject({ post, className }) {
         className="card-footer"
         style={{ backgroundColor: "rgb(245, 245, 245)" }}
       >
-        <MDBCardText className="">
-          <AllTags tags={tags} />
-        </MDBCardText>
+        <AllTags tags={tags} />
       </div>
       <div className="card-footer blue-grey lighten-5">
         {showMore && (
