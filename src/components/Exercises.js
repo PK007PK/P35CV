@@ -10,6 +10,7 @@ export default function Excercises() {
     query MyQuery {
       allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/exercises/.*.md$/" } }
+        sort: { fields: [frontmatter___date], order: DESC }
       ) {
         edges {
           node {

@@ -1,5 +1,5 @@
 ---
-title: Test GSAP, tailwind
+title: Test GSAP, TailwindCSS
 titleEng: Test GSAP i tailwind
 category: demo
 date: 2021-02-24T11:12:20.251Z
