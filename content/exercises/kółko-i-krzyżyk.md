@@ -7,5 +7,5 @@ description: "Gra w kółko i krzyżyk. "
 descriptionEng: "Tic-tac-toe game. "
 tags: react,hooks
 githubRepo: https://github.com/PK007PK/p42tictactoe
-live: pktictactoe
+live: https://pktictactoe.netlify.app/
 ---
