@@ -55,12 +55,22 @@ collections:
     fields:
       - { label: "Title Pl", name: "title", widget: "string" }
       - { label: "Title Eng", name: "titleEng", widget: "string" }
+      # - {
+      #     label: "Category",
+      #     name: "category",
+      #     widget: "select",
+      #     options:
+      #       ["demo", "boilerplate", "proof of concept", "excercise", "snippet"],
+      #   }
       - {
+          widget: relation,
+          name: category,
           label: "Category",
-          name: "category",
-          widget: "select",
-          options:
-            ["demo", "boilerplate", "proof of concept", "excercise", "snippet"],
+          required: true,
+          collection: categories,
+          valueField: slug,
+          searchFields: ["name"],
+          displayFields: ["name"],
         }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description Pl", name: "description", widget: "string" }
@@ -73,3 +83,17 @@ collections:
           required: false,
         }
       - { label: "Live", name: "live", widget: "string", required: false }
+  - name: categories
+    label: Excercises categories
+    folder: content/categories
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - widget: string
+        name: name
+        label: Name
+        required: true
+      - widget: string
+        name: slug
+        label: Slug
+        required: true
