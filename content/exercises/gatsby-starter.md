@@ -1,7 +1,7 @@
 ---
 title: Gatsby starter
 titleEng: Gatsby starter
-category: boilerplate
+category: starter
 date: 2021-03-12T12:23:29.640Z
 description: "Starter: gatsby js, netlify cms."
 descriptionEng: "Starter: gatsby js, netlify cms."
