@@ -1,7 +1,7 @@
 ---
 title: CRA starter
 titleEng: CRA starter
-category: boilerplate
+category: starter
 date: 2021-02-22T15:07:21.082Z
 description: "CRA starter. Prekonfigurowane: context, styled-component, theme,
   media-querries"
