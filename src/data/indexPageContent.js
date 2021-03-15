@@ -65,9 +65,9 @@ export const indexPageTexts = {
   subtitleSkills: ["Umiejętności", "Personal skills and competences"],
   subtitleSkillsSubtitle1: ["Języki", "Languages"],
   skill1: ["Język polski: rodzimy ", "Polish - native"],
-  skill2: ["Język angielski: B2", "Englis: B2"],
+  skill2: ["Język angielski: B2/C1", "Englis: B2/C1"],
   subtitleSkillsSubtitle2: ["IT", "IT"],
-  it1: ["HTML, CSS/SCSS, JS, React JS", "HTML, CSS/SCSS, JS, React JS"],
+  it1: ["Bardzo dobra znajomość: React, JS, CSS, SCSS, Gatsby, Figma, Visual Studio Code, GIT, Webpack, bootstrap","Very good knowledge of: React, JS, CSS, SCSS, Gatsby, Figma, Visual Studio Code, GIT, Webpack, bootstrap"],
   it2: [
     "Bardzo dobra znajomość narzędzi MS Office wykorzystywanych do tworzenie obszernych dokumentów tekstowych (np. studiów wykonalności) i arkusze kalkulacyjne (analiza finansowa, z wykorzystaniem tabel przestawnych)",
     "very good knowledge of MS Office tools used to create extensive text documents (eg feasibi l ity studies) and spreadsheets (financial analysis, using Pivot Tables)",
