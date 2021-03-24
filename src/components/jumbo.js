@@ -14,7 +14,7 @@ const Jumbo = ({
   style,
   imgSource,
 }) => {
-  const { pl, print } = useContext(AppContext);
+  const { print } = useContext(AppContext);
   const Text = text
   const RightBox = rightBox
   const BottomBar = bottomBar
