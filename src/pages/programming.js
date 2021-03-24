@@ -1,24 +1,23 @@
 import React, { useContext } from "react"
-
 import { graphql } from "gatsby"
-
-import { PageContext } from "../components/Layout"
+import AppContext from '../AppProvider';
 
 import Jumbo from "../components/Jumbo"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
-
-import { MDBContainer, MDBRow, MDBCol, MDBTypography } from "mdbreact"
-
-import { programmingPageContent, iconBar } from "../data/programmingPageContent"
 import CardProject from "../components/CardProject"
 import Excercises from "../components/Exercises"
 
-const programming = ({ data, location }) => {
+import { MDBContainer, MDBRow, MDBCol, MDBTypography } from "mdbreact"
+import { programmingPageContent, iconBar } from "../data/programmingPageContent"
+
+const ProgrammingPage = ({ data, location }) => {
+  const { pl } = useContext(AppContext);
+  
   const posts = data.allMarkdownRemark.nodes
   const jumbotronImg = data.placeholderImage.childImageSharp.fluid
+  
   const ConfiguredJumbotron = () => {
-    const { pl } = useContext(PageContext)
     return (
       <Jumbo
         title={"Piotr Krasny"}
@@ -40,6 +39,7 @@ const programming = ({ data, location }) => {
       />
     )
   }
+
   const DisplayProjects = () => (
     <ul style={{ listStyle: `none`, paddingLeft: 0 }}>
       {posts.map(post => {
@@ -54,50 +54,45 @@ const programming = ({ data, location }) => {
 
   return (
     <Layout lang={location?.state?.lang}>
-      <PageContext.Consumer>
-        {({ pl }) => (
-          <>
-            <SEO title={pl ? "Programowanie" : "Programming"} />
-            <ConfiguredJumbotron />
-            <MDBContainer>
-              <MDBRow className="justify-content-between mb-5">
-                <MDBCol md="7">
-                  <div
-                    className="d-flex align-items-center justify-content-center"
-                    style={{ height: "80px" }}
-                  >
-                    <MDBTypography
-                      tag="h2"
-                      variant="h3"
-                      className="text-center m-0"
-                    >
-                      {pl ? "Projekty" : "Projects"}
-                    </MDBTypography>
-                  </div>
-                  <DisplayProjects />
-                </MDBCol>
-                <MDBCol md="4" className="mt-4 mt-md-0">
-                  <div
-                    className="d-flex align-items-center justify-content-center"
-                    style={{ height: "80px" }}
-                  >
-                    <MDBTypography
-                      tag="h2"
-                      variant="h5"
-                      className="text-center m-0"
-                    >
-                      {pl
-                        ? "Dema / Startery / Prototypy / Ćwiczenia / Snippety"
-                        : "Demos / Boilerplates / Proof of concept / Excercises / Snippets"}
-                    </MDBTypography>
-                  </div>
-                  <Excercises />
-                </MDBCol>
-              </MDBRow>
-            </MDBContainer>
-          </>
-        )}
-      </PageContext.Consumer>
+      <SEO title={pl ? "Programowanie" : "Programming"} />
+      <ConfiguredJumbotron />
+      <MDBContainer>
+        <MDBRow className="justify-content-between mb-5">
+          <MDBCol md="7">
+            <div
+              className="d-flex align-items-center justify-content-center"
+              style={{ height: "80px" }}
+            >
+              <MDBTypography
+                tag="h2"
+                variant="h3"
+                className="text-center m-0"
+              >
+                {pl ? "Projekty" : "Projects"}
+              </MDBTypography>
+            </div>
+            <DisplayProjects />
+          </MDBCol>
+          <MDBCol md="4" className="mt-4 mt-md-0">
+            <div
+              className="d-flex align-items-center justify-content-center"
+              style={{ height: "80px" }}
+            >
+              <MDBTypography
+                tag="h2"
+                variant="h5"
+                className="text-center m-0"
+              >
+                {pl
+                  ? "Dema / Startery / Prototypy / Ćwiczenia / Snippety"
+                  : "Demos / Boilerplates / Proof of concept / Excercises / Snippets"}
+              </MDBTypography>
+            </div>
+            <Excercises />
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+          
     </Layout>
   )
 }
@@ -148,4 +143,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default programming
+export default ProgrammingPage

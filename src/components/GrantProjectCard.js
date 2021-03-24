@@ -1,10 +1,10 @@
 import React, { useContext } from "react"
 import PropTypes from "prop-types"
 
-import { PageContext } from "./Layout"
+import AppContext from '../AppProvider';
 
 const GrantProjectCard = ({ name, title, value, grant, style, whiteText }) => {
-  const { pl } = useContext(PageContext)
+  const { pl } = useContext(AppContext)
   return (
     <div style={style} className="card">
       <div className="card-body d-flex flex-column justify-content-between">

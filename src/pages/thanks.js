@@ -1,71 +1,51 @@
-import React from "react"
-import { PageContext } from "../components/Layout"
+import React, { useContext } from "react"
+import AppContext from '../AppProvider';
+
 import Layout from "../components/Layout"
 import Jumbo from "../components/Jumbo"
 import SEO from "../components/seo"
 import { MDBBtn } from "mdbreact"
 
 const ContactThanksPage = ({ data, location }) => {
+  const { pl } = useContext(AppContext);
   const contactInfo = () => (
-    <PageContext.Consumer>
-      {({ pl }) => (
-        <div className="text-right">
-          <MDBBtn
-            href="tel:509527925"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="waves-effect"
-          >
-            {pl ? "Tel:" : "Phone:"} 509 527 925
-          </MDBBtn>
-          <MDBBtn
-            href="mailto:krasny.piotr@gmail.com.com"
-            target="_blank"
-            color="blue"
-            rel="noopener noreferrer"
-            className="waves-effect mr-md-0"
-          >
-            krasny.piotr@gmail.com
-          </MDBBtn>
-        </div>
-      )}
-    </PageContext.Consumer>
+    <div className="text-right">
+      <MDBBtn
+        href="tel:509527925"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="waves-effect"
+      >
+        {pl ? "Tel:" : "Phone:"} 509 527 925
+      </MDBBtn>
+      <MDBBtn
+        href="mailto:krasny.piotr@gmail.com.com"
+        target="_blank"
+        color="blue"
+        rel="noopener noreferrer"
+        className="waves-effect mr-md-0"
+      >
+        krasny.piotr@gmail.com
+      </MDBBtn>
+    </div>
   )
-
   const thanksTxt = () => (
-    <PageContext.Consumer>
-      {({ pl }) => (
-        <div className="card">
-          <div className="card-body text-left">
-            <h5 className="card-title mt-5">
-              {pl ? "Wiadomość wysłana" : "Message sent"}
-            </h5>
-            <p className="card-text">
-              {pl
-                ? "Dziękuję za wysłanie wiadomości. Postaram sie odpowiedzieć bezzwłocznie"
-                : "Thank you for your message. I will try to respond immediately"}
-            </p>
-            <p className="card-text mb-5">
-              {pl ? "Pozdrawiam" : "Kind regards"}
-            </p>
-          </div>
-        </div>
-      )}
-    </PageContext.Consumer>
+    <div className="card">
+      <div className="card-body text-left">
+        <h5 className="card-title mt-5">
+          {pl ? "Wiadomość wysłana" : "Message sent"}
+        </h5>
+        <p className="card-text">
+          {pl
+            ? "Dziękuję za wysłanie wiadomości. Postaram sie odpowiedzieć bezzwłocznie"
+            : "Thank you for your message. I will try to respond immediately"}
+        </p>
+        <p className="card-text mb-5">
+          {pl ? "Pozdrawiam" : "Kind regards"}
+        </p>
+      </div>
+    </div>
   )
-  // var allClasses = []
-
-  // var allElements = document.querySelectorAll("*")
-
-  // for (var i = 0; i < allElements.length; i++) {
-  //   var classes = allElements[i].className.toString().split(/\s+/)
-  //   for (var j = 0; j < classes.length; j++) {
-  //     var cls = classes[j]
-  //     if (cls && allClasses.indexOf(cls) === -1) allClasses.push(cls)
-  //   }
-  // }
-
-  // console.log(allClasses)
 
   return (
     <Layout
@@ -74,28 +54,23 @@ const ContactThanksPage = ({ data, location }) => {
         backgroundColor: "#f5f5f5",
       }}
     >
-      {" "}
-      <PageContext.Consumer>
-        {({ pl }) => (
-          <>
-            <SEO title={pl ? "Kontakt" : "Contact"} />
-            <Jumbo
-              title={"Piotr Krasny"}
-              subtitle={pl ? "Kontakt" : "Contact"}
-              // text={textForJumbo}
-              bottomBar={contactInfo}
-              rightBox={thanksTxt}
-              style={{
-                backgroundColor: "#f5f5f5",
-                boxShadow: "none",
-                minHeight: "100%",
-                marginBottom: 0,
-              }}
-              // imgSource={jumbotronImg}
-            />
-          </>
-        )}
-      </PageContext.Consumer>
+     
+      <SEO title={pl ? "Kontakt" : "Contact"} />
+      <Jumbo
+        title={"Piotr Krasny"}
+        subtitle={pl ? "Kontakt" : "Contact"}
+        // text={textForJumbo}
+        bottomBar={contactInfo}
+        rightBox={thanksTxt}
+        style={{
+          backgroundColor: "#f5f5f5",
+          boxShadow: "none",
+          minHeight: "100%",
+          marginBottom: 0,
+        }}
+        // imgSource={jumbotronImg}
+      />
+
     </Layout>
   )
 }

@@ -1,9 +1,9 @@
 import React, { useContext } from "react"
-import { PageContext } from "../components/Layout"
+import AppContext from '../AppProvider';
 import { MDBCard, MDBCardBody, MDBIcon, MDBCardText } from "mdbreact"
 
 const FundList = ({ list }) => {
-  const { pl } = useContext(PageContext)
+  const { pl } = useContext(AppContext)
 
   return list.map((item, index) => (
     <MDBCard

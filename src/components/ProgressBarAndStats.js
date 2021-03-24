@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { PageContext } from "../components/Layout"
+import AppContext from '../AppProvider';
 
 import { MDBProgress } from "mdbreact"
 
@@ -10,7 +10,7 @@ const ProgressBarAndStats = ({
   countedProjectsValue,
   countedProjectsGrants,
 }) => {
-  const { pl } = useContext(PageContext)
+  const { pl } = useContext(AppContext)
 
   return (
     <div className="text-right">

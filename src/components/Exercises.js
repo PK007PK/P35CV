@@ -2,10 +2,10 @@ import { useStaticQuery, graphql } from "gatsby"
 import { MDBBtn } from "mdbreact"
 import React, { useContext } from "react"
 import AllTags from "./AllTags"
-import { PageContext } from "../components/Layout"
+import AppContext from '../AppProvider';
 
 export default function Excercises() {
-  const { pl } = useContext(PageContext)
+  const { pl } = useContext(AppContext)
   const data = useStaticQuery(graphql`
     query MyQuery {
       allMarkdownRemark(

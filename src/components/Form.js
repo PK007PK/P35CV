@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react"
 import { navigate } from "gatsby-link"
 
-import { PageContext } from "./Layout"
+import AppContext from '../AppProvider';
 
 import { MDBCard, MDBCardBody, MDBBtn, MDBIcon, MDBInput } from "mdbreact"
 
@@ -14,7 +14,7 @@ function encode(data) {
 export default function Form({ admin }) {
   const [state, setState] = useState({})
 
-  const { pl } = useContext(PageContext)
+  const { pl } = useContext(AppContext)
   const handleChange = e => {
     setState({ ...state, [e.target.name]: e.target.value })
   }
