@@ -1,10 +1,10 @@
 import React, { useContext } from "react"
+import AppContext from '../AppProvider';
 
-import { PageContext } from "../components/Layout"
 import { MDBBtn } from "mdbreact"
 
 const ButtonAnimated = ({ onClick }) => {
-  const { pl } = useContext(PageContext)
+  const { pl } = useContext(AppContext)
   return (
     <div
       style={{

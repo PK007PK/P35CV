@@ -1,7 +1,7 @@
-import React from "react"
+import React, { useContext } from "react"
 import { MDBBtn, MDBIcon, MDBTooltip } from "mdbreact"
 
-import { PageContext } from "../components/Layout"
+import AppContext from '../AppProvider';
 
 export const indexPageTexts = {
   title: ["Curriculum Vitae", "Curriculum Vitae"],
@@ -100,104 +100,100 @@ export const indexPageTexts = {
   ],
 }
 
-export const TextForJumbo = () => (
-  <PageContext.Consumer>
-    {({ pl }) => (
-      <p className="">
-        {pl ? indexPageTexts.description[0] : indexPageTexts.description[1]}
+export const TextForJumbo = () => {
+  const { pl } = useContext(AppContext);
+  return (
+    <p className="">
+      {pl ? indexPageTexts.description[0] : indexPageTexts.description[1]}
+    </p>
+  )
+}
+
+export const TextForJumboPrint = () => {
+  const { pl } = useContext(AppContext);
+  return (
+    <p className="lead">
+      {pl ? (
+        <>
+          16 lat doświadczenia w branży doradczej
+          <br />
+          Kompetencje w obszarze organizacji, zarządzania i finansów
+        </>
+      ) : (
+        <>
+          16 years of experience in the consulting industry
+          <br />
+          Competence in organisational, management and financial matters
+        </>
+      )}
+    </p>
+  )
+}
+
+export const ButtonsForJumbo = () => {
+  const { pl } = useContext(AppContext);
+  return (
+    <div className=" homepage-btn-bar">
+      <MDBBtn
+        href={
+          pl
+            ? "/2021.01.31 Piotr Krasny CV web.pdf"
+            : "/2021.01.31 Piotr Krasny CV Eng web.pdf"
+        }
+        target="_blank"
+        color="indigo"
+        rel="noopener noreferrer"
+        className="waves-effect w-100 mx-0 mx-md-2"
+      >
+        CV PDF
+        <MDBIcon fas icon="file-pdf" className="ml-2" />
+      </MDBBtn>
+      <MDBBtn
+        href="https://github.com/PK007PK"
+        target="_blank"
+        color="pink"
+        rel="noopener noreferrer"
+        className="waves-effect w-100 mx-0 mx-md-2"
+      >
+        LinkedIn <MDBIcon fab icon="linkedin-in" className="ml-2" />
+      </MDBBtn>
+      <MDBBtn
+        href="https://github.com/PK007PK"
+        target="_blank"
+        color="amber"
+        rel="noopener noreferrer"
+        className="waves-effect w-100 mx-0 mx-md-2 mr-lg-0"
+      >
+        Github <MDBIcon fab icon="github" className="ml-2" />
+      </MDBBtn>
+    </div>
+  )
+}
+
+export const ButtonForJumboPrint = () => {
+  const { pl, changePrint } = useContext(AppContext);
+  return (
+    <div className="">
+      <p className="lead mb-1 " style={{ fontSize: "25px" }}>
+        krasny.netlify.app
       </p>
-    )}
-  </PageContext.Consumer>
-)
-
-export const TextForJumboPrint = () => (
-  <PageContext.Consumer>
-    {({ pl }) => (
-      <p className="lead">
-        {pl ? (
-          <>
-            16 lat doświadczenia w branży doradczej
-            <br />
-            Kompetencje w obszarze organizacji, zarządzania i finansów
-          </>
-        ) : (
-          <>
-            16 years of experience in the consulting industry
-            <br />
-            Competence in organisational, management and financial matters
-          </>
-        )}
+      <p className="lead mb-1" style={{ fontSize: "18px" }}>
+        krasny.piotr@gmail.com
       </p>
-    )}
-  </PageContext.Consumer>
-)
+      <p className="lead mb-1" style={{ fontSize: "18px" }}>
+        tel.: 509 527 925
+      </p>
 
-export const ButtonsForJumbo = () => (
-  <PageContext.Consumer>
-    {({ pl }) => (
-      <div className=" homepage-btn-bar">
-        <MDBBtn
-          href={
-            pl
-              ? "/2021.01.31 Piotr Krasny CV web.pdf"
-              : "/2021.01.31 Piotr Krasny CV Eng web.pdf"
-          }
-          target="_blank"
-          color="indigo"
-          rel="noopener noreferrer"
-          className="waves-effect w-100 mx-0 mx-md-2"
-        >
-          CV PDF
-          <MDBIcon fas icon="file-pdf" className="ml-2" />
+      <MDBTooltip placement="right">
+        <MDBBtn className="d-print-none" onClick={changePrint}>
+          {pl ? "Powrót" : "Go back"}
         </MDBBtn>
-        <MDBBtn
-          href="https://github.com/PK007PK"
-          target="_blank"
-          color="pink"
-          rel="noopener noreferrer"
-          className="waves-effect w-100 mx-0 mx-md-2"
-        >
-          LinkedIn <MDBIcon fab icon="linkedin-in" className="ml-2" />
-        </MDBBtn>
-        <MDBBtn
-          href="https://github.com/PK007PK"
-          target="_blank"
-          color="amber"
-          rel="noopener noreferrer"
-          className="waves-effect w-100 mx-0 mx-md-2 mr-lg-0"
-        >
-          Github <MDBIcon fab icon="github" className="ml-2" />
-        </MDBBtn>
-      </div>
-    )}
-  </PageContext.Consumer>
-)
-
-export const ButtonForJumboPrint = () => (
-  <PageContext.Consumer>
-    {({ changePrint, pl }) => (
-      <div className="">
-        <p className="lead mb-1 " style={{ fontSize: "25px" }}>
-          krasny.netlify.app
-        </p>
-        <p className="lead mb-1" style={{ fontSize: "18px" }}>
-          krasny.piotr@gmail.com
-        </p>
-        <p className="lead mb-1" style={{ fontSize: "18px" }}>
-          tel.: 509 527 925
-        </p>
-
-        <MDBTooltip placement="right">
-          <MDBBtn className="d-print-none" onClick={changePrint}>
-            {pl ? "Powrót" : "Go back"}
-          </MDBBtn>
-          <div>
-            {pl
-              ? "Przycisk niewidoczny na wydruku"
-              : "Button invisible on print"}
-          </div>
-        </MDBTooltip>
-      </div>
-    )}
-  </PageContext.Consumer>
-)
+        <div>
+          {pl
+            ? "Przycisk niewidoczny na wydruku"
+            : "Button invisible on print"}
+        </div>
+      </MDBTooltip>
+    </div>
+  )
+}

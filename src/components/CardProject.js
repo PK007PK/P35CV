@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import Image from "gatsby-image"
 import { Link } from "gatsby"
 
-import { PageContext } from "../components/Layout"
+import AppContext from '../AppProvider';
 
 import {
   MDBCard,
@@ -14,7 +14,7 @@ import {
 import AllTags from "./AllTags"
 
 export default function CardProject({ post, className }) {
-  const { pl } = useContext(PageContext)
+  const { pl } = useContext(AppContext)
   const {
     title,
     titleEng,
