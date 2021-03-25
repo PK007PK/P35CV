@@ -6,9 +6,9 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "content/blog"
+  - name: "portfolioProjects"
+    label: "Portfolio projects"
+    folder: "content/portfolioProjects"
     create: true
     slug: "index"
     media_folder: ""
@@ -23,6 +23,17 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description Pl", name: "description", widget: "string" }
       - { label: "Description Emg", name: "descriptionEng", widget: "string" }
+      - {
+          widget: relation,
+          name: portfolioCategory,
+          label: "Portfolio category",
+          required: true,
+          collection: portfolioCategory,
+          valueField: slug,
+          searchFields: ["name"],
+          displayFields: ["name"],
+          multiple: true,
+        }
       - { label: "Tags", name: "tags", widget: "string" }
       - {
           label: "Show more?",
@@ -44,6 +55,20 @@ collections:
           widget: "markdown",
           required: false,
         }
+  - name: "portfolioCategory"
+    label: Portfolio category
+    folder: content/portfolioCategory
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - widget: string
+        name: name
+        label: Name
+        required: true
+      - widget: string
+        name: slug
+        label: Slug
+        required: true
   - name: "exercises"
     label: "Exercises"
     folder: "content/exercises"
@@ -56,10 +81,10 @@ collections:
       - { label: "Title Eng", name: "titleEng", widget: "string" }
       - {
           widget: relation,
-          name: category,
-          label: "Category",
+          name: excerciseCategory,
+          label: "Excercise category",
           required: true,
-          collection: categories,
+          collection: excerciseCategory,
           valueField: slug,
           searchFields: ["name"],
           displayFields: ["name"],
@@ -75,9 +100,9 @@ collections:
           required: false,
         }
       - { label: "Live", name: "live", widget: "string", required: false }
-  - name: categories
+  - name: excerciseCategory
     label: Excercise category
-    folder: content/categories
+    folder: content/excerciseCategory
     create: true
     slug: "{{slug}}"
     fields:

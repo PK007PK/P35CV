@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import PropTypes from "prop-types"
+import { graphql } from 'gatsby'
 import { Link } from "gatsby"
 
 import AppContext from '../AppProvider';

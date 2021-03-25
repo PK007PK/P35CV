@@ -3,7 +3,7 @@ const projectConfig = {
   description: 'Gatsby starter site',
   siteUrl: 'https://pkgatsbystarter.netlify.com',
   language: 'en',
-  pagesAmountInSet: 4,
+  pagesAmountInSet: 2,
   trackingGoogleId: 'sdsdsdsds',
 };
 

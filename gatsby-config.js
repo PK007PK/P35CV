@@ -26,8 +26,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
+        name: `images`,
+        path: `${__dirname}/src/assets/images`,
       },
     },
     {
@@ -40,8 +40,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/assets/images`,
+        path: `${__dirname}/content/portfolioProjects`,
+        name: `portfolioProjects`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/portfolioCategory`,
+        name: `portfolioCategory`,
       },
     },
     {
@@ -49,6 +56,13 @@ module.exports = {
       options: {
         path: `${__dirname}/content/exercises`,
         name: `exercises`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/excerciseCategory`,
+        name: `excerciseCategory`,
       },
     },
     {

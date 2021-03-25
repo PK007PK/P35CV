@@ -1,7 +1,7 @@
 ---
 title: Kółko i krzyżyk
 titleEng: Tic-tac-toe
-category: excercise
+excerciseCategory: excercise
 date: 2021-02-25T13:08:05.434Z
 description: "Gra w kółko i krzyżyk. "
 descriptionEng: "Tic-tac-toe game. "

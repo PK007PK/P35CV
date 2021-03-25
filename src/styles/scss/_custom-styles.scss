@@ -5,6 +5,10 @@ html {
 }
 // This makes the footer stick to the bottom of the viewport
 
+[disabled] {
+  pointer-events: none;
+}
+
 .site {
   display: flex;
   min-height: 100vh;

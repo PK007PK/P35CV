@@ -1,4 +1,6 @@
 import React, { useContext } from "react"
+import { graphql } from 'gatsby'
+
 import AppContext from '../AppProvider';
 
 import Layout from "../components/Layout"

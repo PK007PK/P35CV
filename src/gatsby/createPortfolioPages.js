@@ -1,7 +1,7 @@
 import path from 'path';
 import projectConfig from '../projectConfig';
 
-export async function createProjectPages({ graphql, actions, reporter }) {
+export async function createPortfolioPages({ graphql, actions, reporter }) {
   // Define a template for blog post
   const projectTemplate = path.resolve(`./src/templates/blog-post.js`);
 
@@ -10,9 +10,11 @@ export async function createProjectPages({ graphql, actions, reporter }) {
     `
       {
         allMarkdownRemark(
+          filter: { fileAbsolutePath: { regex: "/portfolio/i" } }
           sort: { fields: [frontmatter___date], order: ASC }
           limit: 1000
         ) {
+          totalCount
           nodes {
             id
             fields {
@@ -35,7 +37,6 @@ export async function createProjectPages({ graphql, actions, reporter }) {
   const posts = data.allMarkdownRemark.nodes;
 
   // Create blog posts pages
-
 
   if (posts.length > 0) {
     posts.forEach((post, index) => {
@@ -62,14 +63,14 @@ export async function createProjectPages({ graphql, actions, reporter }) {
   // Loop from 1 to n and create the pages for them
   Array.from({ length: pageCount }).forEach((_, i) => {
     actions.createPage({
-      path: `/blog/${i + 1}`,
+      path: `/programming/${i + 1}`,
       component: path.resolve('./src/pages/programming.js'),
       context: {
         skip: i * pageSize,
         currentPage: i + 1,
         pageSize,
         pageType: 'allPaginatedPosts',
-        dirName: `/blog`,
+        dirName: `/programming`,
       },
     });
   });
