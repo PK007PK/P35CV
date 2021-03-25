@@ -51,17 +51,9 @@ collections:
     # slug: "index"
     media_folder: ""
     public_folder: ""
-    # path: "{{title}}/index"
     fields:
       - { label: "Title Pl", name: "title", widget: "string" }
       - { label: "Title Eng", name: "titleEng", widget: "string" }
-      # - {
-      #     label: "Category",
-      #     name: "category",
-      #     widget: "select",
-      #     options:
-      #       ["demo", "boilerplate", "proof of concept", "excercise", "snippet"],
-      #   }
       - {
           widget: relation,
           name: category,
@@ -84,7 +76,7 @@ collections:
         }
       - { label: "Live", name: "live", widget: "string", required: false }
   - name: categories
-    label: Excercises categories
+    label: Excercise category
     folder: content/categories
     create: true
     slug: "{{slug}}"
