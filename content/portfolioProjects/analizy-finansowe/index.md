@@ -11,7 +11,7 @@ descriptionEng: Simple website based on my own scss library and my own webpack
   configuration. Lighthouse scores close to 100 in each category. Responsive
   images, lazyloading, critical css as inline style. My own design.
 portfolioCategory:
-  - blog
+  - landingpage
 tags: webpack,scss,bem,responsiveImages,lazyLoading,criticalRenderingPath
 showMore: false
 live: https://finanseprojektu.pl/

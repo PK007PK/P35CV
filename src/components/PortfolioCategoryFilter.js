@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
+import { useLocation } from '@reach/router';
 
-export default function PortfolioCategoryFilter() {
+import AppContext from '../AppProvider';
+
+export default function PortfolioCategoryFilter({selectTargetId, id}) {
   const data = useStaticQuery(graphql`
     query {
       allMarkdownRemark(
@@ -17,25 +20,33 @@ export default function PortfolioCategoryFilter() {
       }
     }
   `);
-
+  
+  const{ pl } = useContext( AppContext )
+  const location = useLocation();
   const categories = data.allMarkdownRemark.nodes;
-
+  const urlTest = "(programming/[0-9])"
   return (
-    <div>
-      <Link to="/programming/" activeStyle={{ color: 'red' }} partiallyActive>
-        <span className="name">All posts</span>
+    <div id={id}>
+      <Link 
+        to={`/programming/1${selectTargetId ? `#${selectTargetId}` : ""}`} 
+        style={new RegExp(urlTest).test(location.pathname) ? {fontWeight: "bold", color: "#33b5e5"} : {color: "#33b5e5"}}
+      >
+        <span> {pl ? "Wszystkie projekty": "All projects"}</span>
       </Link>
-      <br />
-      {categories.map((category) => (
-        <Link
-          to={`/programming/${category.frontmatter.slug}/1`}
-          activeStyle={{ color: 'red' }}
-          partiallyActive
-          key={category.frontmatter.slug}
-        >
-          {category.frontmatter.name}
-        </Link>
-      ))}
+      <div className="mt-1 text-muted">
+        {pl ? "Kategorie:": "Categories:"}
+        {categories.map((category) => (
+ 
+          <Link
+            to={`/programming/${category.frontmatter.slug}/1${selectTargetId ? `#${selectTargetId}` : ""}`}
+            className="ml-3"
+            key={category.frontmatter.slug}
+            style={new RegExp(`/${category.frontmatter.slug}/`).test(location.pathname) ? {fontWeight: "bold", color: "#33b5e5"} : {color: "#33b5e5"}}
+          >
+            {category.frontmatter.name}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

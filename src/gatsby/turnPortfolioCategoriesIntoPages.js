@@ -23,7 +23,6 @@ export async function turnPortfolioCategoriesIntoPages({ graphql, actions }) {
 
   // 3. createPage
   data.allMarkdownRemark.nodes.forEach((category) => {
-    console.log(category.frontmatter.name);
     async function countPost() {
       const selectCategory = `"/${category.frontmatter.slug}/"`;
 

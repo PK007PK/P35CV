@@ -1,38 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-
-// import styled from 'styled-components';
-
-// const PaginationStyles = styled.div`
-//   display: flex;
-//   align-content: center;
-//   align-items: center;
-//   justify-items: center;
-//   border: 1px solid var(--grey);
-//   margin: 2rem 0;
-//   border-radius: 5px;
-//   text-align: center;
-//   & > * {
-//     padding: 1rem;
-//     flex: 1;
-//     border-right: 1px solid var(--grey);
-//     text-decoration: none;
-//     &[aria-current],
-//     &.current {
-//       color: var(--red);
-//     }
-//     &[disabled] {
-//       pointer-events: none;
-//       color: var(--grey);
-//     }
-//   }
-//   @media (max-width: 800px) {
-//     .word {
-//       display: none;
-//     }
-//     font-size: 1.4rem;
-//   }
-// `;
+import { useLocation } from '@reach/router';
 
 export default function Pagination({
   pageSize,
@@ -40,6 +8,9 @@ export default function Pagination({
   currentPage,
   skip,
   base,
+  selectTargetId, 
+  id,
+  className
 }) {
   // make some variables
   const totalPages = Math.ceil(totalCount / pageSize);
@@ -48,20 +19,23 @@ export default function Pagination({
   const hasNextPage = nextPage <= totalPages;
   const hasPrevPage = prevPage >= 1;
 
+  const location = useLocation();
+  const urlTest = "(programming/[0-9])"
+
   return (
     
     // todo dodać wersje językowe
 
-    <nav aria-label="Portfolio pagination">
+    <nav id={id} aria-label="Portfolio pagination" className={className}>
       <ul className="pagination">
         <li className="page-item">
           <Link
             title="Prev Page"
-            className="page-link"
+            className="page-link text-info"
             disabled={!hasPrevPage}
             // disabled using pointer-events: none in css
 
-            to={`${base}/${prevPage}`}
+            to={`${base}/${prevPage}${selectTargetId ? `#${selectTargetId}` : ""}`}
           >
             ← <span className="word">Prev</span>
           </Link>
@@ -69,10 +43,10 @@ export default function Pagination({
         {Array.from({ length: totalPages }).map((_, i) => (
           <li className="page-item">
             <Link
-              className={currentPage === 1 && i === 0 ? 'current' : ''}
               className="page-link"
-              to={`${base}/${i >= 0 ? i + 1 : ''}`}
+              to={`${base}/${i >= 0 ? i + 1 : ''}${selectTargetId ? `#${selectTargetId}` : ""}`}
               key={`page${i}`}
+              style={`${base}/${i >= 0 ? i + 1 : ''}`=== location.pathname ? {fontWeight: "bold", color: "#33b5e5"} : {color: "#33b5e5"}}
             >
               {i + 1}
             </Link>
@@ -82,8 +56,8 @@ export default function Pagination({
           <Link
             title="Next Page"
             disabled={!hasNextPage}
-            className="page-link"
-            to={`${base}/${nextPage}`}
+            className="page-link text-info"
+            to={`${base}/${nextPage}${selectTargetId ? `#${selectTargetId}` : ""}`}
           >
             <span className="word">Next</span> →
           </Link>

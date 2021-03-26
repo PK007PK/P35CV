@@ -21,14 +21,10 @@ const ProgrammingPage = ({ data, location, pageContext }) => {
     pageContext.pageType = 'allPaginatedPosts'
   }
   
-  console.log("Data: ", data)
 
   const portfolioCategory = data.portfolioCategory;
-  console.log("portfolioCategory ", portfolioCategory)
   const tags = data.tag;
-  console.log("tags ", tags)
   const allPortfolio = data.allPortfolio;
-  console.log("allPortfolio ", allPortfolio)
   
   let postsToDisplay;
   switch (pageContext.pageType) {
@@ -45,7 +41,6 @@ const ProgrammingPage = ({ data, location, pageContext }) => {
       postsToDisplay = allPortfolio;
   }
 
-  console.log("Post to disp: ", postsToDisplay)
 
   const jumbotronImg = data.placeholderImage.childImageSharp.fluid
   
@@ -96,6 +91,7 @@ const ProgrammingPage = ({ data, location, pageContext }) => {
             <div
               className="d-flex align-items-center justify-content-center"
               style={{ height: "80px" }}
+              id="title"
             >
               <MDBTypography
                 tag="h2"
@@ -105,13 +101,15 @@ const ProgrammingPage = ({ data, location, pageContext }) => {
                 {pl ? "Projekty" : "Projects"}
               </MDBTypography>
             </div>
-            <PortfolioCategoryFilter />
+            <PortfolioCategoryFilter selectTargetId="title"/>
             <Pagination
+              className="my-2"
               pageSize={projectConfig.pagesAmountInSet}
               totalCount={postsToDisplay.totalCount}
               currentPage={pageContext.currentPage || 1}
               skip={pageContext.skip}
               base={pageContext.dirName}
+              selectTargetId="title"
             />
             <DisplayProjects />
           </MDBCol>
@@ -130,7 +128,7 @@ const ProgrammingPage = ({ data, location, pageContext }) => {
                   : "Demos / Boilerplates / Proof of concept / Excercises / Snippets"}
               </MDBTypography>
             </div>
-            {/* <Excercises /> */}
+            <Excercises />
           </MDBCol>
         </MDBRow>
       </MDBContainer>
