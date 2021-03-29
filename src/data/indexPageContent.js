@@ -1,5 +1,4 @@
 import React, { useContext } from "react"
-import { MDBBtn, MDBIcon, MDBTooltip } from "mdbreact"
 
 import AppContext from '../AppProvider';
 
@@ -134,7 +133,7 @@ export const ButtonsForJumbo = () => {
   const { pl } = useContext(AppContext);
   return (
     <div className=" homepage-btn-bar">
-      <MDBBtn
+      <a 
         href={
           pl
             ? "/2021.01.31 Piotr Krasny CV web.pdf"
@@ -143,29 +142,29 @@ export const ButtonsForJumbo = () => {
         target="_blank"
         color="indigo"
         rel="noopener noreferrer"
-        className="waves-effect w-100 mx-0 mx-md-2"
+        className="btn w-100 mx-0 mx-md-2"
       >
-        CV PDF
-        <MDBIcon fas icon="file-pdf" className="ml-2" />
-      </MDBBtn>
-      <MDBBtn
+        CV PD
+        <i className="fas fa-file-pdf ml-2"></i>
+      </a>
+      <a
         href="https://github.com/PK007PK"
         target="_blank"
         color="pink"
         rel="noopener noreferrer"
-        className="waves-effect w-100 mx-0 mx-md-2"
+        className="btn w-100 mx-0 mx-md-2"
       >
-        LinkedIn <MDBIcon fab icon="linkedin-in" className="ml-2" />
-      </MDBBtn>
-      <MDBBtn
+        LinkedIn <i className="fab fa-linkedin-in ml-2"></i>
+      </a>
+      <a
         href="https://github.com/PK007PK"
         target="_blank"
         color="amber"
         rel="noopener noreferrer"
-        className="waves-effect w-100 mx-0 mx-md-2 mr-lg-0"
+        className="btn w-100 mx-0 mx-md-2 mr-lg-0"
       >
-        Github <MDBIcon fab icon="github" className="ml-2" />
-      </MDBBtn>
+        Github <i className="fab fa-github ml-2"></i>
+      </a>
     </div>
   )
 }
@@ -183,17 +182,11 @@ export const ButtonForJumboPrint = () => {
       <p className="lead mb-1" style={{ fontSize: "18px" }}>
         tel.: 509 527 925
       </p>
+      <button title={pl ? "Powrót" : "Go back"} className="button d-print-none" onClick={changePrint}>
+        {pl ? "Powrót" : "Go back"}
+      </button>
 
-      <MDBTooltip placement="right">
-        <MDBBtn className="d-print-none" onClick={changePrint}>
-          {pl ? "Powrót" : "Go back"}
-        </MDBBtn>
-        <div>
-          {pl
-            ? "Przycisk niewidoczny na wydruku"
-            : "Button invisible on print"}
-        </div>
-      </MDBTooltip>
+
     </div>
   )
 }

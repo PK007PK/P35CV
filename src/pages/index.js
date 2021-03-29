@@ -10,7 +10,6 @@ import Jumbo from "../components/Jumbo"
 import SEO from "../components/seo"
 import CardSimple from "../components/CardSimple"
 
-import { MDBIcon} from "mdbreact"
 
 import {
   indexPageTexts,

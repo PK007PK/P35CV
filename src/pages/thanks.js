@@ -6,7 +6,6 @@ import AppContext from '../AppProvider';
 import Layout from "../components/Layout"
 import Jumbo from "../components/Jumbo"
 import SEO from "../components/seo"
-import { MDBBtn } from "mdbreact"
 
 const ContactThanksPage = ({ data, location }) => {
   const { pl } = useContext(AppContext);
