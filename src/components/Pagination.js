@@ -20,21 +20,19 @@ export default function Pagination({
   const hasPrevPage = prevPage >= 1;
 
   const location = useLocation();
-  const urlTest = "(programming/[0-9])"
 
   return (
     
     // todo dodać wersje językowe
 
-    <nav id={id} aria-label="Portfolio pagination" className={className}>
+    <nav id={id} aria-label="Portfolio pagination" className={className} >
       <ul className="pagination">
         <li className="page-item">
           <Link
             title="Prev Page"
-            className="page-link text-info"
+            className="page-link"
             disabled={!hasPrevPage}
-            // disabled using pointer-events: none in css
-
+            style={{color: "#212529"}}
             to={`${base}/${prevPage}${selectTargetId ? `#${selectTargetId}` : ""}`}
           >
             ← <span className="word">Prev</span>
@@ -46,7 +44,7 @@ export default function Pagination({
               className="page-link"
               to={`${base}/${i >= 0 ? i + 1 : ''}${selectTargetId ? `#${selectTargetId}` : ""}`}
               key={`page${i}`}
-              style={`${base}/${i >= 0 ? i + 1 : ''}`=== location.pathname ? {fontWeight: "bold", color: "#33b5e5"} : {color: "#33b5e5"}}
+              style={`${base}/${i >= 0 ? i + 1 : ''}`=== location.pathname ? {fontWeight: "bold", color: "#212529"} : {color: "#212529"}}
             >
               {i + 1}
             </Link>
@@ -56,7 +54,8 @@ export default function Pagination({
           <Link
             title="Next Page"
             disabled={!hasNextPage}
-            className="page-link text-info"
+            className="page-link"
+            style={{color: "#212529"}}
             to={`${base}/${nextPage}${selectTargetId ? `#${selectTargetId}` : ""}`}
           >
             <span className="word">Next</span> →

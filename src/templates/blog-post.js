@@ -2,7 +2,6 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
-import { MDBContainer } from "mdbreact"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -15,7 +14,7 @@ const BlogPostTemplate = ({ data, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <MDBContainer>
+      <div className="container">
         <article
           className="blog-post"
           itemScope
@@ -57,7 +56,7 @@ const BlogPostTemplate = ({ data, location }) => {
             </li>
           </ul>
         </nav>
-      </MDBContainer>
+      </div>
     </Layout>
   )
 }

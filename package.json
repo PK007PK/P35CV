@@ -8,6 +8,8 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "bootstrap": "^4.6.0",
     "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
     "esm": "^3.2.25",
@@ -35,7 +37,6 @@
     "gatsby-transformer-remark": "^2.13.0",
     "gatsby-transformer-sharp": "^2.9.0",
     "gsap": "^3.5.1",
-    "mdbreact": "^5.0.1",
     "netlify-cms-app": "^2.14.7",
     "node-sass": "^4.14.1",
     "postcss-preset-env": "^6.7.0",
@@ -47,7 +48,18 @@
     "typeface-montserrat": "1.1.13"
   },
   "devDependencies": {
-    "prettier": "2.2.1"
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.8.1",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-wesbos": "^1.0.1",
+    "eslint-plugin-html": "^6.1.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.2",
+    "prettier": "^2.1.1"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [
@@ -66,6 +78,8 @@
     "start": "npm run develop",
     "serve": "cross-env NODE_OPTIONS=\"-r esm\" gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   }
 }

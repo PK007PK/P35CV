@@ -1,17 +1,15 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import { MDBCard, MDBCardBody } from "mdbreact"
-
 const CardSimple = ({ children, text, icons }) => (
-  <MDBCard className="my-3 mt-md-0">
-    {icons && <MDBCardBody>{children}</MDBCardBody>}
+  <div className="card my-3 mt-md-0">
+    {icons && <div className="card-body">{children}</div>}
     {text && (
-      <MDBCardBody>
+      <div className="card-body">
         <p className="h4 text-center font-weight-lighter mb-0">{children}</p>
-      </MDBCardBody>
+      </div>
     )}
-  </MDBCard>
+  </div>
 )
 
 CardSimple.propTypes = {

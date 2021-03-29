@@ -1,8 +1,9 @@
-import { useStaticQuery, graphql } from "gatsby"
-import { MDBBtn } from "mdbreact"
 import React, { useContext } from "react"
-import AllTags from "./AllTags"
+import { useStaticQuery, graphql } from "gatsby"
+
 import AppContext from '../AppProvider';
+import ExternaLinkLikeButton from './ExternaLinkLikeButton'
+import AllTags from "./AllTags"
 
 export default function Excercises() {
   const { pl } = useContext(AppContext)
@@ -82,28 +83,10 @@ export default function Excercises() {
               </div>
               <div className="card-footer">
                 {live && (
-                  <MDBBtn
-                    href={live}
-                    target="_blank"
-                    color="indigo"
-                    rel="noopener noreferrer"
-                    className="btn btn-sm ml-0"
-                    itemProp="url"
-                  >
-                    Live
-                  </MDBBtn>
+                  <ExternaLinkLikeButton link={live} className={"ml-0 "}>Live</ExternaLinkLikeButton>
                 )}
                 {githubRepo && (
-                  <MDBBtn
-                    href={githubRepo}
-                    target="_blank"
-                    color="indigo"
-                    rel="noopener noreferrer"
-                    className="btn btn-sm"
-                    itemProp="url"
-                  >
-                    <span itemProp="headline">Github</span>
-                  </MDBBtn>
+                  <ExternaLinkLikeButton link={githubRepo} >Github</ExternaLinkLikeButton>
                 )}
               </div>
             </div>

@@ -1,11 +1,9 @@
 import React, { useContext } from "react"
 import AppContext from '../AppProvider';
 
-import { MDBProgress } from "mdbreact"
-
 const ProgressBarAndStats = ({
   textBase,
-  progres,
+  progress,
   countedAmount,
   countedProjectsValue,
   countedProjectsGrants,
@@ -14,7 +12,9 @@ const ProgressBarAndStats = ({
 
   return (
     <div className="text-right">
-      <MDBProgress height="0.2rem" value={progres} className="my-2" />
+      <div className="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow={progress} aria-valuemin="0" aria-valuemax="100" style={{width: `${progress}%`, height: "0.2rem", backgroundColor: "blue"}} className="my-2" />
+      </div>
       <p className="">
         {pl ? textBase.projectsAmount[0] : textBase.projectsAmount[1]}:{" "}
         {countedAmount}

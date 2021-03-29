@@ -3,8 +3,6 @@ import Img from "gatsby-image"
 
 import AppContext from '../AppProvider';
 
-import { MDBJumbotron, MDBContainer, MDBRow, MDBCol, MDBCard } from "mdbreact"
-
 const Jumbo = ({
   title,
   subtitle,
@@ -20,23 +18,22 @@ const Jumbo = ({
   const BottomBar = bottomBar
   
   return (
-    <MDBJumbotron style={style}>
-      <MDBContainer className={print ? "mt-2" : "mt-5"}>
-        <MDBRow
+    <div className="jumbotron" style={style}>
+      <div className={print ? "container mt-2" : "container mt-5"}>
+        <div
           className={
             print
-              ? "justify-content-between flex-row-reverse"
-              : "justify-content-between"
+              ? "row justify-content-between flex-row-reverse"
+              : "row justify-content-between"
           }
           style={{ alignItems: "center" }}
         >
-          <MDBCol md="7" className={print ? "text-left" : "text-right"}>
+          <div className={print ? "col-12 col-md-7 text-left" : "col-12 col-md-7 text-right"}>
             <h1 className="h1">
               {title}
               <br />
               <span className="h3 font-weight-lighter">{subtitle}</span>
             </h1>
-
             {typeof text === "string" && <p className="my-4">{text}</p>}
             {typeof text === "object" ||
               (typeof text === "function" && <Text />)}
@@ -45,19 +42,18 @@ const Jumbo = ({
               style={{ width: "100%", marginInlineEnd: 0 }}
             />
             {bottomBar && <BottomBar />}
-          </MDBCol>
-
-          <MDBCol md="4" className="mt-4 mt-md-0">
+          </div>
+          <div className="col-12 col-md-4 mt-4 mt-md-0">
             {(imgSource && (
-              <MDBCard>
+              <div className="card">
                 <Img className="card-img" fluid={imgSource} />
-              </MDBCard>
+              </div>
             )) ||
               (rightBox && <RightBox />)}
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
-    </MDBJumbotron>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 

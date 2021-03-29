@@ -6,29 +6,28 @@ import AppContext from '../AppProvider';
 import Layout from "../components/Layout"
 import Jumbo from "../components/Jumbo"
 import SEO from "../components/seo"
-import { MDBBtn } from "mdbreact"
 
 const ContactThanksPage = ({ data, location }) => {
   const { pl } = useContext(AppContext);
   const contactInfo = () => (
     <div className="text-right">
-      <MDBBtn
+      <button
         href="tel:509527925"
         target="_blank"
         rel="noopener noreferrer"
-        className="waves-effect"
+        className="btn btn-blue waves-effect"
       >
         {pl ? "Tel:" : "Phone:"} 509 527 925
-      </MDBBtn>
-      <MDBBtn
+      </button>
+      <button
         href="mailto:krasny.piotr@gmail.com.com"
         target="_blank"
         color="blue"
         rel="noopener noreferrer"
-        className="waves-effect mr-md-0"
+        className="btn btn-blue waves-effect mr-md-0"
       >
         krasny.piotr@gmail.com
-      </MDBBtn>
+      </button>
     </div>
   )
   const thanksTxt = () => (

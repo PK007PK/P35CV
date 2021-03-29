@@ -1,17 +1,9 @@
 import React, { useState, useContext } from "react"
 import PropTypes from "prop-types"
-import { useLocation } from "react-router-dom";
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 import AppContext from '../AppProvider';
 
-import {
-  MDBNavbarBrand,
-  MDBNavbarNav,
-  MDBNavItem,
-  MDBBtn,
-  MDBTooltip,
-} from "mdbreact"
 
 const Navbar = ({pathname}) => {
   const { pl, changePrint, changeLanguage } = useContext(AppContext);
@@ -31,8 +23,8 @@ const Navbar = ({pathname}) => {
       style={{ backgroundColor: "#1C2331" }}
     >
       <div className="container">
-        <MDBNavbarBrand>
           <AniLink
+            className="navbar-brand"
             cover
             bg="#1C2331"
             duration={0.4}
@@ -44,7 +36,6 @@ const Navbar = ({pathname}) => {
             ></i>
             <strong className="white-text">Piotr Krasny</strong>
           </AniLink>
-        </MDBNavbarBrand>
         <button
           onClick={toggleCollapse}
           className="navbar-toggler"
@@ -65,8 +56,8 @@ const Navbar = ({pathname}) => {
           }
           id="navbarNav"
         >
-          <MDBNavbarNav right>
-            <MDBNavItem className="mr-3">
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item mr-3">
               <AniLink
                 cover
                 bg="#1C2331"
@@ -79,8 +70,8 @@ const Navbar = ({pathname}) => {
               >
                 {pl ? "Główna" : "Home"}
               </AniLink>
-            </MDBNavItem>
-            <MDBNavItem className="mr-3">
+            </li>
+            <li className="nav-item mr-3">
               <AniLink
                 cover
                 bg="#1C2331"
@@ -93,13 +84,13 @@ const Navbar = ({pathname}) => {
               >
                 {pl ? text.item1[0] : text.item1[1]}
               </AniLink>
-            </MDBNavItem>
-            <MDBNavItem className="mr-3">
+            </li>
+            <li className="nav-item mr-3">
               <AniLink
                 cover
                 bg="#1C2331"
                 duration={0.4}
-                to="/programming"
+                to="/programming/1"
                 className="nav-link"
                 activeStyle={{
                   fontWeight: "bold",
@@ -107,8 +98,8 @@ const Navbar = ({pathname}) => {
               >
                 {pl ? text.item2[0] : text.item2[1]}
               </AniLink>
-            </MDBNavItem>
-            <MDBNavItem className="mr-5">
+            </li>
+            <li className="nav-item mr-5">
               <AniLink
                 cover
                 bg="#1C2331"
@@ -121,33 +112,29 @@ const Navbar = ({pathname}) => {
               >
                 {pl ? text.item3[0] : text.item3[1]}
               </AniLink>
-            </MDBNavItem>
+            </li>
             {pathname === "/" && (
-              <MDBNavItem className="d-none d-md-flex align-items-center mr-1">
-                <MDBTooltip domElement tag="span" placement="bottom">
-                  <span>
-                    <MDBBtn
-                      className="btn-sm"
-                      onClick={changePrint}
-                    >
-                      <i className="fas fa-print"></i>
-                    </MDBBtn>
-                  </span>
-                  <span>{pl ? "Wesja do druku" : "Print version"}</span>
-                </MDBTooltip>
-              </MDBNavItem>
+              <li className="d-none d-md-flex nav-item align-items-center mr-1">
+                <button
+                  className="btn btn-sm text-white"
+                  onClick={changePrint}
+                  style={{backgroundColor: "#2bbbad"}}
+                >
+                  <i className="fas fa-print" ></i>
+                </button>
+              </li>
             )}
-            <MDBNavItem style={{ transition: "none" }}>
-              <MDBBtn
+            <li className="nav-item" style={{ transition: "none" }}>
+              <button
                 onClick={changeLanguage}
-                className="btn-sm mr-0 nav-link test"
+                className="btn btn-sm mr-0 nav-link test"
                 color="pink"
-                style={{ width: "80px", transition: "none" }}
+                style={{ width: "80px", transition: "none", backgroundColor: "#ec407a" }}
               >
                 {pl ? "Eng" : "Pl"}
-              </MDBBtn>
-            </MDBNavItem>
-          </MDBNavbarNav>
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>

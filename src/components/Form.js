@@ -3,8 +3,6 @@ import { navigate } from "gatsby-link"
 
 import AppContext from '../AppProvider';
 
-import { MDBCard, MDBCardBody, MDBBtn, MDBIcon, MDBInput } from "mdbreact"
-
 function encode(data) {
   return Object.keys(data)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
@@ -15,6 +13,7 @@ export default function Form({ admin }) {
   const [state, setState] = useState({})
 
   const { pl } = useContext(AppContext)
+
   const handleChange = e => {
     setState({ ...state, [e.target.name]: e.target.value })
   }
@@ -35,8 +34,8 @@ export default function Form({ admin }) {
   }
 
   return (
-    <MDBCard>
-      <MDBCardBody>
+    <div className="card">
+      <div className="card-body">
         <form
           name="PKCV contact form"
           method="post"
@@ -59,52 +58,29 @@ export default function Form({ admin }) {
               />
             </label>
           </div>
-          <div className="grey-text">
-            <MDBInput
-              label={pl ? "Imię:" : "Name:"}
-              icon="user"
-              group
-              type="text"
-              validate
-              error="wrong"
-              success="right"
-              onChange={handleChange}
-              autoComplete="off"
-              required
-              name="imie"
-            />
-
-            <MDBInput
-              label="Email"
-              icon="envelope"
-              group
-              type="email"
-              validate
-              error="wrong"
-              success="right"
-              onChange={handleChange}
-              autoComplete="off"
-              required
-              name="email"
-            />
-            <MDBInput
-              type="textarea"
-              rows="4"
-              label={pl ? "Wiadomość:" : "Message:"}
-              icon="pencil-alt"
-              name="text"
-              iconSize="2x"
-            />
+          <div className="grey-text p-1">
+            <div class="form-outline mb-2">
+              <label class="form-label" htmlFor="name">{pl ? "Imię:" : "Name:"}</label><br/>
+              <input autoComplete="off" name="name" onChange={handleChange} required type="text" className="w-80" />
+            </div>
+            <div class="form-outline mb-2">
+              <label class="form-label" htmlFor="email">Email</label><br/>
+              <input autoComplete="off" name="email" onChange={handleChange} required type="email" className="w-80"/>
+            </div>
+            <div class="form-outline mb-2">
+              <label class="form-label" htmlFor="message">{pl ? "Wiadomość:" : "Message:"}</label><br/>
+              <textarea autoComplete="off" name="message" onChange={handleChange} required rows="2" className="w-100"></textarea>
+            </div>
           </div>
 
           <div className="text-center">
-            <MDBBtn type="submit" outline color="warning">
+            <button className="btn btn-outline-warning" type="submit"  >
               {pl ? "Wyślij:" : "Send:"}
-              <MDBIcon far icon="paper-plane" className="ml-1" />
-            </MDBBtn>
+              <i className="far fa-paper-plane ml-1" />
+            </button>
           </div>
         </form>
-      </MDBCardBody>
-    </MDBCard>
+      </div>
+    </div>
   )
 }

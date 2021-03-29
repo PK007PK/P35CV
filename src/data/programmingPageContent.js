@@ -1,7 +1,5 @@
 import React from "react"
 
-import { MDBIcon } from "mdbreact"
-
 export const programmingPageContent = {
   title: ["Programowanie", "Programming"],
   description: [
@@ -12,10 +10,10 @@ export const programmingPageContent = {
 
 export const iconBar = () => (
   <div className="d-flex justify-content-end">
-    <MDBIcon color="red" fab size="3x" icon="html5" className="mr-3 red-text" />
-    <MDBIcon fab size="3x" icon="css3-alt" className="mr-3 blue-text" />
-    <MDBIcon fab size="3x" icon="sass" className="mr-3 pink-text" />
-    <MDBIcon fab size="3x" icon="js" className="mr-3 amber-text" />
-    <MDBIcon fab size="3x" icon="react" className="blue-text" />
+    <i class="fab fa-html5 fa-3x red-text"></i>
+    <i class="fab fa-css3-alt fa-3x blue-text"></i>
+    <i class="fab fa-sass fa-3x pink-text"></i>
+    <i class="fab fa-js amber-text fa-3x"></i>
+    <i class="fab fa-react blue-text fa-3x"></i>
   </div>
 )

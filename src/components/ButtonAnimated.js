@@ -1,8 +1,6 @@
 import React, { useContext } from "react"
 import AppContext from '../AppProvider';
 
-import { MDBBtn } from "mdbreact"
-
 const ButtonAnimated = ({ onClick }) => {
   const { pl } = useContext(AppContext)
   return (
@@ -14,9 +12,9 @@ const ButtonAnimated = ({ onClick }) => {
       className="d-flex justify-content-center align-items-center"
     >
       <div>
-        <MDBBtn color="pink" onClick={onClick}>
+        <button className="btn text-white" style={{backgroundColor: "#ec407a"}} onClick={onClick}> 
           {pl ? "Wczytaj dane" : "Click to load data"}
-        </MDBBtn>
+        </button>
       </div>
     </div>
   )
