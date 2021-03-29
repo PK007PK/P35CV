@@ -1,8 +1,8 @@
 const projectConfig = {
-  title: 'Gatsby boilerplate',
-  description: 'Gatsby starter site',
-  siteUrl: 'https://pkgatsbystarter.netlify.com',
-  language: 'en',
+  title: 'Piotr Krasny',
+  description: 'Piotr Krasny. Strona CV, portfolio',
+  siteUrl: 'https://krasny.netlify.com',
+  language: 'pl',
   pagesAmountInSet: 2,
   trackingGoogleId: 'sdsdsdsds',
 };

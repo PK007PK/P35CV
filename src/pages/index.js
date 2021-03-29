@@ -10,7 +10,7 @@ import Jumbo from "../components/Jumbo"
 import SEO from "../components/seo"
 import CardSimple from "../components/CardSimple"
 
-import { MDBContainer, MDBRow, MDBCol, MDBIcon, MDBJumbotron } from "mdbreact"
+import { MDBIcon} from "mdbreact"
 
 import {
   indexPageTexts,
@@ -53,15 +53,15 @@ const IndexPage = ({ data, location }) => {
         imgSource={print ? jumbotronImgPrint : jumbotronImg}
       />
 
-      <MDBContainer className="mt-5">
-        <MDBRow
+      <div className="container mt-5">
+        <div
           className={
             print
-              ? "justify-content-between flex-row-reverse text-left mt-5"
-              : "justify-content-between text-right mt-5"
+              ? "row justify-content-between flex-row-reverse text-left mt-5"
+              : "row justify-content-between text-right mt-5"
           }
         >
-          <MDBCol md="7" className="">
+          <div className="col-12 col-md-7">
             <h2 className="h3">
               {pl
                 ? indexPageTexts.subtitle[0]
@@ -81,8 +81,8 @@ const IndexPage = ({ data, location }) => {
                 ? indexPageTexts.description2[0]
                 : indexPageTexts.description2[1]}
             </p>
-          </MDBCol>
-          <MDBCol md="4" className="">
+          </div>
+          <div className="col-12 col-md-4">
             <CardSimple text>
               {" "}
               {pl ? indexPageTexts.advert1[0] : indexPageTexts.advert1[1]}
@@ -97,17 +97,16 @@ const IndexPage = ({ data, location }) => {
                 </Link>
               )}
             </CardSimple>
-          </MDBCol>
-        </MDBRow>
-
-        <MDBRow
+          </div>
+        </div>
+        <div
           className={
             print
-              ? "justify-content-between flex-row-reverse text-left mt-5"
-              : "justify-content-between text-right mt-5"
+              ? "row justify-content-between flex-row-reverse text-left mt-5"
+              : "row justify-content-between text-right mt-5"
           }
         >
-          <MDBCol md="7" className="">
+          <div className="col-12 col-md-7">
             <ul className="list-unstyled">
               <li className="mb-3">
                 <strong className="h5">
@@ -118,7 +117,6 @@ const IndexPage = ({ data, location }) => {
                 <br></br>
                 {pl ? indexPageTexts.text1[0] : indexPageTexts.text1[1]}
               </li>
-
               <li className="mb-3">
                 <strong className="h5">
                   {pl
@@ -128,7 +126,6 @@ const IndexPage = ({ data, location }) => {
                 <br></br>
                 {pl ? indexPageTexts.text2[0] : indexPageTexts.text2[1]}
               </li>
-
               <li className="mb-3">
                 <strong className="h5">
                   {pl
@@ -139,22 +136,21 @@ const IndexPage = ({ data, location }) => {
                 {pl ? indexPageTexts.text3[0] : indexPageTexts.text3[1]}
               </li>
             </ul>
-          </MDBCol>
-          <MDBCol md="4" className="">
+          </div>
+          <div md="4" className="col-12 col-md-4">
             <CardSimple text>
               {pl ? indexPageTexts.advert2[0] : indexPageTexts.advert2[1]}
             </CardSimple>
-          </MDBCol>
-        </MDBRow>
-
-        <MDBRow
+          </div>
+        </div>
+        <div
           className={
             print
-              ? "justify-content-between flex-row-reverse text-left mt-5"
-              : "justify-content-between text-right mt-5"
+              ? "row justify-content-between flex-row-reverse text-left mt-5"
+              : "row justify-content-between text-right mt-5"
           }
         >
-          <MDBCol md="7" className="">
+          <div className="col-12 col-md-7">
             <ul className="list-unstyled">
               <li className="mb-3">
                 <strong className="h5">
@@ -186,22 +182,22 @@ const IndexPage = ({ data, location }) => {
                 {pl ? indexPageTexts.text6[0] : indexPageTexts.text6[1]}
               </li>
             </ul>
-          </MDBCol>
-          <MDBCol md="4" className="my-3 mt-md-0">
+          </div>
+          <div className="col-12 col-md-4 my-3 mt-md-0">
             <CardSimple text>
               {pl ? indexPageTexts.advert3[0] : indexPageTexts.advert3[1]}
             </CardSimple>
-          </MDBCol>
-        </MDBRow>
+          </div>
+        </div>
 
-        <MDBRow
+        <div
           className={
             print
-              ? "justify-content-between flex-row-reverse text-left mt-5"
-              : "justify-content-between text-right mt-5"
+              ? "row justify-content-between flex-row-reverse text-left mt-5"
+              : "row justify-content-between text-right mt-5"
           }
         >
-          <MDBCol md="7" className="">
+          <div className="col-12 col-md-7">
             <h2 className="h3">
               {pl
                 ? indexPageTexts.subtitleSkills[0]
@@ -234,36 +230,15 @@ const IndexPage = ({ data, location }) => {
                 {pl ? indexPageTexts.it2[0] : indexPageTexts.it2[1]}
               </li>
             </ul>
-          </MDBCol>
-          <MDBCol md="4" className="my-3 mt-md-0">
+          </div>
+          <div className="col-12 col-md-4 my-3 mt-md-0">
             <CardSimple icons>
               <div className="d-flex justify-content-around">
-                <MDBIcon
-                  color="red"
-                  fab
-                  size="3x"
-                  icon="html5"
-                  className="red-text"
-                />
-                <MDBIcon
-                  fab
-                  size="3x"
-                  icon="css3-alt"
-                  className="blue-text"
-                />
-                <MDBIcon
-                  fab
-                  size="3x"
-                  icon="sass"
-                  className="pink-text"
-                />
-                <MDBIcon fab size="3x" icon="js" className="amber-text" />
-                <MDBIcon
-                  fab
-                  size="3x"
-                  icon="react"
-                  className="blue-text"
-                />
+                <i class="fab fa-html5 fa-3x red-text"></i>
+                <i class="fab fa-css3-alt fa-3x blue-text"></i>
+                <i class="fab fa-sass fa-3x pink-text"></i>
+                <i class="fab fa-js amber-text fa-3x"></i>
+                <i class="fab fa-react blue-text fa-3x"></i>
               </div>
               {print && (
                 <Link to={"/programming"}>
@@ -276,23 +251,22 @@ const IndexPage = ({ data, location }) => {
                 </Link>
               )}
             </CardSimple>
-          </MDBCol>
-        </MDBRow>
+          </div>
+        </div>
 
-        <MDBRow
+        <div
           className={
             print
-              ? "justify-content-between flex-row-reverse text-left mt-5"
-              : "justify-content-between text-right mt-5"
+              ? "row justify-content-between flex-row-reverse text-left mt-5"
+              : "row justify-content-between text-right mt-5"
           }
         >
-          <MDBCol md="7" className="text-righ">
+          <div md="7" className="col-12 col-md-7 text-righ">
             <h2 className="h3">
               {pl
                 ? indexPageTexts.subtitle2[0]
                 : indexPageTexts.subtitle2[1]}
             </h2>
-
             <ul className="list-unstyled">
               <li className="mb-3">
                 <strong className="h5">
@@ -305,7 +279,6 @@ const IndexPage = ({ data, location }) => {
                 <br />{" "}
                 {pl ? indexPageTexts.text7a[0] : indexPageTexts.text7a[1]}
               </li>
-
               <li className="mb-3">
                 <strong className="h5">
                   {pl
@@ -317,7 +290,6 @@ const IndexPage = ({ data, location }) => {
                 <br />{" "}
                 {pl ? indexPageTexts.text8a[0] : indexPageTexts.text8a[1]}
               </li>
-
               <li className="mb-3">
                 <strong className="h5">
                   {pl
@@ -328,8 +300,8 @@ const IndexPage = ({ data, location }) => {
                 {pl ? indexPageTexts.text9[0] : indexPageTexts.text9[1]}
               </li>
             </ul>
-          </MDBCol>
-          <MDBCol md="4" className="">
+          </div>
+          <div className="col-12 col-md-4">
             <CardSimple icons>
               <div className="d-flex justify-content-around align-items-center">
                 <i className="politechnika"></i>
@@ -337,9 +309,9 @@ const IndexPage = ({ data, location }) => {
                 <i className="lo"></i>
               </div>
             </CardSimple>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
+          </div>
+        </div>
+      </div>
       <div
           style={
             print
@@ -355,8 +327,8 @@ const IndexPage = ({ data, location }) => {
           className="mt-5"
         >
           {print && (
-            <MDBContainer>
-              <MDBJumbotron
+            <div className="container">
+              <div className="jumbotron"
                 className="mb-0"
                 style={{
                   backgroundColor: "white",
@@ -365,8 +337,8 @@ const IndexPage = ({ data, location }) => {
                 <p>
                   {pl ? indexPageTexts.rodo[0] : indexPageTexts.rodo[1]}
                 </p>
-              </MDBJumbotron>
-            </MDBContainer>
+              </div>
+            </div>
           )}
         </div>
     </Layout>

@@ -10,7 +10,7 @@ import Excercises from "../components/Exercises"
 import PortfolioCategoryFilter from "../components/PortfolioCategoryFilter";
 import Pagination from "../components/Pagination";
 import projectConfig from '../projectConfig';
-import { MDBContainer, MDBRow, MDBCol, MDBTypography } from "mdbreact"
+
 import { programmingPageContent, iconBar } from "../data/programmingPageContent"
 
 const ProgrammingPage = ({ data, location, pageContext }) => {
@@ -84,22 +84,19 @@ const ProgrammingPage = ({ data, location, pageContext }) => {
       <SEO title={pl ? "Programowanie" : "Programming"} />
       <ConfiguredJumbotron />
       
-      <MDBContainer>
-        <MDBRow className="justify-content-between mb-5">
-          <MDBCol md="7">
-          
+      <div className="container">
+        <div className="row justify-content-between mb-5">
+          <div className="col-12 col-md-7">
             <div
               className="d-flex align-items-center justify-content-center"
               style={{ height: "80px" }}
               id="title"
             >
-              <MDBTypography
-                tag="h2"
-                variant="h3"
-                className="text-center m-0"
+              <h2
+                className="h3 text-center m-0"
               >
                 {pl ? "Projekty" : "Projects"}
-              </MDBTypography>
+              </h2>
             </div>
             <PortfolioCategoryFilter selectTargetId="title"/>
             <Pagination
@@ -112,26 +109,34 @@ const ProgrammingPage = ({ data, location, pageContext }) => {
               selectTargetId="title"
             />
             <DisplayProjects />
-          </MDBCol>
-          <MDBCol md="4" className="mt-4 mt-md-0">
+            <Pagination
+              className="my-2"
+              pageSize={projectConfig.pagesAmountInSet}
+              totalCount={postsToDisplay.totalCount}
+              currentPage={pageContext.currentPage || 1}
+              skip={pageContext.skip}
+              base={pageContext.dirName}
+              selectTargetId="title"
+            />
+          </div>
+          <div className="col-12 col-md-4 mt-4 mt-md-0">
             <div
               className="d-flex align-items-center justify-content-center"
               style={{ height: "80px" }}
             >
-              <MDBTypography
-                tag="h2"
-                variant="h5"
-                className="text-center m-0"
+              <h2
+
+                className="h5 text-center m-0"
               >
                 {pl
                   ? "Dema / Startery / Prototypy / Ćwiczenia / Snippety"
                   : "Demos / Boilerplates / Proof of concept / Excercises / Snippets"}
-              </MDBTypography>
+              </h2>
             </div>
             <Excercises />
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
+          </div>
+        </div>
+      </div>
           
     </Layout>
   )

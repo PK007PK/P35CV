@@ -4,13 +4,7 @@ import { Link } from "gatsby"
 
 import AppContext from '../AppProvider';
 
-import {
-  MDBCard,
-  MDBCardBody,
-  MDBCardTitle,
-  MDBCardText,
-  MDBBtn,
-} from "mdbreact"
+import ExternaLinkLikeButton from './ExternaLinkLikeButton'
 import AllTags from "./AllTags"
 
 export default function CardProject({ post, className }) {
@@ -29,20 +23,20 @@ export default function CardProject({ post, className }) {
   const fluid = post.frontmatter.thumbnail?.childImageSharp?.fluid
 
   return (
-    <MDBCard className={`post-list-item mb-0 ${className}`}>
+    <div className={`card post-list-item mb-0 ${className}`}>
       <Image className="card-img" fluid={fluid} />
-      <MDBCardBody
-        className=""
+      <div
+        className="card-body"
         style={{ backgroundColor: "rgb(245, 245, 245)" }}
       >
-        <MDBCardTitle className="">{pl ? title : titleEng}</MDBCardTitle>
-        <MDBCardText className="">
-          <small className="">{date}</small>
-        </MDBCardText>
-        <MDBCardText className="" style={{ color: "#1C2331" }}>
+        <h3 className="card-title">{pl ? title : titleEng}</h3>
+        <div className="card-text">
+          <small className="mb-5">{date}</small>
+        </div>
+        <div className="card-text" style={{ color: "#1C2331" }}>
           {pl ? description : descriptionEng}
-        </MDBCardText>
-      </MDBCardBody>
+        </div>
+      </div>
       <div
         className="card-footer"
         style={{ backgroundColor: "rgb(245, 245, 245)" }}
@@ -60,30 +54,12 @@ export default function CardProject({ post, className }) {
           </Link>
         )}
         {live && (
-          <MDBBtn
-            href={live}
-            target="_blank"
-            color="indigo"
-            rel="noopener noreferrer"
-            className="btn btn-sm ml-0"
-            itemProp="url"
-          >
-            Live
-          </MDBBtn>
+          <ExternaLinkLikeButton link={live} className="ml-0">Live</ExternaLinkLikeButton>
         )}
         {githubRepo && (
-          <MDBBtn
-            href={githubRepo}
-            target="_blank"
-            color="indigo"
-            rel="noopener noreferrer"
-            className="btn btn-sm"
-            itemProp="url"
-          >
-            <span itemProp="headline">Github</span>
-          </MDBBtn>
+          <ExternaLinkLikeButton link={githubRepo}>Github</ExternaLinkLikeButton>
         )}
       </div>
-    </MDBCard>
+    </div>
   )
 }

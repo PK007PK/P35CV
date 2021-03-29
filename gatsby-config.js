@@ -1,12 +1,11 @@
-module.exports = {
+import projectConfig from './src/projectConfig';
+
+export default {
   siteMetadata: {
-    title: `Piotr Krasny CV`,
-    author: {
-      name: `Piotr Krasny`,
-      summary: `Piotr Krasny`,
-    },
-    description: `Personal CV and portfolio website`,
-    siteUrl: `https://krasny.netlify.app/`,
+    title: projectConfig.title,
+    description: projectConfig.description,
+    siteUrl: projectConfig.siteUrl,
+    language: projectConfig.language,
   },
   plugins: [
     {

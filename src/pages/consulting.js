@@ -10,8 +10,6 @@ import GrantProjectCard from "../components/GrantProjectCard"
 import ShowAllProjects from "../components/ShowAllProjects"
 import ButtonAnimated from "../components/ButtonAnimated"
 
-import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
-
 import { doradztwoPageTexts } from "../data/consultingPageContent"
 import allConsultingProjects from "../data/allConsultingProjects"
 
@@ -77,7 +75,7 @@ const ConsultingPage = ({ location }) => {
         bottomBar={() => (
           <ProgressBarAndStats
             textBase={doradztwoPageTexts}
-            progres={(amount / 180) * 100}
+            progress={(amount / 180) * 100}
             countedAmount={amount}
             countedProjectsValue={values ? values.toLocaleString() : 0}
             countedProjectsGrants={grants ? grants.toLocaleString() : 0}
@@ -124,29 +122,29 @@ const ConsultingPage = ({ location }) => {
         }}
       />
       {loadingStarted && (
-        <MDBContainer>
-          <MDBRow className="">
-            <MDBCol>
+        <div className="container">
+          <div className="">
+            <div className="col">
               <h2 className="mb-3">
                 {pl
                   ? doradztwoPageTexts.subtitle[0]
                   : doradztwoPageTexts.subtitle[1]}
               </h2>
-            </MDBCol>
-          </MDBRow>
-          <MDBRow className="justify-content-between">
-            <MDBCol md="7" className="">
+            </div>
+          </div>
+          <div className="row justify-content-between">
+            <div className="col-12 col-md-7">
               {loadingStarted && (
                 <ShowAllProjects projectBase={projects} />
               )}
-            </MDBCol>
-            <MDBCol md="4" className="">
+            </div>
+            <div className="col-12 col-md-4">
               {loadingStarted && (
                 <FundList list={doradztwoPageTexts.programs} />
               )}
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
+            </div>
+          </div>
+        </div>
       )}
           
     </Layout>
