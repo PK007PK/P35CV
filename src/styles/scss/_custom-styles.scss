@@ -1,0 +1,66 @@
+// Your custom styles
+html {
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+}
+// This makes the footer stick to the bottom of the viewport
+
+[disabled] {
+  pointer-events: none;
+}
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-content {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+i.gatsbyIcon {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-image: url("../../assets/images/gatsbylogo3.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.6;
+}
+
+i.politechnika,
+i.ekonomiczna,
+i.lo {
+  display: block;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+}
+
+i.politechnika {
+  width: 60px;
+  height: 60px;
+  background-image: url("../../assets/images/politechnika.jpg");
+}
+
+i.ekonomiczna {
+  width: 60px;
+  height: 100px;
+  background-image: url("../../assets/images/ekonomiczna.svg");
+}
+
+i.lo {
+  width: 60px;
+  height: 90px;
+  background-image: url("../../assets/images/lo.jpg");
+}
+
+.homepage-btn-bar {
+  & > * {
+    @include media-breakpoint-up(md) {
+      width: auto !important;
+    }
+  }
+}

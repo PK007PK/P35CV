@@ -15,13 +15,6 @@ module.exports = {
         exclude: [`/thanks`],
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/exercises`,
-        name: `exercises`,
-      },
-    },
     `gatsby-plugin-transition-link`,
     `gatsby-plugin-sass`,
     {
@@ -33,8 +26,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
+        name: `images`,
+        path: `${__dirname}/src/assets/images`,
       },
     },
     {
@@ -47,8 +40,29 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/content/portfolioProjects`,
+        name: `portfolioProjects`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/portfolioCategory`,
+        name: `portfolioCategory`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/exercises`,
+        name: `exercises`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/excerciseCategory`,
+        name: `excerciseCategory`,
       },
     },
     {
@@ -91,7 +105,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#1C2331`,
         display: `minimal-ui`,
-        icon: `src/images/pklogo.svg`,
+        icon: `src/assets/images/pklogo.svg`,
       },
     },
     `gatsby-plugin-react-helmet`,

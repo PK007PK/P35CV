@@ -7,14 +7,41 @@ import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import CardProject from "../components/CardProject"
 import Excercises from "../components/Exercises"
-
+import PortfolioCategoryFilter from "../components/PortfolioCategoryFilter";
+import Pagination from "../components/Pagination";
+import projectConfig from '../projectConfig';
 import { MDBContainer, MDBRow, MDBCol, MDBTypography } from "mdbreact"
 import { programmingPageContent, iconBar } from "../data/programmingPageContent"
 
-const ProgrammingPage = ({ data, location }) => {
+const ProgrammingPage = ({ data, location, pageContext }) => {
   const { pl } = useContext(AppContext);
   
-  const posts = data.allMarkdownRemark.nodes
+  if (pageContext.dirName === undefined) {
+    pageContext.dirName = `/programming`;
+    pageContext.pageType = 'allPaginatedPosts'
+  }
+  
+
+  const portfolioCategory = data.portfolioCategory;
+  const tags = data.tag;
+  const allPortfolio = data.allPortfolio;
+  
+  let postsToDisplay;
+  switch (pageContext.pageType) {
+    case 'allPaginatedPosts':
+      postsToDisplay = allPortfolio;
+      break;
+    case 'allPostsInCategory':
+      postsToDisplay = portfolioCategory;
+      break;
+    case 'allPostsInTag':
+      postsToDisplay = tags;
+      break;
+    default:
+      postsToDisplay = allPortfolio;
+  }
+
+
   const jumbotronImg = data.placeholderImage.childImageSharp.fluid
   
   const ConfiguredJumbotron = () => {
@@ -42,7 +69,7 @@ const ProgrammingPage = ({ data, location }) => {
 
   const DisplayProjects = () => (
     <ul style={{ listStyle: `none`, paddingLeft: 0 }}>
-      {posts.map(post => {
+      {postsToDisplay.nodes.map(post => {
         return (
           <li key={post.fields.slug}>
             <CardProject post={post} className="mb-5" />
@@ -56,12 +83,15 @@ const ProgrammingPage = ({ data, location }) => {
     <Layout lang={location?.state?.lang}>
       <SEO title={pl ? "Programowanie" : "Programming"} />
       <ConfiguredJumbotron />
+      
       <MDBContainer>
         <MDBRow className="justify-content-between mb-5">
           <MDBCol md="7">
+          
             <div
               className="d-flex align-items-center justify-content-center"
               style={{ height: "80px" }}
+              id="title"
             >
               <MDBTypography
                 tag="h2"
@@ -71,6 +101,16 @@ const ProgrammingPage = ({ data, location }) => {
                 {pl ? "Projekty" : "Projects"}
               </MDBTypography>
             </div>
+            <PortfolioCategoryFilter selectTargetId="title"/>
+            <Pagination
+              className="my-2"
+              pageSize={projectConfig.pagesAmountInSet}
+              totalCount={postsToDisplay.totalCount}
+              currentPage={pageContext.currentPage || 1}
+              skip={pageContext.skip}
+              base={pageContext.dirName}
+              selectTargetId="title"
+            />
             <DisplayProjects />
           </MDBCol>
           <MDBCol md="4" className="mt-4 mt-md-0">
@@ -98,16 +138,60 @@ const ProgrammingPage = ({ data, location }) => {
 }
 
 export const pageQuery = graphql`
-  query {
+  query pagesQuery ($selectPosts: String, $skip: Int = 0, $pageSize: Int = 2) {
     site {
       siteMetadata {
         title
       }
     }
-    allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/blog/.*.md$/" } }
+    placeholderImage: file(relativePath: { eq: "pkinf1.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 300) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    allPortfolio: allMarkdownRemark(
+      limit: $pageSize
+      skip: $skip
       sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fileAbsolutePath: { regex: "/portfolioProjects/" } }
     ) {
+      totalCount
+      nodes {
+        fields {
+          slug
+        }
+        frontmatter {
+          date(formatString: "YYYY-MM-DD")
+          title
+          titleEng
+          description
+          descriptionEng
+          tags
+          showMore
+          live
+          githubRepo
+          thumbnail {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid_tracedSVG
+              }
+            }
+          }
+        }
+      }
+    }
+    portfolioCategory: allMarkdownRemark(
+      limit: $pageSize
+      skip: $skip
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { 
+        fileAbsolutePath: { regex: "/portfolioProjects/" }
+        frontmatter: { portfolioCategory: { regex: $selectPosts } }
+      } 
+    ) {
+      totalCount
       nodes {
         excerpt
         fields {
@@ -132,14 +216,7 @@ export const pageQuery = graphql`
           }
         }
       }
-    }
-    placeholderImage: file(relativePath: { eq: "pkinf1.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 300) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
+    }  
   }
 `
 

@@ -19,7 +19,7 @@ export default function Excercises() {
               date(formatString: "YYYY-MM-DD")
               title
               titleEng
-              category
+              excerciseCategory
               description
               descriptionEng
               tags
@@ -38,7 +38,7 @@ export default function Excercises() {
         const {
           title,
           titleEng,
-          category,
+          excerciseCategory,
           description,
           descriptionEng,
           tags,
@@ -48,7 +48,7 @@ export default function Excercises() {
         } = item.node.frontmatter
 
         let color
-        switch (category) {
+        switch (excerciseCategory) {
           case "demo":
             color = `blue-grey darken-1`
             break
@@ -71,7 +71,7 @@ export default function Excercises() {
                 </h5>
                 <div className="card-text text-white my-3 d-flex justify-content-between">
                   <small className="">{date}</small>
-                  <small className="">{category}</small>
+                  <small className="">{excerciseCategory}</small>
                 </div>
                 <p className="card-text text-white">
                   {pl ? description : descriptionEng}
