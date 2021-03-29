@@ -22,8 +22,8 @@ export default function PortfolioCategoryFilter({selectTargetId, id}) {
   `);
   
   const{ pl } = useContext( AppContext )
-  const location = useLocation();
   const categories = data.allMarkdownRemark.nodes;
+  const location = useLocation();
   const urlTest = "(programming/[0-9])"
   return (
     <div id={id}>
