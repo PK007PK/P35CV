@@ -79,12 +79,15 @@ const IndexPage = ({ data, location }) => {
               {' '}
               {pl ? indexPageTexts.advert1[0] : indexPageTexts.advert1[1]}
               {print && (
-                <Link to="/consulting">
-                  <span className="card-text text-center mt-4">
-                    <strong style={{ color: '#CC0000' }}>Portfolio:</strong>{' '}
-                    krasny.netlify.app/consulting
-                  </span>
-                </Link>
+                <>
+                  <br />
+                  <Link to="/consulting">
+                    <span className="card-text text-center mt-4">
+                      <strong style={{ color: '#CC0000' }}>Portfolio:</strong>{' '}
+                      krasny.netlify.app/consulting
+                    </span>
+                  </Link>
+                </>
               )}
             </CardSimple>
           </div>
@@ -219,12 +222,15 @@ const IndexPage = ({ data, location }) => {
                 <i className="fab fa-react blue-text fa-3x" />
               </div>
               {print && (
-                <Link to="/programming">
-                  <span className="card-text text-center mt-5">
-                    <strong style={{ color: '#CC0000' }}>Portfolio:</strong>{' '}
-                    krasny.netlify.app/programming
-                  </span>
-                </Link>
+                <>
+                  <br />
+                  <Link to="/programming">
+                    <span className="card-text text-center mt-5">
+                      <strong style={{ color: '#CC0000' }}>Portfolio:</strong>{' '}
+                      krasny.netlify.app/programming
+                    </span>
+                  </Link>
+                </>
               )}
             </CardSimple>
           </div>
