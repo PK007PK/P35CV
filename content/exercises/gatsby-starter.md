@@ -1,6 +1,6 @@
 ---
-title: Gatsby starter
-titleEng: Gatsby starter
+title: Gatsby / Netlify CMS starter
+titleEng: Gatsby / Netlify CMS starter
 excerciseCategory: starter
 date: 2021-03-12T12:23:29.640Z
 description: "Starter: gatsby js, netlify cms."
