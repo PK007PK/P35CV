@@ -1,31 +1,33 @@
-import React, { useContext } from "react"
-import { graphql } from "gatsby"
+import React, { useContext } from 'react';
+import { graphql } from 'gatsby';
 import AppContext from '../AppProvider';
 
-import Jumbo from "../components/Jumbo"
-import Layout from "../components/Layout"
-import SEO from "../components/seo"
-import CardProject from "../components/CardProject"
-import Excercises from "../components/Exercises"
-import PortfolioCategoryFilter from "../components/PortfolioCategoryFilter";
-import Pagination from "../components/Pagination";
+import Jumbo from '../components/Jumbo';
+import Layout from '../components/Layout';
+import SEO from '../components/seo';
+import CardProject from '../components/CardProject';
+import Excercises from '../components/Exercises';
+import PortfolioCategoryFilter from '../components/PortfolioCategoryFilter';
+import Pagination from '../components/Pagination';
 import projectConfig from '../projectConfig';
 
-import { programmingPageContent, iconBar } from "../data/programmingPageContent"
+import {
+  programmingPageContent,
+  iconBar,
+} from '../data/programmingPageContent';
 
 const ProgrammingPage = ({ data, location, pageContext }) => {
   const { pl } = useContext(AppContext);
-  
+  console.log(pageContext);
   if (pageContext.dirName === undefined) {
     pageContext.dirName = `/programming`;
-    pageContext.pageType = 'allPaginatedPosts'
+    pageContext.pageType = 'allPaginatedPosts';
   }
-  
 
-  const portfolioCategory = data.portfolioCategory;
-  const tags = data.tag;
-  const allPortfolio = data.allPortfolio;
-  
+  const { portfolioCategory } = data;
+  const { allPortfolio } = data;
+  const { excercises } = data;
+
   let postsToDisplay;
   switch (pageContext.pageType) {
     case 'allPaginatedPosts':
@@ -34,71 +36,61 @@ const ProgrammingPage = ({ data, location, pageContext }) => {
     case 'allPostsInCategory':
       postsToDisplay = portfolioCategory;
       break;
-    case 'allPostsInTag':
-      postsToDisplay = tags;
-      break;
     default:
       postsToDisplay = allPortfolio;
   }
 
+  const jumbotronImg = data.placeholderImage.childImageSharp.fluid;
 
-  const jumbotronImg = data.placeholderImage.childImageSharp.fluid
-  
-  const ConfiguredJumbotron = () => {
-    return (
-      <Jumbo
-        title={"Piotr Krasny"}
-        subtitle={
-          pl ? programmingPageContent.title[0] : programmingPageContent.title[1]
-        }
-        text={
-          pl
-            ? programmingPageContent.description[0]
-            : programmingPageContent.description[1]
-        }
-        bottomBar={iconBar}
-        style={{
-          backgroundColor: "#f5f5f5",
-          boxShadow: "none",
-          minHeight: "550px",
-        }}
-        imgSource={jumbotronImg}
-      />
-    )
-  }
+  const ConfiguredJumbotron = () => (
+    <Jumbo
+      title="Piotr Krasny"
+      subtitle={
+        pl ? programmingPageContent.title[0] : programmingPageContent.title[1]
+      }
+      text={
+        pl
+          ? programmingPageContent.description[0]
+          : programmingPageContent.description[1]
+      }
+      bottomBar={iconBar}
+      style={{
+        backgroundColor: '#f5f5f5',
+        boxShadow: 'none',
+        minHeight: '550px',
+      }}
+      imgSource={jumbotronImg}
+    />
+  );
 
   const DisplayProjects = () => (
     <ul style={{ listStyle: `none`, paddingLeft: 0 }}>
-      {postsToDisplay.nodes.map(post => {
-        return (
-          <li key={post.fields.slug}>
-            <CardProject post={post} className="mb-5" />
-          </li>
-        )
-      })}
+      {postsToDisplay.nodes.map((post) => (
+        <li key={post.fields.slug}>
+          <CardProject post={post} className="mb-5" />
+        </li>
+      ))}
     </ul>
-  )
+  );
 
   return (
     <Layout lang={location?.state?.lang}>
-      <SEO title={pl ? "Programowanie" : "Programming"} />
+      <SEO title={pl ? 'Programowanie' : 'Programming'} />
       <ConfiguredJumbotron />
-      
+
       <div className="container">
         <div className="row justify-content-between mb-5">
           <div className="col-12 col-md-7">
             <div
               className="d-flex align-items-center justify-content-center"
-              style={{ height: "80px" }}
+              style={{ height: '80px' }}
               id="title"
             >
-              <h2
-                className="h3 text-center m-0"
-              >
-                {pl ? "Projekty" : "Projects"}
+              <h2 className="h3 text-center m-0">
+                {pl ? 'Projekty' : 'Projects'}
               </h2>
             </div>
-            <PortfolioCategoryFilter selectTargetId="title"/>
+            <PortfolioCategoryFilter selectTargetId="title" />
             <Pagination
               className="my-2"
               pageSize={projectConfig.pagesAmountInSet}
@@ -120,30 +112,21 @@ const ProgrammingPage = ({ data, location, pageContext }) => {
             />
           </div>
           <div className="col-12 col-md-4 mt-4 mt-md-0">
-            <div
-              className="d-flex align-items-center justify-content-center"
-              style={{ height: "80px" }}
-            >
-              <h2
-
-                className="h5 text-center m-0"
-              >
-                {pl
-                  ? "Dema / Startery / Prototypy / Ćwiczenia / Snippety"
-                  : "Demos / Boilerplates / Proof of concept / Excercises / Snippets"}
-              </h2>
-            </div>
-            <Excercises />
+            <Excercises base={excercises.edges} />
           </div>
         </div>
       </div>
-          
     </Layout>
-  )
-}
+  );
+};
 
 export const pageQuery = graphql`
-  query pagesQuery ($selectPosts: String, $skip: Int = 0, $pageSize: Int = 2) {
+  query pagesQuery(
+    $selectPosts: String
+    $skip: Int = 0
+    $skipExcercises: Int = 0
+    $pageSize: Int = 2
+  ) {
     site {
       siteMetadata {
         title
@@ -191,10 +174,10 @@ export const pageQuery = graphql`
       limit: $pageSize
       skip: $skip
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { 
+      filter: {
         fileAbsolutePath: { regex: "/portfolioProjects/" }
         frontmatter: { portfolioCategory: { regex: $selectPosts } }
-      } 
+      }
     ) {
       totalCount
       nodes {
@@ -221,8 +204,31 @@ export const pageQuery = graphql`
           }
         }
       }
-    }  
+    }
+    excercises: allMarkdownRemark(
+      limit: 3
+      skip: $skipExcercises
+      filter: { fileAbsolutePath: { regex: "/exercises/.*.md$/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            date(formatString: "YYYY-MM-DD")
+            title
+            titleEng
+            excerciseCategory
+            description
+            descriptionEng
+            tags
+            live
+            githubRepo
+          }
+        }
+      }
+    }
   }
-`
+`;
 
-export default ProgrammingPage
+export default ProgrammingPage;

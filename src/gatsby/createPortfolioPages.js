@@ -6,7 +6,7 @@ export async function createPortfolioPages({ graphql, actions, reporter }) {
   const projectTemplate = path.resolve(`./src/templates/blog-post.js`);
 
   // Get all markdown blog posts sorted by date
-  const {data} = await graphql(
+  const { data } = await graphql(
     `
       {
         allMarkdownRemark(
@@ -24,7 +24,7 @@ export async function createPortfolioPages({ graphql, actions, reporter }) {
         }
       }
     `
-  )
+  );
 
   if (data.errors) {
     reporter.panicOnBuild(
@@ -58,6 +58,7 @@ export async function createPortfolioPages({ graphql, actions, reporter }) {
 
   // Create pagination
   const pageSize = projectConfig.pagesAmountInSet;
+  const excerciseSize = projectConfig.pagesAmountInSet;
   const pageCount = Math.ceil(data.allMarkdownRemark.totalCount / pageSize);
 
   // Loop from 1 to n and create the pages for them
@@ -67,6 +68,7 @@ export async function createPortfolioPages({ graphql, actions, reporter }) {
       component: path.resolve('./src/pages/programming.js'),
       context: {
         skip: i * pageSize,
+        skipExcercises: i * excerciseSize,
         currentPage: i + 1,
         pageSize,
         pageType: 'allPaginatedPosts',
