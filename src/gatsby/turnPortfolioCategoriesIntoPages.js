@@ -45,6 +45,7 @@ export async function turnPortfolioCategoriesIntoPages({ graphql, actions }) {
       const pageSize = projectConfig.pagesAmountInSet;
       const allPostsInCategory = result.data.allMarkdownRemark.totalCount;
       const pageCount = Math.ceil(allPostsInCategory / pageSize);
+      const excerciseSize = projectConfig.excercisesAmountInSet;
 
       Array.from({ length: pageCount }).forEach((_, i) => {
         actions.createPage({
@@ -52,6 +53,7 @@ export async function turnPortfolioCategoriesIntoPages({ graphql, actions }) {
           component: categoryTemplate,
           context: {
             skip: i * pageSize,
+            skipExcercises: i * excerciseSize,
             currentPage: i + 1,
             pageSize,
             selectPosts: `/${category.frontmatter.slug}/i`,

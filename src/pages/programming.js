@@ -18,15 +18,15 @@ import {
 
 const ProgrammingPage = ({ data, location, pageContext }) => {
   const { pl } = useContext(AppContext);
-
+  console.log(pageContext);
   if (pageContext.dirName === undefined) {
     pageContext.dirName = `/programming`;
     pageContext.pageType = 'allPaginatedPosts';
   }
 
   const { portfolioCategory } = data;
-  const tags = data.tag;
   const { allPortfolio } = data;
+  const { excercises } = data;
 
   let postsToDisplay;
   switch (pageContext.pageType) {
@@ -35,9 +35,6 @@ const ProgrammingPage = ({ data, location, pageContext }) => {
       break;
     case 'allPostsInCategory':
       postsToDisplay = portfolioCategory;
-      break;
-    case 'allPostsInTag':
-      postsToDisplay = tags;
       break;
     default:
       postsToDisplay = allPortfolio;
@@ -115,7 +112,7 @@ const ProgrammingPage = ({ data, location, pageContext }) => {
             />
           </div>
           <div className="col-12 col-md-4 mt-4 mt-md-0">
-            <Excercises />
+            <Excercises base={excercises.edges} />
           </div>
         </div>
       </div>
@@ -124,7 +121,12 @@ const ProgrammingPage = ({ data, location, pageContext }) => {
 };
 
 export const pageQuery = graphql`
-  query pagesQuery($selectPosts: String, $skip: Int = 0, $pageSize: Int = 2) {
+  query pagesQuery(
+    $selectPosts: String
+    $skip: Int = 0
+    $skipExcercises: Int = 0
+    $pageSize: Int = 2
+  ) {
     site {
       siteMetadata {
         title
@@ -199,6 +201,29 @@ export const pageQuery = graphql`
                 ...GatsbyImageSharpFluid_tracedSVG
               }
             }
+          }
+        }
+      }
+    }
+    excercises: allMarkdownRemark(
+      limit: 3
+      skip: $skipExcercises
+      filter: { fileAbsolutePath: { regex: "/exercises/.*.md$/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            date(formatString: "YYYY-MM-DD")
+            title
+            titleEng
+            excerciseCategory
+            description
+            descriptionEng
+            tags
+            live
+            githubRepo
           }
         }
       }

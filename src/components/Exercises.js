@@ -5,13 +5,14 @@ import AppContext from '../AppProvider';
 import ExternaLinkLikeButton from './ExternaLinkLikeButton';
 import AllTags from './AllTags';
 
-export default function Excercises() {
+export default function Excercises({ base }) {
   const { pl } = useContext(AppContext);
-  const { selected, setSelected } = useState('All');
 
   const data = useStaticQuery(graphql`
-    query MyQuery {
+    query MyQuery($skip: Int = 0) {
       allMarkdownRemark(
+        limit: 3
+        skip: $skip
         filter: { fileAbsolutePath: { regex: "/exercises/.*.md$/" } }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
@@ -45,15 +46,13 @@ export default function Excercises() {
           {pl ? 'Drobne projekty' : 'Small projects'}
         </h2>
       </div>
-      <button>{pl ? 'Wszystkie' : 'All'}</button>
-      <button>{pl ? 'Dema' : 'All'}</button>
-      <button>{pl ? 'Wszystkie' : 'All'}</button>
-      <button>{pl ? 'Wszystkie' : 'All'}</button>
-      {pl
-        ? 'Dema / Startery / Prototypy / Ćwiczenia / Snippety'
-        : 'Demos / Boilerplates / Proof of concept / Excercises / Snippets'}
+      <div className="text-center mb-3">
+        {pl
+          ? 'Dema / Startery / Prototypy / Ćwiczenia / Snippety'
+          : 'Demos / Boilerplates / Proof of concept / Excercises / Snippets'}
+      </div>{' '}
       <ul style={{ listStyle: `none`, paddingLeft: 0 }}>
-        {data.allMarkdownRemark.edges.map((item, index) => {
+        {base.map((item, index) => {
           const {
             title,
             titleEng,
@@ -80,7 +79,7 @@ export default function Excercises() {
             default:
               color = `stylish-color-dark`;
           }
-          // ["demo", "boilerplate", "proof of concept", "excercise", "snippet"],
+
           return (
             <li key={index}>
               <div
