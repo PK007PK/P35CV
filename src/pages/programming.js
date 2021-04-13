@@ -210,7 +210,7 @@ export const pageQuery = graphql`
       }
     }
     excercises: allMarkdownRemark(
-      limit: 3
+      limit: 4
       skip: $skipExcercises
       filter: { fileAbsolutePath: { regex: "/exercises/.*.md$/" } }
       sort: { fields: [frontmatter___date], order: DESC }

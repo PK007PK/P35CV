@@ -4,7 +4,7 @@ const projectConfig = {
   siteUrl: 'https://krasny.netlify.com',
   language: 'pl',
   pagesAmountInSet: 2,
-  excercisesAmountInSet: 3,
+  excercisesAmountInSet: 4,
   trackingGoogleId: 'sdsdsdsds',
 };
 
