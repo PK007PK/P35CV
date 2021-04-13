@@ -98,8 +98,7 @@ export default {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Piotr Krasny CV`,
-        short_name: `PK CV`,
+        name: projectConfig.title,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#1C2331`,
