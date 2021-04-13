@@ -7,7 +7,7 @@ description: "Strona internetowa psychoterapeuty. "
 descriptionEng: "A psychotherapist's website. "
 portfolioCategory:
   - landingpage
-tags: react,reactHooks,gatsby,styledSomponents,bootstrap,scss,ajax,dark/light mode
+tags: react,reactHooks,gatsby,styledComponents,bootstrap,scss,ajax,dark/light mode
 showMore: false
 githubRepo: https://github.com/PK007PK/P36Patrzac
 live: http://pk007pk1.vot.pl/
