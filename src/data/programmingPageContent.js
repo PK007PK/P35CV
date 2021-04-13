@@ -11,9 +11,9 @@ export const programmingPageContent = {
 export const iconBar = () => (
   <div className="d-flex justify-content-end">
     <i className="fab fa-html5 fa-3x red-text" />
-    <i className="fab fa-css3-alt fa-3x blue-text" />
-    <i className="fab fa-sass fa-3x pink-text" />
-    <i className="fab fa-js amber-text fa-3x" />
-    <i className="fab fa-react blue-text fa-3x" />
+    <i className="fab fa-css3-alt fa-3x blue-text ml-2 ml-md-3" />
+    <i className="fab fa-sass fa-3x pink-text ml-2 ml-md-3" />
+    <i className="fab fa-js amber-text fa-3x ml-2 ml-md-3" />
+    <i className="fab fa-react blue-text fa-3x ml-2 ml-md-3" />
   </div>
 );
