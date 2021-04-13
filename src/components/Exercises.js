@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import AppContext from '../AppProvider';
@@ -7,6 +7,8 @@ import AllTags from './AllTags';
 
 export default function Excercises() {
   const { pl } = useContext(AppContext);
+  const { selected, setSelected } = useState('All');
+
   const data = useStaticQuery(graphql`
     query MyQuery {
       allMarkdownRemark(
@@ -36,15 +38,20 @@ export default function Excercises() {
   return (
     <>
       <div
-        className="d-flex align-items-center justify-content-center mb-3"
-        style={{ height: '120px' }}
+        className="d-flex align-items-center justify-content-center"
+        style={{ height: '80px' }}
       >
         <h2 className="h5 text-center m-0">
-          {pl
-            ? 'Dema / Startery / Prototypy / Ćwiczenia / Snippety'
-            : 'Demos / Boilerplates / Proof of concept / Excercises / Snippets'}
+          {pl ? 'Drobne projekty' : 'Small projects'}
         </h2>
       </div>
+      <button>{pl ? 'Wszystkie' : 'All'}</button>
+      <button>{pl ? 'Dema' : 'All'}</button>
+      <button>{pl ? 'Wszystkie' : 'All'}</button>
+      <button>{pl ? 'Wszystkie' : 'All'}</button>
+      {pl
+        ? 'Dema / Startery / Prototypy / Ćwiczenia / Snippety'
+        : 'Demos / Boilerplates / Proof of concept / Excercises / Snippets'}
       <ul style={{ listStyle: `none`, paddingLeft: 0 }}>
         {data.allMarkdownRemark.edges.map((item, index) => {
           const {
