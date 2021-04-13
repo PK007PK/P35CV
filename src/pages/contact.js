@@ -1,13 +1,18 @@
-import React, {useContext} from "react"
+import React, { useContext, useEffect } from 'react';
 import AppContext from '../AppProvider';
 
-import Layout from "../components/Layout"
-import Jumbo from "../components/Jumbo"
-import Form from "../components/Form"
-import SEO from "../components/seo"
+import Layout from '../components/Layout';
+import Jumbo from '../components/Jumbo';
+import Form from '../components/Form';
+import SEO from '../components/seo';
 
 const ContactPage = ({ location }) => {
-  const { pl } = useContext(AppContext);
+  const { pl, killPrint } = useContext(AppContext);
+
+  useEffect(() => {
+    killPrint();
+  }, []);
+
   const contactInfo = () => (
     <div className="text-right">
       <button
@@ -16,7 +21,7 @@ const ContactPage = ({ location }) => {
         rel="noopener noreferrer"
         className="btn btn-blue waves-effect"
       >
-        {pl ? "Tel:" : "Phone:"} 509 527 925
+        {pl ? 'Tel:' : 'Phone:'} 509 527 925
       </button>
       <button
         href="mailto:krasny.piotr@gmail.com.com"
@@ -28,30 +33,30 @@ const ContactPage = ({ location }) => {
         krasny.piotr@gmail.com
       </button>
     </div>
-  )
+  );
 
   return (
     <Layout
       lang={location && location.state && location.state.lang}
       style={{
-        backgroundColor: "#f5f5f5",
+        backgroundColor: '#f5f5f5',
       }}
     >
-      <SEO title={pl ? "Kontakt" : "Contact"} />
+      <SEO title={pl ? 'Kontakt' : 'Contact'} />
       <Jumbo
-        title={"Piotr Krasny"}
-        subtitle={pl ? "Kontakt" : "Contact"}
+        title="Piotr Krasny"
+        subtitle={pl ? 'Kontakt' : 'Contact'}
         bottomBar={contactInfo}
         rightBox={Form}
         style={{
-          backgroundColor: "#f5f5f5",
-          boxShadow: "none",
-          minHeight: "100%",
+          backgroundColor: '#f5f5f5',
+          boxShadow: 'none',
+          minHeight: '100%',
           marginBottom: 0,
         }}
       />
     </Layout>
-  )
-}
+  );
+};
 
-export default ContactPage
+export default ContactPage;

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import AppContext from '../AppProvider';
 
@@ -17,12 +17,16 @@ import {
 } from '../data/programmingPageContent';
 
 const ProgrammingPage = ({ data, location, pageContext }) => {
-  const { pl } = useContext(AppContext);
-  console.log(pageContext);
+  const { pl, killPrint } = useContext(AppContext);
+
   if (pageContext.dirName === undefined) {
     pageContext.dirName = `/programming`;
     pageContext.pageType = 'allPaginatedPosts';
   }
+
+  useEffect(() => {
+    killPrint();
+  }, []);
 
   const { portfolioCategory } = data;
   const { allPortfolio } = data;

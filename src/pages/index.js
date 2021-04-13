@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
 
@@ -18,10 +18,13 @@ import {
 } from '../data/indexPageContent';
 
 const IndexPage = ({ data, location }) => {
-  const { pl, print } = useContext(AppContext);
-
+  const { pl, print, killPrint } = useContext(AppContext);
   const jumbotronImg = data.placeholderImage.childImageSharp.fluid;
   const jumbotronImgPrint = data.placeholderImage2.childImageSharp.fluid;
+
+  useEffect(() => {
+    killPrint();
+  }, []);
 
   return (
     <Layout pathname={location?.pathname}>
@@ -65,7 +68,6 @@ const IndexPage = ({ data, location }) => {
               <br /> {pl ? indexPageTexts.lead2[0] : indexPageTexts.lead2[1]}
               <br /> {pl ? indexPageTexts.lead3[0] : indexPageTexts.lead3[1]}
             </p>
-
             <p>
               {pl
                 ? indexPageTexts.description2[0]
@@ -78,10 +80,10 @@ const IndexPage = ({ data, location }) => {
               {pl ? indexPageTexts.advert1[0] : indexPageTexts.advert1[1]}
               {print && (
                 <Link to="/consulting">
-                  <p className="card-text text-center mt-4">
+                  <span className="card-text text-center mt-4">
                     <strong style={{ color: '#CC0000' }}>Portfolio:</strong>{' '}
                     krasny.netlify.app/consulting
-                  </p>
+                  </span>
                 </Link>
               )}
             </CardSimple>
@@ -218,10 +220,10 @@ const IndexPage = ({ data, location }) => {
               </div>
               {print && (
                 <Link to="/programming">
-                  <p className="card-text text-center mt-5">
+                  <span className="card-text text-center mt-5">
                     <strong style={{ color: '#CC0000' }}>Portfolio:</strong>{' '}
                     krasny.netlify.app/programming
-                  </p>
+                  </span>
                 </Link>
               )}
             </CardSimple>

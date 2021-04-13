@@ -7,9 +7,12 @@ export function AppProvider({ children }) {
   const changeLanguage = () => setIsPl((prevValue) => !prevValue);
   const [print, setIsPrint] = useState(false);
   const changePrint = () => setIsPrint((prevValue) => !prevValue);
+  const killPrint = () => setIsPrint(false);
 
   return (
-    <AppContext.Provider value={{ pl, changeLanguage, print, changePrint}}>
+    <AppContext.Provider
+      value={{ pl, changeLanguage, print, changePrint, killPrint }}
+    >
       {children}
     </AppContext.Provider>
   );
