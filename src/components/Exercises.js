@@ -39,18 +39,19 @@ export default function Excercises({ base }) {
   return (
     <>
       <div
-        className="d-flex align-items-center justify-content-center"
-        style={{ height: '80px' }}
+        className="d-flex flex-column align-items-center justify-content-center"
+        style={{ height: '190px' }}
       >
-        <h2 className="h5 text-center m-0">
+        <h2 className="h5 text-center">
           {pl ? 'Drobne projekty' : 'Small projects'}
         </h2>
+
+        <div className="text-center">
+          {pl
+            ? 'Dema / Startery / Prototypy / Ćwiczenia / Snippety'
+            : 'Demos / Boilerplates / Proof of concept / Excercises / Snippets'}
+        </div>
       </div>
-      <div className="text-center mb-3">
-        {pl
-          ? 'Dema / Startery / Prototypy / Ćwiczenia / Snippety'
-          : 'Demos / Boilerplates / Proof of concept / Excercises / Snippets'}
-      </div>{' '}
       <ul style={{ listStyle: `none`, paddingLeft: 0 }}>
         {base.map((item, index) => {
           const {
