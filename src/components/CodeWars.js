@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+
 import { api, endpoints } from '../api/index';
 
 const CodeWars = () => {
@@ -7,9 +8,12 @@ const CodeWars = () => {
   useEffect(() => {
     api
       .get(endpoints.codeChallenges)
-      .then(({ resp }) => {
-        setWars(resp.data);
-        console.log(resp.data);
+      .then(({ data }) => {
+        if (data.data.length > 3) {
+          data.data.length = 3;
+        }
+        setWars(data.data);
+        console.log(data);
       })
       .catch((error) => {
         console.log(error);
@@ -17,12 +21,52 @@ const CodeWars = () => {
   }, []);
 
   return (
-    <section>
-      {wars.length ? (
-        wars.map((war) => <div key={war.id}>{war.name}</div>)
-      ) : (
-        <h2>Loading data</h2>
-      )}
+    <section className="bg-secondary" style={{ padding: '45px 0' }}>
+      <div className="container">
+        <div className="row">
+          <div className="col-12 col-md-3 d-flex align-items-center justify-content-center">
+            <div className="mb-3 md-md-0">
+              <h2 className="text-white m-0">CodeWars</h2>
+              <div
+                className="text-right text-white"
+                style={{ marginTop: '-5px' }}
+              >
+                latest:
+              </div>
+            </div>
+          </div>
+          {wars.map((war) => (
+            <div className="col-12 col-md-2">
+              <a
+                key={war.id}
+                href={`https://www.codewars.com/kata/${war.id}`}
+                target="blank"
+              >
+                <div className="card" style={{ height: '50px' }} key={war.id}>
+                  <div className="card-body bg-light d-flex align-items-center m-0">
+                    <h3
+                      className="card-title text-center m-0 text-dark"
+                      style={{ fontSize: '12px' }}
+                    >
+                      {war.name.substring(0, 35)}
+                    </h3>
+                  </div>
+                </div>
+              </a>
+            </div>
+          ))}
+          <div className="col-12 col-md-2 d-flex align-items-center justify-content-center mt-5 mt-md-0">
+            <a href="https://www.codewars.com/users/PK007PK" target="blank">
+              <div
+                className="border border-white d-flex align-items-center justify-content-center rounded-circle mb-4"
+                style={{ width: '50px', height: '50px' }}
+              >
+                <i className="fas fa-ellipsis-h text-white" />
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

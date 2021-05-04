@@ -82,7 +82,7 @@ const ProgrammingPage = ({ data, location, pageContext }) => {
     <Layout lang={location?.state?.lang}>
       <SEO title={pl ? 'Programowanie' : 'Programming'} />
       <ConfiguredJumbotron />
-      <CodeWars />
+
       <div className="container">
         <div className="row justify-content-between mb-5">
           <div className="col-12 col-md-7">
@@ -121,6 +121,7 @@ const ProgrammingPage = ({ data, location, pageContext }) => {
           </div>
         </div>
       </div>
+      <CodeWars />
     </Layout>
   );
 };

@@ -91,7 +91,7 @@ export default {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        // trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
     `gatsby-plugin-feed`,
@@ -108,20 +108,12 @@ export default {
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-netlify-cms`,
-    {
-      resolve: `gatsby-plugin-purgecss`,
-      options: {
-        printRejected: true, // Print removed selectors and processed file names
-        develop: false, // Enable while using `gatsby develop`
-                //purgeOnly: ["all.min.css", "bootstrap.min.css", "mdb-free.scss"], // Purge only these files/folders
-        // purgeOnly: ["all.min.css"], // Purge only these files/folders
-      },
-    },
+
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // The property ID; the tracking code won't be generated without it
-        trackingId: "G-QH9GGXB26Q",
+        trackingId: 'G-QH9GGXB26Q',
         // Defines where to place the tracking script - `true` in the head and `false` in the body
         head: false,
         // Setting this parameter is optional
@@ -150,4 +142,4 @@ export default {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};

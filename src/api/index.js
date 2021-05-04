@@ -5,5 +5,5 @@ export const api = axios.create({
 });
 
 export const endpoints = {
-  codeChallenges: 'code-challenges/completed',
+  codeChallenges: 'code-challenges/completed?page=0',
 };
