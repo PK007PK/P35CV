@@ -15,6 +15,7 @@ import {
   programmingPageContent,
   iconBar,
 } from '../data/programmingPageContent';
+import CodeWars from '../components/CodeWars';
 
 const ProgrammingPage = ({ data, location, pageContext }) => {
   const { pl, killPrint } = useContext(AppContext);
@@ -81,7 +82,7 @@ const ProgrammingPage = ({ data, location, pageContext }) => {
     <Layout lang={location?.state?.lang}>
       <SEO title={pl ? 'Programowanie' : 'Programming'} />
       <ConfiguredJumbotron />
-
+      <CodeWars />
       <div className="container">
         <div className="row justify-content-between mb-5">
           <div className="col-12 col-md-7">
