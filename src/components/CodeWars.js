@@ -4,6 +4,7 @@ import { api, endpoints } from '../api/index';
 
 const CodeWars = () => {
   const [wars, setWars] = useState([]);
+  const [total, setTotal] = useState('');
 
   useEffect(() => {
     api
@@ -13,7 +14,7 @@ const CodeWars = () => {
           data.data.length = 3;
         }
         setWars(data.data);
-        console.log(data);
+        setTotal(data.totalItems);
       })
       .catch((error) => {
         console.log(error);
@@ -26,19 +27,18 @@ const CodeWars = () => {
         <div className="row">
           <div className="col-12 col-md-3 d-flex align-items-center justify-content-center">
             <div className="mb-3 md-md-0">
-              <h2 className="text-white m-0">CodeWars</h2>
+              <h2 className="text-white m-0">CodeWars: </h2>
               <div
                 className="text-right text-white"
                 style={{ marginTop: '-5px' }}
               >
-                latest:
+                total: {total} / latest:
               </div>
             </div>
           </div>
           {wars.map((war) => (
-            <div className="col-12 col-md-2">
+            <div className="col-12 col-md-2" key={war.id}>
               <a
-                key={war.id}
                 href={`https://www.codewars.com/kata/${war.id}`}
                 target="blank"
               >

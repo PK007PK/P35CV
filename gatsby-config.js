@@ -108,7 +108,15 @@ export default {
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-netlify-cms`,
-
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true, // Print removed selectors and processed file names
+        develop: false, // Enable while using `gatsby develop`
+        // purgeOnly: ["all.min.css", "bootstrap.min.css", "mdb-free.scss"], // Purge only these files/folders
+        // purgeOnly: ["all.min.css"], // Purge only these files/folders
+      },
+    },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
