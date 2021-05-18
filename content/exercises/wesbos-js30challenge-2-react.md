@@ -7,5 +7,5 @@ description: Reactowy zegarek.
 descriptionEng: "React clock. "
 tags: React,CRA
 githubRepo: https://github.com/PK007PK/P51WesBosJs30-02React
-live: stoic-lalande-cf1e41.netlify.app
+live: https://stoic-lalande-cf1e41.netlify.app/
 ---
