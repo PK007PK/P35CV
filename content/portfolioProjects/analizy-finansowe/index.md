@@ -14,8 +14,8 @@ portfolioCategory:
   - landingpage
 tags: webpack,scss,bem,responsiveImages,lazyLoading,criticalRenderingPath
 showMore: false
-live: https://finanseprojektu.pl/
 githubRepo: https://github.com/PK007PK/P12MpFinClassicWebpack
+live: https://finanse-projektu.000webhostapp.com/
 bodyEng: z
 ---
 
