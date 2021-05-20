@@ -132,6 +132,7 @@ export const pageQuery = graphql`
     $skip: Int = 0
     $skipExcercises: Int = 0
     $pageSize: Int = 2
+    $excerciseSize: Int = 4
   ) {
     site {
       siteMetadata {
@@ -212,7 +213,7 @@ export const pageQuery = graphql`
       }
     }
     excercises: allMarkdownRemark(
-      limit: 4
+      limit: $excerciseSize
       skip: $skipExcercises
       filter: { fileAbsolutePath: { regex: "/exercises/.*.md$/" } }
       sort: { fields: [frontmatter___date], order: DESC }

@@ -54,6 +54,7 @@ export async function turnPortfolioCategoriesIntoPages({ graphql, actions }) {
           context: {
             skip: i * pageSize,
             skipExcercises: i * excerciseSize,
+            excerciseSize,
             currentPage: i + 1,
             pageSize,
             selectPosts: `/${category.frontmatter.slug}/i`,

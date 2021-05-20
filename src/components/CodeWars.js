@@ -32,7 +32,7 @@ const CodeWars = () => {
                 className="text-right text-white"
                 style={{ marginTop: '-5px' }}
               >
-                total: {total} / latest:
+                Total: {total}. Latest:
               </div>
             </div>
           </div>

@@ -58,7 +58,7 @@ export async function createPortfolioPages({ graphql, actions, reporter }) {
 
   // Create pagination
   const pageSize = projectConfig.pagesAmountInSet;
-  const excerciseSize = projectConfig.pagesAmountInSet;
+  const excerciseSize = projectConfig.excercisesAmountInSet;
   const pageCount = Math.ceil(data.allMarkdownRemark.totalCount / pageSize);
 
   // Loop from 1 to n and create the pages for them
@@ -71,6 +71,7 @@ export async function createPortfolioPages({ graphql, actions, reporter }) {
         skipExcercises: i * excerciseSize,
         currentPage: i + 1,
         pageSize,
+        excerciseSize,
         pageType: 'allPaginatedPosts',
         dirName: `/programming`,
       },
