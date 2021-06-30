@@ -12,5 +12,5 @@ portfolioCategory:
   - blog
 tags: react,gatsby3,styledComponents,sanityCMS,netlify,gsap
 showMore: false
-live: projektgeek.pl
+live: https://projektgeek.pl/
 ---
